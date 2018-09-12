@@ -3,10 +3,11 @@ package srcpackage;
 public class Space {
 
     protected String spaceName;
+    protected int spaceID;
     protected double spacePrice;
     protected double spaceRent;
 
-    public Space (String spaceName, double spacePrice, double spaceRent) {
+    public Space (String spaceName, int spaceID, double spacePrice, double spaceRent) {
         this.spaceName = spaceName;
         this.spacePrice = spacePrice;
         this.spaceRent = spaceRent;
@@ -26,6 +27,14 @@ public class Space {
         this.spaceName = spaceName;
     }
 
+    public int getSpaceID() {
+        return spaceID;
+    }
+
+    public void setSpaceID(int spaceID) {
+        this.spaceID = spaceID;
+    }
+
     public double getSpacePrice() {
         return spacePrice;
     }
@@ -42,3 +51,4 @@ public class Space {
         this.spaceRent = spaceRent;
     }
 }
+
