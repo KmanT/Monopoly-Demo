@@ -25,6 +25,14 @@ public class Property extends Space{
         hasHotel = false;
     }
 
+    public int getPropGroup() {
+        return propGroup;
+    }
+
+    public void setPropGroup(int propGroup) {
+        this.propGroup = propGroup;
+    }
+
     public int getSpaceOwnerID() {
         return spaceOwnerID;
     }
@@ -35,6 +43,14 @@ public class Property extends Space{
 
     public int getHouseCount() {
         return houseCount;
+    }
+
+    public void addHouseCount(int count) {
+        houseCount += count;
+    }
+
+    public void subtractHouseCount(int count) {
+        houseCount -= count;
     }
 
     public void setHouseCount(int houseCount) {
