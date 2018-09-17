@@ -1,4 +1,4 @@
-package srcpackage;
+package cis.monopoly;
 
 public class Space {
 
