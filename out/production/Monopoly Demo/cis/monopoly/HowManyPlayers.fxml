@@ -22,13 +22,17 @@
     <Label text="How many players?"/>
     <GridPane alignment="CENTER">
         <Button text="Player v. COM"
-            GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            GridPane.columnIndex="0" GridPane.rowIndex="0"
+            maxWidth="150" maxHeight="100"/>
         <Button text="2 Players"
-            GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            GridPane.columnIndex="1" GridPane.rowIndex="0"
+            maxWidth="150" maxHeight="100"/>
         <Button text="3 Players"
-            GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            GridPane.columnIndex="0" GridPane.rowIndex="1"
+            maxWidth="150" maxHeight="100"/>
         <Button text="4 Players"
-            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            GridPane.columnIndex="1" GridPane.rowIndex="1"
+            maxWidth="150" maxHeight="100"/>
     </GridPane>
 
     <Button text="Back" fx:id="btnMainMenu" onAction="#mainMenuClick"/>

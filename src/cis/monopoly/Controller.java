@@ -5,7 +5,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.stage.Window;
+
+/**
+ * This class controls the UI and FXML Elements for the program.
+ * All GUI related logic will go inside here
+ * @author Kyle Turske
+ * @version 0.1
+ *
+ */
 
 public class Controller {
 
@@ -19,7 +26,8 @@ public class Controller {
     public void newGameClick() {
         Stage stage = (Stage) btnNewGame.getScene().getWindow();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("HowManyPlayers.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource
+                    ("HowManyPlayers.fxml"));
             stage.setScene(new Scene(root, 1200, 800));
         } catch (java.io.IOException e ) {
             AlertBox ioAlert = new AlertBox();
