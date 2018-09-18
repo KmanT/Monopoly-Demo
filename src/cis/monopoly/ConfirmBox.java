@@ -9,6 +9,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * This class is used to for confirmation of a decision. The ConfirmBox will return a boolean
+ * based upon whether the user chooses "YES" or "NO."
+ * @author Kyle Turske
+ * @version 0.1
+ *
+ */
+
 public class ConfirmBox {
 
     static boolean answer;

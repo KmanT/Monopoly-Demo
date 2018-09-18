@@ -9,7 +9,23 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * This class is used to create an AlertBox that will
+ * notify the user of an issue or error. Used for
+ * exception handling.
+ * @author Kyle Turske
+ * @version 0.1
+ */
+
 public class AlertBox {
+
+    /**
+     *
+     * @param title This is the title for the AlertBox in which the type of error
+     *             or message is displayed here
+     * @param message This is the actual message displayed inside the AlertBox.
+     *                Specific details of the error can be passed through here.
+     */
 
     public static void display(String title, String message)
     {

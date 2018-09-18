@@ -4,19 +4,16 @@ public class Space {
 
     protected String spaceName;
     protected int spaceID;
-    protected double spacePrice;
-    protected double spaceRent;
 
-    public Space (String spaceName, int spaceID, double spacePrice, double spaceRent) {
+
+    public Space (String spaceName, int spaceID) {
         this.spaceName = spaceName;
-        this.spacePrice = spacePrice;
-        this.spaceRent = spaceRent;
+        this.spaceID = spaceID;
     }
 
     public Space () {
         spaceName = "";
-        spacePrice = 0.00;
-        spaceRent = 0.00;
+        spaceID = 0;
     }
 
     public String getSpaceName() {
@@ -34,21 +31,6 @@ public class Space {
     public void setSpaceID(int spaceID) {
         this.spaceID = spaceID;
     }
-
-    public double getSpacePrice() {
-        return spacePrice;
-    }
-
-    public void setSpacePrice(double spacePrice) {
-        this.spacePrice = spacePrice;
-    }
-
-    public double getSpaceRent() {
-        return spaceRent;
-    }
-
-    public void setSpaceRent(double spaceRent) {
-        this.spaceRent = spaceRent;
-    }
 }
+
 

@@ -13,7 +13,10 @@
       prefHeight="800.0" prefWidth="1200.0"
       alignment="CENTER" spacing="10"
       styleClass="root">
-    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    <padding>
+        <Insets top="10" right="10"
+                bottom="10" left="10"/>
+    </padding>
 
     <Label text="Welcome to GVSU Monopoly!"/>
     <Button text="New Game" fx:id="btnNewGame" onAction="#newGameClick"/>

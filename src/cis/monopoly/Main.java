@@ -6,6 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * This is the main class that holds together the entire program/
+ * @author Kyle Turske
+ * @version 0.1
+ */
+
 public class Main extends Application{
 
 
