@@ -15,17 +15,23 @@ public class Player {
     /**Total balance for each player.
      * Starts with $1500 and loses when balance <= 0.*/
     private double playBalance;
+    /**Determines whether or not the player is in play.
+     * Set to false if they aren't active from the start
+     * or if they lose the game.*/
+    private boolean inPlay;
 
-    public Player(String playName, int playID, double playBalance) {
+    public Player(String playName, int playID, double playBalance, boolean inPlay) {
         this.playName = playName;
         this.playID = playID;
         this.playBalance = playBalance;
+        this.inPlay = inPlay;
     }
 
     public Player() {
         playName = "";
         playID = 0;
         playBalance = 0.00;
+        inPlay = false;
     }
 
     public String getPlayName() {
@@ -50,6 +56,14 @@ public class Player {
 
     public void setPlayBalance(double playBalance) {
         this.playBalance = playBalance;
+    }
+
+    public boolean isInPlay() {
+        return inPlay;
+    }
+
+    public void setInPlay(boolean inPlay) {
+        this.inPlay = inPlay;
     }
 
     public void addBalance(double amount) {
