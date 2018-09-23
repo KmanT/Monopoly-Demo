@@ -40,6 +40,33 @@
 
     <left>
         <VBox>
+            <GridPane fx:id = "playerOnePane">
+                <Label text = "Player One: "
+                    GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label text = "Name"
+                    GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </GridPane>
+
+            <GridPane fx:id = "playerTwoPane">
+                <Label text = "Player Two: "
+                       GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label text = "Name"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </GridPane>
+
+            <GridPane fx:id = "playerThreePane">
+                <Label text = "Player Three: "
+                       GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label text = "Name"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </GridPane>
+
+            <GridPane fx:id = "playerFourPane">
+                <Label text = "Player Four: "
+                       GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label text = "Name"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </GridPane>
 
         </VBox>
     </left>
@@ -52,7 +79,7 @@
 
     <right>
         <VBox>
-
+            <Button text = "ROLL" fx:id = "btnDiceRoll"/>
         </VBox>
     </right>
 
