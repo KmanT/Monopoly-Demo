@@ -21,16 +21,17 @@
 
     <Label text="How many players?"/>
     <GridPane alignment="CENTER">
-        <Button text="Player v. COM"
+        <Button text="Player v. COM" fx:id = "btnPvC"
             GridPane.columnIndex="0" GridPane.rowIndex="0"
             maxWidth="150" maxHeight="100"/>
-        <Button text="2 Players"
+        <Button text="2 Players" fx:id = "btnTwoPlayer"
             GridPane.columnIndex="1" GridPane.rowIndex="0"
-            maxWidth="150" maxHeight="100"/>
-        <Button text="3 Players"
+            maxWidth="150" maxHeight="100"
+            onAction="#startGameClick"/>
+        <Button text="3 Players" fx:id = "btnThreePlayer"
             GridPane.columnIndex="0" GridPane.rowIndex="1"
             maxWidth="150" maxHeight="100"/>
-        <Button text="4 Players"
+        <Button text="4 Players" fx:id = "btnFourPlayer"
             GridPane.columnIndex="1" GridPane.rowIndex="1"
             maxWidth="150" maxHeight="100"/>
     </GridPane>
