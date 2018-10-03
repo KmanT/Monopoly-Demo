@@ -1,0 +1,40 @@
+package cis.monopoly;
+
+import java.util.Random;
+
+public class GameDice {
+
+    private static int DIE_MIN = 1;
+    private static int DIE_MAX = 6;
+    private int dieOne;
+    private int dieTwo;
+
+    public void GameDice() {
+        dieOne = DIE_MIN;
+        dieTwo = DIE_MIN;
+    }
+
+    public int roll(int die) {
+        Random rand = new Random();
+
+        return rand.nextInt(DIE_MAX - DIE_MIN) +DIE_MIN;
+    }
+
+    public void rollTwo(/*int dieOne, int dieTwo*/) {
+        dieOne = roll(dieOne);
+        dieTwo = roll(dieTwo);
+    }
+
+    public boolean doubleCheck(/*int dieOne, int dieTwo*/) {
+        if (dieOne == dieTwo) return true;
+        else return false;
+    }
+
+    public int getDieOne() {
+        return dieOne;
+    }
+
+    public int getDieTwo() {
+        return dieTwo;
+    }
+}

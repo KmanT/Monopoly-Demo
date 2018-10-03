@@ -13,7 +13,7 @@
 <?import java.net.URL?>
 
 
-
+<?import javafx.scene.canvas.Canvas?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="cis.monopoly.Controller"
@@ -73,12 +73,14 @@
 
     <center>
         <VBox>
+            <Canvas fx:id="canvas">
 
+            </Canvas>
         </VBox>
     </center>
 
     <right>
-        <VBox>
+        <VBox >
             <Button text = "ROLL" fx:id = "btnDiceRoll"/>
         </VBox>
     </right>

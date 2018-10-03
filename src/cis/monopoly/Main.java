@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
+    public static final int WINDOW_WIDTH = 1200;
+    public static final int WINDOW_HEIGHT = 1000;
 
     public static void main(String[] args) { launch(args);   }
 
@@ -21,7 +23,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
        Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
        primaryStage.setTitle("GVSU Monopoly");
-       primaryStage.setScene(new Scene(root, 1200, 800));
+       primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
        primaryStage.show();
     }
 }
