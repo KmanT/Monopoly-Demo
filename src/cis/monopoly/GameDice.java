@@ -20,12 +20,12 @@ public class GameDice {
         return rand.nextInt(DIE_MAX - DIE_MIN) +DIE_MIN;
     }
 
-    public void rollTwo(/*int dieOne, int dieTwo*/) {
+    public void rollTwo() {
         dieOne = roll(dieOne);
         dieTwo = roll(dieTwo);
     }
 
-    public boolean doubleCheck(/*int dieOne, int dieTwo*/) {
+    public boolean doubleCheck() {
         if (dieOne == dieTwo) return true;
         else return false;
     }

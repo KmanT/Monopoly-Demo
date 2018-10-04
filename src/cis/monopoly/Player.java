@@ -14,24 +14,55 @@ public class Player {
     private int playID;
     /**Total balance for each player.
      * Starts with $1500 and loses when balance <= 0.*/
-    private double playBalance;
+    private int playBalance;
     /**Determines whether or not the player is in play.
      * Set to false if they aren't active from the start
      * or if they lose the game.*/
     private boolean inPlay;
 
-    public Player(String playName, int playID, double playBalance, boolean inPlay) {
+    private int playPosition;
+
+    private int playPieceID;
+
+    private static int START_BALANCE = 1500;
+
+
+
+    public Player(String playName, int playID, int playBalance,
+                  boolean inPlay, int playPosition, int playPieceID) {
         this.playName = playName;
         this.playID = playID;
         this.playBalance = playBalance;
         this.inPlay = inPlay;
+        this.playPosition = playPosition;
+        this.playPieceID = playPieceID;
+    }
+
+    public Player(String playName, int playID) {
+        this.playName = playName;
+        this.playID = playID;
+        playBalance = START_BALANCE;
+        inPlay = true;
+        playPosition = 0;
+        playPieceID = 0;
+    }
+
+    public Player(int playID) {
+        playName = "";
+        this.playID = playID;
+        playBalance = START_BALANCE;
+        inPlay = false;
+        playPosition = 0;
+        playPieceID = 0;
     }
 
     public Player() {
         playName = "";
         playID = 0;
-        playBalance = 0.00;
+        playBalance = START_BALANCE;
         inPlay = false;
+        playPosition = 0;
+        playPieceID = 0;
     }
 
     public String getPlayName() {
@@ -50,11 +81,11 @@ public class Player {
         this.playID = playID;
     }
 
-    public double getPlayBalance() {
+    public int getPlayBalance() {
         return playBalance;
     }
 
-    public void setPlayBalance(double playBalance) {
+    public void setPlayBalance(int playBalance) {
         this.playBalance = playBalance;
     }
 
@@ -64,6 +95,22 @@ public class Player {
 
     public void setInPlay(boolean inPlay) {
         this.inPlay = inPlay;
+    }
+
+    public int getPlayPosition() {
+        return playPosition;
+    }
+
+    public void setPlayPosition(int playPosition) {
+        this.playPosition = playPosition;
+    }
+
+    public int getPlayPieceID() {
+        return playPieceID;
+    }
+
+    public void setPlayPieceID(int playPieceID) {
+        this.playPieceID = playPieceID;
     }
 
     public void addBalance(double amount) {

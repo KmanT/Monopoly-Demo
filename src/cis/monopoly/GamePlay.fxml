@@ -17,7 +17,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="cis.monopoly.Controller"
-            prefHeight="800.0" prefWidth="1200.0">
+            prefHeight="900.0" prefWidth="1200.0">
     <top>
         <HBox>
             <MenuBar fx:id="menuBar">
@@ -73,9 +73,7 @@
 
     <center>
         <VBox>
-            <Canvas fx:id="canvas">
-
-            </Canvas>
+            <Canvas fx:id="canvas" height="814" width="814"/>
         </VBox>
     </center>
 

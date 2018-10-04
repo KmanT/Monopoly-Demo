@@ -28,10 +28,17 @@ import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 
 public class Controller {
 
-    public Button btnNewGame, btnExit, btnMainMenu, btnTwoPlayer;
-    public VBox gamePane;
-    public Canvas canvas = new Canvas(BoardDrawer.BOARD_LENGTH, BoardDrawer.BOARD_LENGTH);
-    public GraphicsContext gc = canvas.getGraphicsContext2D();
+    private Button btnNewGame, btnExit, btnMainMenu, btnTwoPlayer;
+    //public VBox gamePane;
+
+    @FXML
+    private Canvas canvas;
+
+    @FXML
+    void intialize() {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        BoardDrawer.drawBoard(gc);
+    }
 
     public void exitClick() {
         Stage stage = (Stage) btnExit.getScene().getWindow();
