@@ -1,5 +1,7 @@
 package cis.monopoly;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -11,7 +13,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.MenuButton;
-
+import javafx.stage.Stage;
 
 
 public class GamePlayScene {
@@ -50,6 +52,22 @@ public class GamePlayScene {
         menuFile.getItems().addAll(itmNewGame, itmSaveGame, itmLoadGame);
         Menu menuHelp = new Menu("Help");
         Menu menuExit = new Menu("Exit");
+        MenuItem itmMainMenu = new MenuItem("Exit to Main Menu");
+
+        itmMainMenu.setOnAction( e -> {
+            Stage stage = (Stage) topMenu.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource
+                        ("MainMenu.fxml"));
+                stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+            } catch (java.io.IOException el) {
+                AlertBox ioAlert = new AlertBox();
+                ioAlert.display("ioException", "You have encountered an IO Exception");
+            }
+        });
+
+        MenuItem itmClose = new MenuItem("Close Window");
+        menuExit.getItems().addAll(itmMainMenu, itmClose);
         topMenu.getMenus().addAll(menuFile, menuHelp, menuExit);
         menuPane.getChildren().add(topMenu);
 
