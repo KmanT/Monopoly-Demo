@@ -5,14 +5,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.MenuButton;
 import javafx.stage.Stage;
 
 
@@ -73,6 +70,27 @@ public class GamePlayScene {
 
 
         //PLAYER PANE//
+        Label lblPlayer1 = new Label("Player 1: ");
+        Label lblPName1 = new Label();
+        Label lblPlayer2 = new Label("Player 2: ");
+        Label lblPName2 = new Label();
+        Label lblPlayer3 = new Label("Player 3: ");
+        Label lblPName3 = new Label();
+        Label lblPlayer4 = new Label("Player 4: ");
+        Label lblPName4 = new Label();
+
+        playerPane.setConstraints(lblPlayer1, 0, 0);
+        playerPane.setConstraints(lblPName1, 1, 0);
+        playerPane.setConstraints(lblPlayer2, 0, 1);
+        playerPane.setConstraints(lblPName2, 1, 1);
+        playerPane.setConstraints(lblPlayer3, 0, 2);
+        playerPane.setConstraints(lblPName3, 1, 2);
+        playerPane.setConstraints(lblPlayer4, 0, 3);
+        playerPane.setConstraints(lblPName4, 1, 3);
+
+        playerPane.getChildren().addAll(lblPlayer1, lblPName1,
+                lblPlayer2, lblPName2, lblPlayer3,
+                lblPName3, lblPlayer4, lblPName4);
 
         //BOARD PANE//
         boardPane.setPrefWidth(BoardDrawer.BOARD_LENGTH);
@@ -84,7 +102,8 @@ public class GamePlayScene {
         BoardDrawer.drawBoard(gc);
         boardPane.getChildren().add(canvas);
 
-        //gameScene = new Scene(gamePane);
+        //DICE PANE//
+
 
         return gamePane;
 

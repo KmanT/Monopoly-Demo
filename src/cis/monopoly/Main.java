@@ -25,5 +25,8 @@ public class Main extends Application{
        primaryStage.setTitle("GVSU Monopoly");
        primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
        primaryStage.show();
+
+       //test
+       //JsonLoader.printPlayer();
     }
 }
