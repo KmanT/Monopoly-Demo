@@ -14,6 +14,8 @@ import javafx.stage.Stage;
  * @version 0.1
  */
 
+//:D
+
 public class Main extends Application{
 
     public static final int WINDOW_WIDTH = 1200;
