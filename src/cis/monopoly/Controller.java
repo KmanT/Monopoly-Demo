@@ -32,7 +32,6 @@ public class Controller {
     public void newGameClick() {
         Stage stage = (Stage) btnNewGame.getScene().getWindow();
         try {
-            GamePlayScene gs = new GamePlayScene();
             Parent root = FXMLLoader.load(getClass().getResource
                     ("HowManyPlayers.fxml"));
             stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
