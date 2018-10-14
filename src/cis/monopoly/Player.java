@@ -105,6 +105,15 @@ public class Player {
         this.playPosition = playPosition;
     }
 
+    public void movePlayerPosition(int boardLength, int roll) {
+        int newPos = playPosition + roll;
+        if (newPos > boardLength) {
+            playPosition = newPos - boardLength;
+        } else {
+            playPosition = newPos;
+        }
+    }
+
     public int getPlayPieceID() {
         return playPieceID;
     }

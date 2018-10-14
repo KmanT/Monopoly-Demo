@@ -1,6 +1,7 @@
 package cis.monopoly;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -96,16 +97,29 @@ public class GamePlayScene {
         boardPane.setPrefWidth(BoardDrawer.BOARD_LENGTH);
         boardPane.setPrefHeight(BoardDrawer.BOARD_LENGTH);
 
-        Canvas canvas = new Canvas(BoardDrawer.BOARD_LENGTH, BoardDrawer.BOARD_LENGTH);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
+        Canvas cvsBoard = new Canvas(BoardDrawer.BOARD_LENGTH, BoardDrawer.BOARD_LENGTH);
+        GraphicsContext gcBoard = cvsBoard.getGraphicsContext2D();
 
-        BoardDrawer.drawBoard(gc);
-        boardPane.getChildren().add(canvas);
+        BoardDrawer.drawBoard(gcBoard);
+        boardPane.getChildren().add(cvsBoard);
 
         //DICE PANE//
+        Canvas cvsDice = new Canvas(DiceDrawer.DICE_BOWL_DIAMETER, DiceDrawer.DICE_BOWL_DIAMETER);
+        GraphicsContext gcDice = cvsDice.getGraphicsContext2D();
+        DiceDrawer.drawDiceBowl(gcDice, 0, 0);
+
+        Button btnRoll = new Button("ROLL!");
+
+        btnRoll.setOnAction( e -> {
+
+        });
+
+        dicePane.getChildren().addAll(cvsDice, btnRoll);
+        dicePane.setAlignment(Pos.CENTER);
 
 
         return gamePane;
+
 
     }
 

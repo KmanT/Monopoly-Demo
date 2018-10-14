@@ -17,7 +17,7 @@ public class GameDice {
     public int roll(int die) {
         Random rand = new Random();
 
-        return rand.nextInt(DIE_MAX - DIE_MIN) +DIE_MIN;
+        return rand.nextInt(DIE_MAX - DIE_MIN) + DIE_MIN;
     }
 
     public void rollTwo() {
@@ -36,5 +36,9 @@ public class GameDice {
 
     public int getDieTwo() {
         return dieTwo;
+    }
+
+    public int getTotalRoll() {
+        return dieOne + dieTwo;
     }
 }

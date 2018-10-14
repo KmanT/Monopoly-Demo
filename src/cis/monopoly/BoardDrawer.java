@@ -11,6 +11,8 @@ public class BoardDrawer {
     public static final int PROPERTY_HEIGHT = 110;
     public static final int PROPERTY_WIDTH = 66;
     public static final int PROPERTY_FLAG_HEIGHT = 30;
+    public static final int PIECE_WIDTH = 32;
+    public static final Color GV_BLUE = Color.web("#0065a4");
 
     /*public void BoardDrawer() {
         canvas = new Canvas(Main.WINDOW_LENGTH, Main.WINDOW_LENGTH);
@@ -86,7 +88,7 @@ public class BoardDrawer {
                 Color.FLORALWHITE, Color.DODGERBLUE, Color.FLORALWHITE,
                 Color.DODGERBLUE}; //new Color[36];
 
-        gc.setFill(Color.web("#0065a4"));
+        gc.setFill(GV_BLUE);
         gc.fillRect(0,0, 814, 814);
 
         int colorCounter = 0;
@@ -134,6 +136,6 @@ public class BoardDrawer {
 
     public static void drawPiece(GraphicsContext gc, double xpos, double ypos, Color color) {
         gc.setFill(color);
-        gc.fillRect(xpos,ypos, 32, 32);
+        gc.fillRect(xpos,ypos, PIECE_WIDTH, PIECE_WIDTH);
     }
 }

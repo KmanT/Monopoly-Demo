@@ -59,6 +59,5 @@ public class Controller {
         Scene gameScene = new Scene(gs.GamePlayScene(), Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
-
     }
 }
