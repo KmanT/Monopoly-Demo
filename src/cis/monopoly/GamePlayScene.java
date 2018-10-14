@@ -110,8 +110,16 @@ public class GamePlayScene {
 
         Button btnRoll = new Button("ROLL!");
 
-        btnRoll.setOnAction( e -> {
+        //THIS DICE OBJECT IS NOT PERMANENT!//
+        //JUST USED TO TEST DRAWER FUNCTIONALITY!!//
 
+        GameDice dice = new GameDice();
+
+
+        btnRoll.setOnAction( e -> {
+            dice.rollTwo();
+            DiceDrawer.drawDie(gcDice, 50, 50, dice.getDieOne());
+            DiceDrawer.drawDie(gcDice, 150, 150, dice.getDieTwo());
         });
 
         dicePane.getChildren().addAll(cvsDice, btnRoll);
