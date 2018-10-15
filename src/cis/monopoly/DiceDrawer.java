@@ -8,6 +8,9 @@ public class DiceDrawer {
     public static final int DICE_BOWL_DIAMETER = 250;
     public static final int DICE_HEIGHT = 50;
     public static final int DICE_DOT_DIAMETER = 10;
+    public static final double DOT_TOP = 7.5;
+    public static final double DOT_MIDDLE = 20;
+    public static final double DOT_BOTTOM = 32.5;
 
     public static void drawDiceBowl(GraphicsContext gc, int xPos, int yPos) {
         gc.setFill(BoardDrawer.GV_BLUE);
@@ -23,48 +26,60 @@ public class DiceDrawer {
         gc.strokeRect(xPos, yPos, DICE_HEIGHT, DICE_HEIGHT);
 
         if (roll == 1) {
-
-            gc.fillOval(xPos + 25, yPos + 25, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-
+            drawDotsOne(gc, xPos, yPos);
         } else if (roll == 2) {
-
-            gc.fillOval(xPos + 12.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-
+            drawDotsTwo(gc, xPos, yPos);
         } else if (roll == 3) {
-
-            gc.fillOval(xPos + 12.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 25, yPos + 25, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-
+            drawDotsThree(gc, xPos, yPos);
         } else if (roll == 4) {
-
-            gc.fillOval(xPos + 12.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 12.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-
+            drawDotsFour(gc, xPos, yPos);
         } else if (roll == 5) {
-
-            gc.fillOval(xPos + 12.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 12.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 25, yPos + 25, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-
+            drawDotsFive(gc, xPos, yPos);
         } else if (roll == 6) {
-
-            gc.fillOval(xPos + 12.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 12.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 12.5, yPos + 25, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 25, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 12.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-            gc.fillOval(xPos + 37.5, yPos + 37.5, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
-
-
+            drawDotsSix(gc, xPos, yPos);
         } else {
             AlertBox.display("Dice Roll Error", "Somehow you rolled outside the range of the die!");
         }
 
+    }
+
+    public static void drawDotsOne(GraphicsContext gc, int xPos, int yPos) {
+        gc.fillOval(xPos + DOT_MIDDLE, yPos + DOT_MIDDLE, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+    }
+
+    public static void drawDotsTwo(GraphicsContext gc, int xPos, int yPos) {
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+    }
+
+    public static void drawDotsThree(GraphicsContext gc, int xPos, int yPos) {
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_MIDDLE, yPos + DOT_MIDDLE, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+    }
+
+    public static void drawDotsFour(GraphicsContext gc, int xPos, int yPos) {
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+    }
+
+    public static void drawDotsFive(GraphicsContext gc, int xPos, int yPos) {
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_MIDDLE, yPos + DOT_MIDDLE, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+
+    }
+
+    public static void drawDotsSix(GraphicsContext gc, int xPos, int yPos) {
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_TOP, yPos + DOT_MIDDLE, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_MIDDLE, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_TOP, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
+        gc.fillOval(xPos + DOT_BOTTOM, yPos + DOT_BOTTOM, DICE_DOT_DIAMETER, DICE_DOT_DIAMETER);
     }
 }

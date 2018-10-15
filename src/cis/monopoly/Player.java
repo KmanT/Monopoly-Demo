@@ -47,6 +47,15 @@ public class Player {
         playPieceID = 0;
     }
 
+    public Player(int playID, boolean inPlay) {
+        playName = "";
+        this.playID = playID;
+        playBalance = START_BALANCE;
+        this.inPlay = inPlay;
+        playPosition = 0;
+        playPieceID = 0;
+    }
+
     public Player(int playID) {
         playName = "";
         this.playID = playID;

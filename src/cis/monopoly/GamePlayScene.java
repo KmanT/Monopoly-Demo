@@ -111,24 +111,24 @@ public class GamePlayScene {
         Button btnRoll = new Button("ROLL!");
 
         //THIS DICE OBJECT IS NOT PERMANENT!//
-        //JUST USED TO TEST DRAWER FUNCTIONALITY!!//
-
         GameDice dice = new GameDice();
+        //JUST USED TO TEST DRAWER FUNCTIONALITY!!//
 
 
         btnRoll.setOnAction( e -> {
-            dice.rollTwo();
-            DiceDrawer.drawDie(gcDice, 50, 50, dice.getDieOne());
-            DiceDrawer.drawDie(gcDice, 150, 150, dice.getDieTwo());
+            updateDicePane(dice, gcDice);
         });
 
         dicePane.getChildren().addAll(cvsDice, btnRoll);
         dicePane.setAlignment(Pos.CENTER);
 
-
         return gamePane;
+    }
 
-
+    public static void updateDicePane(GameDice dice, GraphicsContext gc) {
+        dice.rollTwo();
+        DiceDrawer.drawDie(gc, 50, 50, dice.getDieOne());
+        DiceDrawer.drawDie(gc, 150, 150, dice.getDieTwo());
     }
 
     public static Scene getGameScene() {
