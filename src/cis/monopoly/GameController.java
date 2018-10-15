@@ -2,10 +2,12 @@ package cis.monopoly;
 
 public class GameController {
 
-    public static Player player1;
-    public static Player player2;
-    public static Player player3;
-    public static Player player4;
+    private static Player player1;
+    private static Player player2;
+    private static Player player3;
+    private static Player player4;
+
+    private static GameDice dice;
 
     public static int bank;
 
@@ -20,11 +22,16 @@ public class GameController {
         bank = 20580;
 
         properties = new Property[40];
+        dice = new GameDice();
 
     }
 
     public static void runPlayerTurn() {
 
+    }
+
+    public static GameDice getDice() {
+        return dice;
     }
 
 }

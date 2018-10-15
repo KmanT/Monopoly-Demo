@@ -2,6 +2,11 @@ package cis.monopoly;
 
 import java.util.Random;
 
+/**This class is used for the logic
+ * of the dice.
+ *
+ */
+
 public class GameDice {
 
     private static int DIE_MIN = 1;

@@ -19,9 +19,11 @@ public class Player {
      * Set to false if they aren't active from the start
      * or if they lose the game.*/
     private boolean inPlay;
-
+    /**Used to determine the current position
+     *of the player*/
     private int playPosition;
-
+    /**Identifier for each Player object when
+     *trying to determine who's turn it is*/
     private int playPieceID;
 
     private static int START_BALANCE = 1500;

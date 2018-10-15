@@ -42,6 +42,8 @@ public class GamePlayScene {
         gamePane.setRight(dicePane);
         gamePane.setBottom(statusPane);
 
+        GameController gControl = new GameController();
+
         //MENU PANE//
         MenuBar topMenu = new MenuBar();
         Menu menuFile = new Menu("File");
@@ -141,14 +143,9 @@ public class GamePlayScene {
         DiceDrawer.drawDiceBowl(gcDice, 0, 0);
 
         Button btnRoll = new Button("ROLL!");
-
-        //THIS DICE OBJECT IS NOT PERMANENT!//
-        GameDice dice = new GameDice();
-        //JUST USED TO TEST DRAWER FUNCTIONALITY!!//
-
-
+        
         btnRoll.setOnAction( e -> {
-            updateDicePane(dice, gcDice);
+            updateDicePane(gControl.getDice(), gcDice);
         });
 
         dicePane.getChildren().addAll(cvsDice, btnRoll);
