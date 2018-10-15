@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6d8008a-94da-45bd-9542-f9b71e2044b9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/cis/monopoly/Board.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/DiceDrawer.class" afterPath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/DiceDrawer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/GamePlayScene.class" afterPath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/GamePlayScene.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/Board.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/GameController.class" afterPath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/GameController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/Player.class" afterPath="$PROJECT_DIR$/out/production/Monopoly Demo/cis/monopoly/Player.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/DiceDrawer.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/DiceDrawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/GameController.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/GameController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/Player.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/HowManyPlayers.fxml" afterPath="$PROJECT_DIR$/src/cis/monopoly/HowManyPlayers.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/style.css" afterPath="$PROJECT_DIR$/src/cis/monopoly/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamePlayScene.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GamePlayScene.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="118" column="39" lean-forward="false" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
+            <state relative-caret-position="3213">
+              <caret line="153" column="42" lean-forward="true" selection-start-line="153" selection-start-column="42" selection-end-line="153" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,46 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cis/monopoly/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="798">
+              <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cis/monopoly/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="1113">
               <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GameController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoardDrawer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-682">
-              <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainMenu.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cis/monopoly/MainMenu.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -113,9 +87,21 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="58" lean-forward="false" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+            <state relative-caret-position="124">
+              <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BoardDrawer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="14" column="58" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,12 +142,10 @@
         <option value="$PROJECT_DIR$/src/srcpackage/Board.java" />
         <option value="$PROJECT_DIR$/src/srcpackage/Player.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/MainMenu.java" />
-        <option value="$PROJECT_DIR$/src/cis/monopoly/style.css" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/AlertBox.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/ConfirmBox.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/Property.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/Space.java" />
-        <option value="$PROJECT_DIR$/src/cis/monopoly/HowManyPlayers.fxml" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/SpaceDrawer.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/MainMenu.fxml" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/GamePlay.fxml" />
@@ -172,10 +156,12 @@
         <option value="$PROJECT_DIR$/src/cis/monopoly/GameDice.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/Main.java" />
-        <option value="$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/DiceDrawer.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/Player.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/GameController.java" />
+        <option value="$PROJECT_DIR$/src/cis/monopoly/style.css" />
+        <option value="$PROJECT_DIR$/src/cis/monopoly/HowManyPlayers.fxml" />
+        <option value="$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java" />
       </list>
     </option>
   </component>
@@ -644,54 +630,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1539567587500" expanded="true" signature="54159:54176" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54159:54194" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54159:54207" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54159:54222" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54257:56437" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54270:56422" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54324:54619" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54343:54604" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54406:54584" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54446:54550" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54467:54528" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54669:54996" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54688:54981" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54783:54961" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54823:54927" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="54844:54905" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55047:55312" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55066:55297" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55099:55277" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55139:55243" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55160:55221" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55355:55661" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55374:55646" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55448:55626" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55488:55592" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55509:55570" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55712:56028" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55731:56013" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55815:55993" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55855:55959" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="55876:55937" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="56080:56408" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="56099:56393" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="56195:56373" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="56235:56339" ph="..." />
-            <marker date="1539567587500" expanded="true" signature="56256:56317" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53397:53414" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53397:53432" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53397:53445" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53397:53460" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53495:55675" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53508:55660" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53562:53857" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53581:53842" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53644:53822" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53684:53788" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53705:53766" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53907:54234" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="53926:54219" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54021:54199" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54061:54165" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54082:54143" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54285:54550" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54304:54535" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54337:54515" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54377:54481" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54398:54459" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54593:54899" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54612:54884" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54686:54864" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54726:54830" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54747:54808" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54950:55266" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="54969:55251" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55053:55231" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55093:55197" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55114:55175" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55318:55646" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55337:55631" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55433:55611" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55473:55577" ph="..." />
+            <marker date="1539570304753" expanded="true" signature="55494:55555" ph="..." />
           </folding>
         </state>
       </provider>
@@ -712,17 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/MainMenu.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GameDice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -731,31 +699,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="118" column="39" lean-forward="false" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cis/monopoly/JsonLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-682">
-          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -777,17 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/HowManyPlayers.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="58" lean-forward="false" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cis/monopoly/Board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -798,17 +735,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
+        <state relative-caret-position="546">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/MainMenu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cis/monopoly/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="1113">
           <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="58" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/HowManyPlayers.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3213">
+          <caret line="153" column="42" lean-forward="true" selection-start-line="153" selection-start-column="42" selection-end-line="153" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

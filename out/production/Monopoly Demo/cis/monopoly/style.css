@@ -10,6 +10,11 @@
 	-fx-text-fill: #0065a4;
 }
 
+.lblPlayer {
+    -fx-font-size: 20px;
+    -fx-text-fill: #0065a4;
+}
+
 .titledPane {
 	
 }
@@ -27,5 +32,9 @@
 }
 
 .button {
-	
+	-fx-font-size: 20px;
+	-fx-text-fill: #FFFFFF;
+    -fx-background-color: #0065A4;
+    -fx-padding: 5;
+    -fx-margin: 10;
 }

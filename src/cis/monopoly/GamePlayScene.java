@@ -34,6 +34,7 @@ public class GamePlayScene {
 
         gamePane.setPrefWidth(Main.WINDOW_WIDTH);
         gamePane.setPrefHeight(Main.WINDOW_HEIGHT);
+        gamePane.getStylesheets().add("cis/monopoly/style.css");
 
         gamePane.setTop(menuPane);
         gamePane.setLeft(playerPane);
@@ -45,6 +46,20 @@ public class GamePlayScene {
         MenuBar topMenu = new MenuBar();
         Menu menuFile = new Menu("File");
         MenuItem itmNewGame = new MenuItem("New Game");
+
+        itmNewGame.setOnAction( e -> {
+            Stage stage = (Stage) topMenu.getScene().getWindow();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource
+                        ("HowManyPlayers.fxml"));
+                stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+            } catch (java.io.IOException el) {
+                AlertBox ioAlert = new AlertBox();
+                ioAlert.display("ioException", "You have encountered an IO Exception");
+            }
+        });
+
+
         MenuItem itmLoadGame = new MenuItem("Load Game");
         MenuItem itmSaveGame = new MenuItem("Save Game");
         menuFile.getItems().addAll(itmNewGame, itmSaveGame, itmLoadGame);
@@ -72,13 +87,28 @@ public class GamePlayScene {
 
         //PLAYER PANE//
         Label lblPlayer1 = new Label("Player 1: ");
+        lblPlayer1.getStyleClass().add("lblPlayer");
+
         Label lblPName1 = new Label();
+        lblPName1.getStyleClass().add("lblPlayer");
+
         Label lblPlayer2 = new Label("Player 2: ");
+        lblPlayer2.getStyleClass().add("lblPlayer");
+
         Label lblPName2 = new Label();
+        lblPName2.getStyleClass().add("lblPlayer");
+
         Label lblPlayer3 = new Label("Player 3: ");
+        lblPlayer3.getStyleClass().add("lblPlayer");
+
         Label lblPName3 = new Label();
+        lblPName3.getStyleClass().add("lblPlayer");
+
         Label lblPlayer4 = new Label("Player 4: ");
+        lblPlayer4.getStyleClass().add("lblPlayer");
+
         Label lblPName4 = new Label();
+        lblPName4.getStyleClass().add("lblPlayer");
 
         playerPane.setConstraints(lblPlayer1, 0, 0);
         playerPane.setConstraints(lblPName1, 1, 0);
@@ -92,6 +122,8 @@ public class GamePlayScene {
         playerPane.getChildren().addAll(lblPlayer1, lblPName1,
                 lblPlayer2, lblPName2, lblPlayer3,
                 lblPName3, lblPlayer4, lblPName4);
+
+        playerPane.setVgap(10);
 
         //BOARD PANE//
         boardPane.setPrefWidth(BoardDrawer.BOARD_LENGTH);
@@ -120,7 +152,8 @@ public class GamePlayScene {
         });
 
         dicePane.getChildren().addAll(cvsDice, btnRoll);
-        dicePane.setAlignment(Pos.CENTER);
+        dicePane.setAlignment(Pos.TOP_CENTER);
+        dicePane.setSpacing(10);
 
         return gamePane;
     }
