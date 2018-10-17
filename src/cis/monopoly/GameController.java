@@ -34,4 +34,12 @@ public class GameController {
         return dice;
     }
 
+    public static void addBankFunds(int ammount) {
+        bank += ammount;
+    }
+
+    public static int getBankFunds() {
+        return bank;
+    }
+
 }

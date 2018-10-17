@@ -143,9 +143,10 @@ public class GamePlayScene {
         DiceDrawer.drawDiceBowl(gcDice, 0, 0);
 
         Button btnRoll = new Button("ROLL!");
-        
+
         btnRoll.setOnAction( e -> {
             updateDicePane(gControl.getDice(), gcDice);
+
         });
 
         dicePane.getChildren().addAll(cvsDice, btnRoll);

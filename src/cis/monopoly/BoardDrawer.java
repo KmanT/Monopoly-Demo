@@ -5,13 +5,23 @@ import javafx.scene.paint.Color;
 
 public class BoardDrawer {
 
-    //public static Canvas canvas;
-    //public static GraphicsContext gc;
+    //BOARD VALUES//
     public static final int BOARD_LENGTH = 814;
     public static final int PROPERTY_HEIGHT = 110;
     public static final int PROPERTY_WIDTH = 66;
     public static final int PROPERTY_FLAG_HEIGHT = 30;
+
+    //PIECE VALUES//
     public static final int PIECE_WIDTH = 32;
+    public static final int P1_HORIZONTAL = 0;
+    public static final int P1_VERTICAL = 0;
+    public static final int P2_HORIZONTAL = 0;
+    public static final int P2_VERTICAL = 0;
+    public static final int P3_HORIZONTAL = 0;
+    public static final int P3_VERTICAL = 0;
+    public static final int P4_HORIZONTAL = 0;
+    public static final int P4_VERTICAL = 0;
+
     public static final Color GV_BLUE = Color.web("#0065a4");
 
     /*public void BoardDrawer() {
@@ -137,5 +147,30 @@ public class BoardDrawer {
     public static void drawPiece(GraphicsContext gc, double xpos, double ypos, Color color) {
         gc.setFill(color);
         gc.fillRect(xpos,ypos, PIECE_WIDTH, PIECE_WIDTH);
+    }
+
+    public static void movePiece() {
+
+        //get current playPos before roll
+
+        //cover current playPos with "FLORAL_WHITE"
+
+        //apply logic
+
+        /*
+        //BOTTOM ROW//
+        P1(origin_x, origin_y + 50)
+        P2(origin_ x + 34, origin_y + 50)
+        P3(origin_x, origin_ + 84)
+        P4(origin_x + 34, origin_y + 84)
+
+        //LEFT COLUMN//
+
+        //TOP ROW//
+
+        //RIGHT COLUMN//
+
+         */
+
     }
 }

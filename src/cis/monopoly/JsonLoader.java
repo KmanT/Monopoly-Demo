@@ -35,8 +35,20 @@ public class JsonLoader {
 
     }
 
-    public void loadPlayer(Player player) {
+    public void loadPlayer(Player player, int id) {
+
         ObjectMapper objMapper = new ObjectMapper();
+        try {
+            player = objMapper.readValue(new File("new_game.json"), Player.class);
+        } catch (Exception e) {
+            AlertBox.display("JSON File Exception", "There was an error" +
+                    "with your JSON file (doesn't exist or corrupted).");
+        }
+
+    }
+
+    public void savePlayer(Player player) {
+        //String
     }
 
     public void loadSpace(Space space) {
