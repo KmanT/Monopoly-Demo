@@ -1,11 +1,16 @@
 package cis.monopoly;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameController {
 
     private static Player player1;
     private static Player player2;
     private static Player player3;
     private static Player player4;
+    private static List<Player> playerList;
+    private static int currentPlayer;
 
     private static GameDice dice;
     public static final int MAX_SPACES = 40;
@@ -19,11 +24,16 @@ public class GameController {
         player2 = new Player(2, true);
         player3 = new Player(3, true);
         player4 = new Player(4, true);
-
+        playerList =new ArrayList<Player>();
+        playerList.add(player1);
+        playerList.add(player2);
+        playerList.add(player3);
+        playerList.add(player4);
         bank = 20580;
 
         properties = new Property[40];
         dice = new GameDice();
+        currentPlayer = 1;
 
     }
 
@@ -84,6 +94,37 @@ public class GameController {
         playerPayBank(player, prop.getPropPrice());
         prop.setPropOwnerID(player.getPlayID());
         prop.setPropPrice(prop.getPropPrice() / 2); //cuts the property price in half
+    }
+
+    public static void playerSellProperty(Player player, Property prop) {
+        bankPayPlayer(player, prop.getPropPrice());
+        prop.setPropOwnerID(0);
+        prop.setPropPrice(prop.getPropPrice() * 2);
+    }
+
+    public static Player getCurrentPlayer() {
+        /*
+        for (int i = 0; i >= playerList.size(); i++) {
+            if (playerList.get(i).getPlayID() == currentPlayer) {
+                return playerList.get(i);
+            }
+        }
+        return null;
+        */
+
+        for (Player player : playerList) {
+            if (player.getPlayID() == currentPlayer)
+                return player;
+        }
+        return null;
+    }
+
+    public static void changeCurrentPlayer() {
+        if (currentPlayer + 1 > playerList.size()) {
+            currentPlayer = 1;
+        } else {
+            currentPlayer += 1;
+        }
     }
 
     public static int getBankFunds() {
