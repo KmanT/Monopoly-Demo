@@ -2,15 +2,16 @@ package cis.monopoly;
 
 public class Property extends Space{
 
-    private double propPrice;
-    private double propRent;
+    private int propPrice;
+    private int propRent;
     private int propGroup;
     private int propOwnerID;
     private int houseCount;
     private boolean hasHotel;
 
 
-    public Property(String propName, int propID, double propPrice, double propRent, int propGroup, int propOwnerID, int houseCount, boolean hasHotel) {
+    public Property(String propName, int propID, int propPrice, int propRent,
+                    int propGroup, int propOwnerID, int houseCount, boolean hasHotel) {
         spaceName = propName;
         spaceID = propID;
         this.propPrice = propPrice;
@@ -22,27 +23,27 @@ public class Property extends Space{
     }
 
     public Property() {
-        propPrice = 0.0;
-        propRent = 0.0;
-        propGroup = -1; //the reason why it's not zero for the default is because I plan on using group 0 for the first group of props
-        propOwnerID = 0;
+        propPrice = 0;
+        propRent = 0;
+        propGroup = -1; //the reason why it's not zero for the default is
+        propOwnerID = 0;//because I plan on using group 0 for the first group of props
         houseCount = 0;
         hasHotel = false;
     }
 
-    public double getPropPrice() {
+    public int getPropPrice() {
         return propPrice;
     }
 
-    public void setPropPrice(double propPrice) {
+    public void setPropPrice(int propPrice) {
         this.propPrice = propPrice;
     }
 
-    public double getPropRent() {
+    public int getPropRent() {
         return propRent;
     }
 
-    public void setPropRent(double propRent) {
+    public void setPropRent(int propRent) {
         this.propRent = propRent;
     }
 
