@@ -13,11 +13,13 @@ public class GameController {
     private static int currentPlayer;
 
     private static GameDice dice;
+
+
+    private static int bank;
+
+    private static Property[] properties;
     public static final int MAX_SPACES = 40;
-
-    public static int bank;
-
-    public static Property[] properties;
+    public static final int PASS_GO = 200;
 
     public GameController() {
         player1 = new Player(1,true);
@@ -60,6 +62,7 @@ public class GameController {
     public static void movePlayer(Player p, int roll) {
         if (p.getPlayPosition() + roll > MAX_SPACES - 1) {
             p.setPlayPosition(p.getPlayPosition() + roll - MAX_SPACES);
+            bankPayPlayer(p, PASS_GO);
         } else {
             p.setPlayPosition(p.getPlayPosition() + roll);
         }
@@ -103,15 +106,6 @@ public class GameController {
     }
 
     public static Player getCurrentPlayer() {
-        /*
-        for (int i = 0; i >= playerList.size(); i++) {
-            if (playerList.get(i).getPlayID() == currentPlayer) {
-                return playerList.get(i);
-            }
-        }
-        return null;
-        */
-
         for (Player player : playerList) {
             if (player.getPlayID() == currentPlayer)
                 return player;

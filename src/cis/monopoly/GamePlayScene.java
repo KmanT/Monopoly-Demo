@@ -88,42 +88,50 @@ public class GamePlayScene {
 
 
         //PLAYER PANE//
-        Label lblPlayer1 = new Label("Player 1: $");
+        Label lblPlayer1 = new Label("Player 1: $"
+                + gControl.getPlayer1().getPlayBalance());
         lblPlayer1.getStyleClass().add("lblPlayer");
 
-        Label lblPName1 = new Label();
-        lblPName1.getStyleClass().add("lblPlayer");
+        //Label lblPName1 = new Label();
+        //lblPName1.getStyleClass().add("lblPlayer");
 
-        Label lblPlayer2 = new Label("Player 2: $");
+        Label lblPlayer2 = new Label("Player 2: $"
+                + gControl.getPlayer2().getPlayBalance());
         lblPlayer2.getStyleClass().add("lblPlayer");
 
-        Label lblPName2 = new Label();
-        lblPName2.getStyleClass().add("lblPlayer");
+        //Label lblPName2 = new Label();
+        //lblPName2.getStyleClass().add("lblPlayer");
 
-        Label lblPlayer3 = new Label("Player 3: $");
+        Label lblPlayer3 = new Label("Player 3: $"
+                + gControl.getPlayer3().getPlayBalance());
         lblPlayer3.getStyleClass().add("lblPlayer");
 
-        Label lblPName3 = new Label();
-        lblPName3.getStyleClass().add("lblPlayer");
+        //Label lblPName3 = new Label();
+        //lblPName3.getStyleClass().add("lblPlayer");
 
-        Label lblPlayer4 = new Label("Player 4: ");
+        Label lblPlayer4 = new Label("Player 4: "
+                + gControl.getPlayer4().getPlayBalance());
         lblPlayer4.getStyleClass().add("lblPlayer");
 
-        Label lblPName4 = new Label();
-        lblPName4.getStyleClass().add("lblPlayer");
+        //Label lblPName4 = new Label();
+        //lblPName4.getStyleClass().add("lblPlayer");
 
         playerPane.setConstraints(lblPlayer1, 0, 0);
-        playerPane.setConstraints(lblPName1, 1, 0);
+        //playerPane.setConstraints(lblPName1, 1, 0);
         playerPane.setConstraints(lblPlayer2, 0, 1);
-        playerPane.setConstraints(lblPName2, 1, 1);
+        //playerPane.setConstraints(lblPName2, 1, 1);
         playerPane.setConstraints(lblPlayer3, 0, 2);
-        playerPane.setConstraints(lblPName3, 1, 2);
+        //playerPane.setConstraints(lblPName3, 1, 2);
         playerPane.setConstraints(lblPlayer4, 0, 3);
-        playerPane.setConstraints(lblPName4, 1, 3);
-
+        //playerPane.setConstraints(lblPName4, 1, 3);
+        /*
         playerPane.getChildren().addAll(lblPlayer1, lblPName1,
                 lblPlayer2, lblPName2, lblPlayer3,
                 lblPName3, lblPlayer4, lblPName4);
+        */
+
+        playerPane.getChildren().addAll(lblPlayer1, lblPlayer2,
+                lblPlayer3, lblPlayer4);
 
         playerPane.setVgap(10);
 
@@ -136,6 +144,10 @@ public class GamePlayScene {
 
         BoardDrawer.drawBoard(gcBoard);
         boardPane.getChildren().add(cvsBoard);
+
+        //STATUS PANE//
+        Label lblBank = new Label("Bank: $" + gControl.getBankFunds());
+        statusPane.getChildren().addAll(lblBank);
 
         //DICE PANE//
         Canvas cvsDice = new Canvas(DiceDrawer.DICE_BOWL_DIAMETER, DiceDrawer.DICE_BOWL_DIAMETER);
@@ -151,6 +163,17 @@ public class GamePlayScene {
                     gControl.getDice().getTotalRoll());
             System.out.println(gControl.getCurrentPlayer().getPlayID()
             + ": " + gControl.getCurrentPlayer().getPlayPosition());
+
+            lblBank.setText("Bank: $" + gControl.getBankFunds());
+            lblPlayer1.setText("Player 1: $" +
+                    gControl.getPlayer1().getPlayBalance());
+            lblPlayer2.setText("Player 2: $" +
+                    gControl.getPlayer2().getPlayBalance());
+            lblPlayer3.setText("Player 3: $" +
+                    gControl.getPlayer3().getPlayBalance());
+            lblPlayer4.setText("Player 4: $" +
+                    gControl.getPlayer4().getPlayBalance());
+
             gControl.changeCurrentPlayer();
         });
 
@@ -158,9 +181,7 @@ public class GamePlayScene {
         dicePane.setAlignment(Pos.TOP_CENTER);
         dicePane.setSpacing(10);
 
-        //STATUS PANE//
-        Label lblBank = new Label("Bank: $" + gControl.getBankFunds());
-        statusPane.getChildren().addAll(lblBank);
+
 
         return gamePane;
     }
