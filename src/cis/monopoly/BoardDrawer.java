@@ -79,8 +79,8 @@ public class BoardDrawer {
     public static void drawCorner(GraphicsContext gc, double xpos, double ypos, Color color, String name) {
         gc.setFill(Color.FLORALWHITE);
         gc.setStroke(Color.BLACK);
-        gc.fillRect(xpos,ypos, 110, 110);
-        gc.strokeRect(xpos,ypos, 110, 110);
+        gc.fillRect(xpos,ypos, PROPERTY_HEIGHT, PROPERTY_HEIGHT);
+        gc.strokeRect(xpos,ypos, PROPERTY_HEIGHT, PROPERTY_HEIGHT);
     }
 
     public static void drawBoard(GraphicsContext gc) {
@@ -158,17 +158,53 @@ public class BoardDrawer {
         //apply logic
 
         /*
+        //GO CORNER//
+        P1(origin_x + 78, origin_y)
+        P2(origin_ x + 78, origin_y + 46)
+        P3(origin_x + 64, origin_y + 78)
+        P4(origin_x, origin_y + 78)
+
         //BOTTOM ROW//
-        P1(origin_x, origin_y + 50)
-        P2(origin_ x + 34, origin_y + 50)
-        P3(origin_x, origin_ + 84)
-        P4(origin_x + 34, origin_y + 84)
+        P1(origin_x, origin_y + 40)
+        P2(origin_ x + 34, origin_y + 40)
+        P3(origin_x, origin_ + 74)
+        P4(origin_x + 34, origin_y + 74)
+
+        //JAIL CORNER//
+        P1(origin_x + 78, origin_y + 78)
+        P2(origin_ x + 32, origin_y + 78)
+        P3(origin_x, origin_y + 46)
+        P4(origin_x, origin_y)
 
         //LEFT COLUMN//
+        P1(origin_x + 4, origin_y)
+        P2(origin_ x + 34, origin_y)
+        P3(origin_x + 4, origin_y + 34)
+        P4(origin_x + 34, origin_y + 34)
+
+        //FREE CORNER//
+        P1(origin_x, origin_y + 78)
+        P2(origin_ x, origin_y + 32)
+        P3(origin_x + 32, origin_y + 25)
+        P4(origin_x, origin_y + 59)
 
         //TOP ROW//
+        P1(origin_x, origin_y + 4)
+        P2(origin_ x + 34, origin_y + 4)
+        P3(origin_x, origin_y + 74)
+        P4(origin_x + 34, origin_y + 74)
+
+        //GOTO JAIL CORNER//
+        P1(origin_x + 25, origin_y)
+        P2(origin_ x + 59, origin_y)
+        P3(origin_x + 91, origin_y + 25)
+        P4(origin_x + 91, origin_y + 59)
 
         //RIGHT COLUMN//
+        P1(origin_x + 40, origin_y)
+        P2(origin_ x + 34, origin_y)
+        P3(origin_x + 40, origin_y + 74)
+        P4(origin_x + 34, origin_y + 74)
 
          */
 

@@ -8,6 +8,7 @@ public class GameController {
     private static Player player4;
 
     private static GameDice dice;
+    public static final int MAX_SPACES = 40;
 
     public static int bank;
 
@@ -28,6 +29,30 @@ public class GameController {
 
     public static void runPlayerTurn() {
 
+    }
+
+    public static Player getPlayer1() {
+        return player1;
+    }
+
+    public static Player getPlayer2() {
+        return  player2;
+    }
+
+    public static Player getPlayer3() {
+        return player3;
+    }
+
+    public static Player getPlayer4() {
+        return player4;
+    }
+
+    public static void movePlayer(Player p, int roll) {
+        if (p.getPlayPosition() + roll > MAX_SPACES) {
+            p.setPlayPosition(p.getPlayPosition() + roll - MAX_SPACES);
+        } else {
+            p.setPlayPosition(p.getPlayPosition() + roll);
+        }
     }
 
     public static GameDice getDice() {

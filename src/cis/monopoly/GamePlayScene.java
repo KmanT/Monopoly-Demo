@@ -146,7 +146,9 @@ public class GamePlayScene {
 
         btnRoll.setOnAction( e -> {
             updateDicePane(gControl.getDice(), gcDice);
-
+            gControl.movePlayer(GameController.getPlayer1(),
+                    gControl.getDice().getTotalRoll());
+            System.out.println(gControl.getPlayer1().getPlayPosition());
         });
 
         dicePane.getChildren().addAll(cvsDice, btnRoll);
