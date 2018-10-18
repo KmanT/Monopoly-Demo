@@ -133,11 +133,11 @@ public class Player {
         this.playPieceID = playPieceID;
     }
 
-    public void addBalance(double amount) {
+    public void addBalance(int amount) {
         playBalance += amount;
     }
 
-    public void subtractBalance(double amount) {
+    public void subtractBalance(int amount) {
         playBalance -= amount;
     }
 }

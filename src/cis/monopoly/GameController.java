@@ -48,7 +48,7 @@ public class GameController {
     }
 
     public static void movePlayer(Player p, int roll) {
-        if (p.getPlayPosition() + roll > MAX_SPACES) {
+        if (p.getPlayPosition() + roll > MAX_SPACES - 1) {
             p.setPlayPosition(p.getPlayPosition() + roll - MAX_SPACES);
         } else {
             p.setPlayPosition(p.getPlayPosition() + roll);
@@ -59,8 +59,31 @@ public class GameController {
         return dice;
     }
 
-    public static void addBankFunds(int ammount) {
-        bank += ammount;
+    public static void addBankFunds(int amount) {
+        bank += amount;
+    }
+
+    public static void subtractBankFunds(int amount) { bank -= amount;}
+
+    public static void playerPayBank(Player p, int amount) {
+        p.subtractBalance(amount);
+        bank += amount;
+    }
+
+    public static void bankPayPlayer(Player p, int amount) {
+        p.addBalance(amount);
+        bank -= amount;
+    }
+
+    public static void transferPlayerFunds(Player p1, Player p2, int amount) {
+        p1.subtractBalance(amount);
+        p2.addBalance(amount);
+    }
+
+    public static void playerBuyProperty(Player player, Property prop) {
+        playerPayBank(player, prop.getPropPrice());
+        prop.setPropOwnerID(player.getPlayID());
+        prop.setPropPrice(prop.getPropPrice() / 2); //cuts the property price in half
     }
 
     public static int getBankFunds() {

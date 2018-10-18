@@ -88,19 +88,19 @@ public class GamePlayScene {
 
 
         //PLAYER PANE//
-        Label lblPlayer1 = new Label("Player 1: ");
+        Label lblPlayer1 = new Label("Player 1: $");
         lblPlayer1.getStyleClass().add("lblPlayer");
 
         Label lblPName1 = new Label();
         lblPName1.getStyleClass().add("lblPlayer");
 
-        Label lblPlayer2 = new Label("Player 2: ");
+        Label lblPlayer2 = new Label("Player 2: $");
         lblPlayer2.getStyleClass().add("lblPlayer");
 
         Label lblPName2 = new Label();
         lblPName2.getStyleClass().add("lblPlayer");
 
-        Label lblPlayer3 = new Label("Player 3: ");
+        Label lblPlayer3 = new Label("Player 3: $");
         lblPlayer3.getStyleClass().add("lblPlayer");
 
         Label lblPName3 = new Label();
@@ -154,6 +154,10 @@ public class GamePlayScene {
         dicePane.getChildren().addAll(cvsDice, btnRoll);
         dicePane.setAlignment(Pos.TOP_CENTER);
         dicePane.setSpacing(10);
+
+        //STATUS PANE//
+        Label lblBank = new Label("Bank: $" + gControl.getBankFunds());
+        statusPane.getChildren().addAll(lblBank);
 
         return gamePane;
     }
