@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6d8008a-94da-45bd-9542-f9b71e2044b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/GameController.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/GameController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cis/monopoly/Player.java" afterPath="$PROJECT_DIR$/src/cis/monopoly/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardDrawer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BoardDrawer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="342" column="102" lean-forward="false" selection-start-line="342" selection-start-column="102" selection-end-line="342" selection-end-column="102" />
+            <state relative-caret-position="-1871">
+              <caret line="177" column="31" lean-forward="true" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamePlayScene.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GamePlayScene.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="170" column="66" lean-forward="true" selection-start-line="170" selection-start-column="66" selection-end-line="170" selection-end-column="66" />
+            <state relative-caret-position="-44">
+              <caret line="190" column="53" lean-forward="false" selection-start-line="190" selection-start-column="53" selection-end-line="190" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,12 +172,12 @@
         <option value="$PROJECT_DIR$/src/cis/monopoly/Property.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/Player.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/GameController.java" />
-        <option value="$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java" />
         <option value="$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java" />
+        <option value="$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
@@ -326,7 +323,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -720,20 +717,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java">
+    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="342" column="102" lean-forward="false" selection-start-line="342" selection-start-column="102" selection-end-line="342" selection-end-column="102" />
+        <state relative-caret-position="-44">
+          <caret line="190" column="53" lean-forward="false" selection-start-line="190" selection-start-column="53" selection-end-line="190" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/GamePlayScene.java">
+    <entry file="file://$PROJECT_DIR$/src/cis/monopoly/BoardDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="170" column="66" lean-forward="true" selection-start-line="170" selection-start-column="66" selection-end-line="170" selection-end-column="66" />
+        <state relative-caret-position="-1871">
+          <caret line="177" column="31" lean-forward="true" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

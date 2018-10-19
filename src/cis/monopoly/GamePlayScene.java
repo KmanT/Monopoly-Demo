@@ -161,16 +161,23 @@ public class GamePlayScene {
         Button btnRoll = new Button("ROLL!");
 
         btnRoll.setOnAction( e -> {
+            //changes the number on the die
             updateDicePane(gControl.getDice(), gcDice);
 
+            //moves the current player's position behind the scenes
             gControl.movePlayer(gControl.getCurrentPlayer(),
                     gControl.getDice().getTotalRoll());
+
+            //prints the current player and their position to the console
             System.out.println(gControl.getCurrentPlayer().getPlayID()
             + ": " + gControl.getCurrentPlayer().getPlayPosition());
+
+            //draws the player movement
             BoardDrawer.drawFullPlayerMove(gcBoard, gControl.getCurrentPlayer().getPlayID(),
                     gControl.getCurrentPlayer().getPlayPosition(),
                     gControl.getDice().getTotalRoll(), gControl.getCurrentPlayer().getPlayPieceID());
 
+            //Changes all the corresponding labels to their appropriate values
             lblBank.setText("Bank: $" + gControl.getBankFunds());
             lblPlayer1.setText("Player 1: $" +
                     gControl.getPlayer1().getPlayBalance());
@@ -181,6 +188,7 @@ public class GamePlayScene {
             lblPlayer4.setText("Player 4: $" +
                     gControl.getPlayer4().getPlayBalance());
 
+            //changes the turn for the current player
             gControl.changeCurrentPlayer();
         });
 

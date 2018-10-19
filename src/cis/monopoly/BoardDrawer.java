@@ -172,13 +172,7 @@ public class BoardDrawer {
 
 
         if (position == 0) {
-            /*
             //GO CORNER//
-            P1(origin_x + 78, origin_y)
-            P2(origin_ x + 78, origin_y + 46)
-            P3(origin_x + 46, origin_y + 78)
-            P4(origin_x, origin_y + 78)
-             */
             originX = 704;
             originY = 704;
             switch (playerID) {
@@ -193,13 +187,7 @@ public class BoardDrawer {
             }
 
         } else if (position > 0 && position <= 9) {
-            /*
             //BOTTOM ROW//
-            P1(origin_x, origin_y + 40)
-            P2(origin_ x + 34, origin_y + 40)
-            P3(origin_x, origin_ + 74)
-            P4(origin_x + 34, origin_y + 74)
-             */
             originX = 704 - PROPERTY_WIDTH * position;
             originY = 704;
             switch (playerID) {
@@ -214,13 +202,7 @@ public class BoardDrawer {
             }
 
         } else if (position == 10) {
-            /*
             //JAIL CORNER//
-            P1(origin_x + 78, origin_y + 78)
-            P2(origin_ x + 32, origin_y + 78)
-            P3(origin_x, origin_y + 46)
-            P4(origin_x, origin_y)
-             */
             originX = 0;
             originY = 704;
             switch (playerID) {
@@ -235,13 +217,7 @@ public class BoardDrawer {
             }
 
         } else if (position > 10 && position <= 19) {
-            /*
             //LEFT COLUMN//
-            P1(origin_x + 4, origin_y)
-            P2(origin_ x + 34, origin_y)
-            P3(origin_x + 4, origin_y + 34)
-            P4(origin_x + 34, origin_y + 34)
-             */
             originX = 0;
             originY = 704 - PROPERTY_WIDTH * (position - 10);
             switch (playerID) {
@@ -256,13 +232,7 @@ public class BoardDrawer {
             }
 
         } else if (position == 20) {
-            /*
-             //FREE CORNER//
-            P1(origin_x, origin_y + 78)
-            P2(origin_ x, origin_y + 32)
-            P3(origin_x + 32, origin_y)
-            P4(origin_x, + 78 origin_y)
-             */
+            //FREE CORNER//
             originX = 0;
             originY = 0;
             switch (playerID) {
@@ -276,35 +246,23 @@ public class BoardDrawer {
                     break;
             }
         } else if (position > 20 && position <= 29) {
-            /*
             //TOP ROW//
-            P1(origin_x, origin_y + 4)
-            P2(origin_ x + 34, origin_y + 4)
-            P3(origin_x, origin_y + 74)
-            P4(origin_x + 34, origin_y + 74)
-             */
-            originX = 0 + PROPERTY_WIDTH * (position - 20);
+            originX = 110 + PROPERTY_WIDTH * (position - 20);
             originY = 0;
             switch (playerID) {
                 case 1: drawPiece(gc, originX, originY + 4, playerColor);
                     break;
                 case 2: drawPiece(gc, originX + 34, originY + 4, playerColor);
                     break;
-                case 3: drawPiece(gc, originX, originY + 74, playerColor);
+                case 3: drawPiece(gc, originX, originY + 34, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 34, originY + 74, playerColor);
+                case 4: drawPiece(gc, originX + 34, originY + 34, playerColor);
                     break;
             }
         }  else if (position == 30) {
-            /*
-            //GOTO JAIL CORNER//
-            P1(origin_x, origin_y)
-            P2(origin_ x + 46, origin_y)
-            P3(origin_x + 78, origin_y + 32)
-            P4(origin_x + 78, origin_y + 78)
-             */
+            //GO TO JAIL CORNER//
             originX = 704;
-            originY = 0;
+            originY = 110;
             switch (playerID) {
                 case 1: drawPiece(gc, originX, originY, playerColor);
                     break;
@@ -316,23 +274,17 @@ public class BoardDrawer {
                     break;
             }
         } else if (position > 30 && position <= 39) {
-            /*
             //RIGHT COLUMN//
-            P1(origin_x + 40, origin_y)
-            P2(origin_ x + 34, origin_y)
-            P3(origin_x + 40, origin_y + 74)
-            P4(origin_x + 34, origin_y + 74)
-             */
             originX = 704;
-            originY = 0 + PROPERTY_WIDTH * (position - 30);
+            originY = 110 + PROPERTY_WIDTH * (position - 30);
             switch (playerID) {
-                case 1: drawPiece(gc, originX + 40, originY, playerColor);
+                case 1: drawPiece(gc, originX + 34, originY, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 34, originY, playerColor);
+                case 2: drawPiece(gc, originX + 68, originY, playerColor);
                     break;
-                case 3: drawPiece(gc, originX + 40, originY + 74, playerColor);
+                case 3: drawPiece(gc, originX + 34, originY + 74, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 34, originY + 74, playerColor);
+                case 4: drawPiece(gc, originX + 68, originY + 74, playerColor);
                     break;
             }
         }
