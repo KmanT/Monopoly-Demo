@@ -167,6 +167,9 @@ public class GamePlayScene {
                     gControl.getDice().getTotalRoll());
             System.out.println(gControl.getCurrentPlayer().getPlayID()
             + ": " + gControl.getCurrentPlayer().getPlayPosition());
+            BoardDrawer.drawFullPlayerMove(gcBoard, gControl.getCurrentPlayer().getPlayID(),
+                    gControl.getCurrentPlayer().getPlayPosition(),
+                    gControl.getDice().getTotalRoll(), gControl.getCurrentPlayer().getPlayPieceID());
 
             lblBank.setText("Bank: $" + gControl.getBankFunds());
             lblPlayer1.setText("Player 1: $" +

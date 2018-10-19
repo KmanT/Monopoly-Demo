@@ -139,7 +139,12 @@ public class BoardDrawer {
         drawCorner(gc, 0, 704, Color.FLORALWHITE, "");
         drawCorner(gc, 704, 704, Color.FLORALWHITE, "");
 
-        drawPiece(gc, 710, 710, Color.SILVER );
+
+        drawPiece(gc, 782, 704, Color.RED);
+        drawPiece(gc, 782, 750, Color.BLUE);
+        drawPiece(gc, 750, 782, Color.PURPLE);
+        drawPiece(gc, 704, 782, Color.GREEN);
+
 
 
     }
@@ -149,64 +154,193 @@ public class BoardDrawer {
         gc.fillRect(xpos,ypos, PIECE_WIDTH, PIECE_WIDTH);
     }
 
-    public static void movePiece() {
+    public static void movePiece(GraphicsContext gc, int playerID, int position, int pieceID) {
+        int originX = 0;
+        int originY = 0;
+        Color playerColor = Color.FLORALWHITE;
 
-        //get current playPos before roll
+        //SET PLAYER COLOR//
+        if (pieceID == 1) {
+            playerColor = Color.RED;
+        } else if (pieceID == 2) {
+            playerColor = Color.BLUE;
+        } else if (pieceID == 3) {
+            playerColor = Color.PURPLE;
+        } else if (pieceID == 4) {
+            playerColor = Color.GREEN;
+        }
 
-        //cover current playPos with "FLORAL_WHITE"
 
-        //apply logic
+        if (position == 0) {
+            /*
+            //GO CORNER//
+            P1(origin_x + 78, origin_y)
+            P2(origin_ x + 78, origin_y + 46)
+            P3(origin_x + 46, origin_y + 78)
+            P4(origin_x, origin_y + 78)
+             */
+            originX = 704;
+            originY = 704;
+            switch (playerID) {
+                case 1: drawPiece(gc, originX + 78, originY, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX + 78, originY + 46, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX + 46, originY + 78, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX, originY + 78, playerColor);
+                    break;
+            }
 
-        /*
-        //GO CORNER//
-        P1(origin_x + 78, origin_y)
-        P2(origin_ x + 78, origin_y + 46)
-        P3(origin_x + 64, origin_y + 78)
-        P4(origin_x, origin_y + 78)
+        } else if (position > 0 && position <= 9) {
+            /*
+            //BOTTOM ROW//
+            P1(origin_x, origin_y + 40)
+            P2(origin_ x + 34, origin_y + 40)
+            P3(origin_x, origin_ + 74)
+            P4(origin_x + 34, origin_y + 74)
+             */
+            originX = 704 - PROPERTY_WIDTH * position;
+            originY = 704;
+            switch (playerID) {
+                case 1: drawPiece(gc, originX, originY + 40, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX + 34, originY + 40, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX, originY + 74, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX + 34, originY + 74, playerColor);
+                    break;
+            }
 
-        //BOTTOM ROW//
-        P1(origin_x, origin_y + 40)
-        P2(origin_ x + 34, origin_y + 40)
-        P3(origin_x, origin_ + 74)
-        P4(origin_x + 34, origin_y + 74)
+        } else if (position == 10) {
+            /*
+            //JAIL CORNER//
+            P1(origin_x + 78, origin_y + 78)
+            P2(origin_ x + 32, origin_y + 78)
+            P3(origin_x, origin_y + 46)
+            P4(origin_x, origin_y)
+             */
+            originX = 0;
+            originY = 704;
+            switch (playerID) {
+                case 1: drawPiece(gc, originX + 78, originY + 78, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX + 32, originY + 78, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX, originY + 46, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX, originY, playerColor);
+                    break;
+            }
 
-        //JAIL CORNER//
-        P1(origin_x + 78, origin_y + 78)
-        P2(origin_ x + 32, origin_y + 78)
-        P3(origin_x, origin_y + 46)
-        P4(origin_x, origin_y)
+        } else if (position > 10 && position <= 19) {
+            /*
+            //LEFT COLUMN//
+            P1(origin_x + 4, origin_y)
+            P2(origin_ x + 34, origin_y)
+            P3(origin_x + 4, origin_y + 34)
+            P4(origin_x + 34, origin_y + 34)
+             */
+            originX = 0;
+            originY = 704 - PROPERTY_WIDTH * (position - 10);
+            switch (playerID) {
+                case 1: drawPiece(gc, originX + 4, originY, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX + 34, originY, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX + 4, originY + 34, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX + 34, originY + 34, playerColor);
+                    break;
+            }
 
-        //LEFT COLUMN//
-        P1(origin_x + 4, origin_y)
-        P2(origin_ x + 34, origin_y)
-        P3(origin_x + 4, origin_y + 34)
-        P4(origin_x + 34, origin_y + 34)
+        } else if (position == 20) {
+            /*
+             //FREE CORNER//
+            P1(origin_x, origin_y + 78)
+            P2(origin_ x, origin_y + 32)
+            P3(origin_x + 32, origin_y)
+            P4(origin_x, + 78 origin_y)
+             */
+            originX = 0;
+            originY = 0;
+            switch (playerID) {
+                case 1: drawPiece(gc, originX, originY + 78, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX, originY + 32, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX + 32, originY, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX + 78, originY, playerColor);
+                    break;
+            }
+        } else if (position > 20 && position <= 29) {
+            /*
+            //TOP ROW//
+            P1(origin_x, origin_y + 4)
+            P2(origin_ x + 34, origin_y + 4)
+            P3(origin_x, origin_y + 74)
+            P4(origin_x + 34, origin_y + 74)
+             */
+            originX = 0 + PROPERTY_WIDTH * (position - 20);
+            originY = 0;
+            switch (playerID) {
+                case 1: drawPiece(gc, originX, originY + 4, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX + 34, originY + 4, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX, originY + 74, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX + 34, originY + 74, playerColor);
+                    break;
+            }
+        }  else if (position == 30) {
+            /*
+            //GOTO JAIL CORNER//
+            P1(origin_x, origin_y)
+            P2(origin_ x + 46, origin_y)
+            P3(origin_x + 78, origin_y + 32)
+            P4(origin_x + 78, origin_y + 78)
+             */
+            originX = 704;
+            originY = 0;
+            switch (playerID) {
+                case 1: drawPiece(gc, originX, originY, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX + 46, originY, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX + 78, originY + 32, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX + 78, originY + 78, playerColor);
+                    break;
+            }
+        } else if (position > 30 && position <= 39) {
+            /*
+            //RIGHT COLUMN//
+            P1(origin_x + 40, origin_y)
+            P2(origin_ x + 34, origin_y)
+            P3(origin_x + 40, origin_y + 74)
+            P4(origin_x + 34, origin_y + 74)
+             */
+            originX = 704;
+            originY = 0 + PROPERTY_WIDTH * (position - 30);
+            switch (playerID) {
+                case 1: drawPiece(gc, originX + 40, originY, playerColor);
+                    break;
+                case 2: drawPiece(gc, originX + 34, originY, playerColor);
+                    break;
+                case 3: drawPiece(gc, originX + 40, originY + 74, playerColor);
+                    break;
+                case 4: drawPiece(gc, originX + 34, originY + 74, playerColor);
+                    break;
+            }
+        }
 
-        //FREE CORNER//
-        P1(origin_x, origin_y + 78)
-        P2(origin_ x, origin_y + 32)
-        P3(origin_x + 32, origin_y + 25)
-        P4(origin_x, origin_y + 59)
+    }
 
-        //TOP ROW//
-        P1(origin_x, origin_y + 4)
-        P2(origin_ x + 34, origin_y + 4)
-        P3(origin_x, origin_y + 74)
-        P4(origin_x + 34, origin_y + 74)
-
-        //GOTO JAIL CORNER//
-        P1(origin_x + 25, origin_y)
-        P2(origin_ x + 59, origin_y)
-        P3(origin_x + 91, origin_y + 25)
-        P4(origin_x + 91, origin_y + 59)
-
-        //RIGHT COLUMN//
-        P1(origin_x + 40, origin_y)
-        P2(origin_ x + 34, origin_y)
-        P3(origin_x + 40, origin_y + 74)
-        P4(origin_x + 34, origin_y + 74)
-
-         */
-
+    public static void drawFullPlayerMove(GraphicsContext gc, int playerID, int position, int roll, int pieceID) {
+        movePiece(gc, playerID, position - roll, 0); //Draws a white square over the previous position
+        movePiece(gc, playerID, position, pieceID);
     }
 }

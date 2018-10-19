@@ -22,10 +22,10 @@ public class GameController {
     public static final int PASS_GO = 200;
 
     public GameController() {
-        player1 = new Player(1,true);
-        player2 = new Player(2, true);
-        player3 = new Player(3, true);
-        player4 = new Player(4, true);
+        player1 = new Player(1,true, 1);
+        player2 = new Player(2, true, 2);
+        player3 = new Player(3, true, 3);
+        player4 = new Player(4, true, 4);
         playerList =new ArrayList<Player>();
         playerList.add(player1);
         playerList.add(player2);
