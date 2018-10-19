@@ -282,9 +282,9 @@ public class BoardDrawer {
                     break;
                 case 2: drawPiece(gc, originX + 68, originY, playerColor);
                     break;
-                case 3: drawPiece(gc, originX + 34, originY + 74, playerColor);
+                case 3: drawPiece(gc, originX + 34, originY + 34, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 68, originY + 74, playerColor);
+                case 4: drawPiece(gc, originX + 68, originY + 34, playerColor);
                     break;
             }
         }
@@ -292,7 +292,23 @@ public class BoardDrawer {
     }
 
     public static void drawFullPlayerMove(GraphicsContext gc, int playerID, int position, int roll, int pieceID) {
-        movePiece(gc, playerID, position - roll, 0); //Draws a white square over the previous position
+        /*
+        if (p.getPlayPosition() + roll > MAX_SPACES - 1) {
+            p.setPlayPosition(p.getPlayPosition() + roll - MAX_SPACES);
+            bankPayPlayer(p, PASS_GO);
+        } else {
+            p.setPlayPosition(p.getPlayPosition() + roll);
+        }
+         */
+
+        //Draws a white square over the previous position
+        if (position - roll < 0) {
+            movePiece(gc, playerID, GameController.MAX_SPACES + position - roll, 0);
+        } else {
+            movePiece(gc, playerID, position - roll, 0);
+        }
+
+
         movePiece(gc, playerID, position, pieceID);
     }
 }
