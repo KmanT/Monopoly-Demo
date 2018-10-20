@@ -1,5 +1,6 @@
-package cis.monopoly;
+package cis.monopoly.gameDrawers;
 
+import cis.monopoly.gamePlay.GameController;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -23,11 +24,6 @@ public class BoardDrawer {
     public static final int P4_VERTICAL = 0;
 
     public static final Color GV_BLUE = Color.web("#0065a4");
-
-    /*public void BoardDrawer() {
-        canvas = new Canvas(Main.WINDOW_LENGTH, Main.WINDOW_LENGTH);
-        gc = canvas.getGraphicsContext2D();
-    }*/
 
     public static void drawPropertyTop(GraphicsContext gc, int xpos, int ypos, Color color, String name) {
         gc.setFill(Color.FLORALWHITE);
@@ -292,23 +288,12 @@ public class BoardDrawer {
     }
 
     public static void drawFullPlayerMove(GraphicsContext gc, int playerID, int position, int roll, int pieceID) {
-        /*
-        if (p.getPlayPosition() + roll > MAX_SPACES - 1) {
-            p.setPlayPosition(p.getPlayPosition() + roll - MAX_SPACES);
-            bankPayPlayer(p, PASS_GO);
-        } else {
-            p.setPlayPosition(p.getPlayPosition() + roll);
-        }
-         */
-
         //Draws a white square over the previous position
-        if (position - roll < 0) {
+        if (position - roll < 0) { // if the player position was previous in the right column
             movePiece(gc, playerID, GameController.MAX_SPACES + position - roll, 0);
-        } else {
+        } else { //any other space
             movePiece(gc, playerID, position - roll, 0);
         }
-
-
         movePiece(gc, playerID, position, pieceID);
     }
 }

@@ -1,5 +1,10 @@
-package cis.monopoly;
+package cis.monopoly.guiElements;
 
+import cis.monopoly.*;
+import cis.monopoly.gameDrawers.BoardDrawer;
+import cis.monopoly.gameDrawers.DiceDrawer;
+import cis.monopoly.gamePlay.GameController;
+import cis.monopoly.gamePlay.GameDice;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -11,10 +16,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 
@@ -28,7 +30,7 @@ public class GamePlayScene {
     //left
     private GridPane playerPane = new GridPane();
     //center
-    private VBox boardPane = new VBox();
+    private StackPane boardPane = new StackPane();
     //right
     private VBox dicePane = new VBox();
     //bottom
@@ -145,6 +147,7 @@ public class GamePlayScene {
 
         Canvas cvsBoard = new Canvas(BoardDrawer.BOARD_LENGTH, BoardDrawer.BOARD_LENGTH);
         GraphicsContext gcBoard = cvsBoard.getGraphicsContext2D();
+
 
         BoardDrawer.drawBoard(gcBoard);
         boardPane.getChildren().add(cvsBoard);

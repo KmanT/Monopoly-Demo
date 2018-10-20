@@ -1,15 +1,13 @@
-package cis.monopoly;
+package cis.monopoly.guiElements;
 
-import javafx.fxml.FXML;
+import cis.monopoly.Main;
+import cis.monopoly.guiElements.AlertBox;
+import cis.monopoly.guiElements.GamePlayScene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 
 
 /**
@@ -32,8 +30,7 @@ public class Controller {
     public void newGameClick() {
         Stage stage = (Stage) btnNewGame.getScene().getWindow();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource
-                    ("HowManyPlayers.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("HowManyPlayers.fxml"));
             stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
         } catch (java.io.IOException e) {
             AlertBox ioAlert = new AlertBox();
@@ -45,7 +42,7 @@ public class Controller {
         Stage stage = (Stage) btnMainMenu.getScene().getWindow();
         try {
             Parent root = FXMLLoader.load(getClass().getResource
-                    ("MainMenu.fxml"));
+                    ("guiElements/MainMenu.fxml"));
             stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
         } catch (java.io.IOException e) {
             AlertBox ioAlert = new AlertBox();

@@ -1,6 +1,6 @@
-package cis.monopoly;
+package cis.monopoly.gamePlay;
 
-public class Property extends Space{
+public class Property extends Space {
 
     private int propPrice;
     private int propRent;

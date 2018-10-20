@@ -1,4 +1,4 @@
-package cis.monopoly;
+package cis.monopoly.gamePlay;
 
 /**
  * This class defines a player.

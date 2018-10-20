@@ -1,4 +1,4 @@
-package cis.monopoly;
+package cis.monopoly.gamePlay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +14,12 @@ public class GameController {
 
     private static GameDice dice;
 
-
     private static int bank;
 
     private static Property[] properties;
     public static final int MAX_SPACES = 40;
     public static final int PASS_GO = 200;
+    public static final int BANK_START_AMOUNT = 20580;
 
     public GameController() {
         player1 = new Player(1,true, 1);
@@ -31,7 +31,7 @@ public class GameController {
         playerList.add(player2);
         playerList.add(player3);
         playerList.add(player4);
-        bank = 20580;
+        bank = BANK_START_AMOUNT;
 
         properties = new Property[40];
         dice = new GameDice();

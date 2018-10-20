@@ -1,6 +1,7 @@
 package cis.monopoly;
 
 import javafx.application.Application;
+import cis.monopoly.guiElements.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,7 +24,7 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-       Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("guiElements/MainMenu.fxml"));
        primaryStage.setTitle("GVSU Monopoly");
        primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
        primaryStage.show();

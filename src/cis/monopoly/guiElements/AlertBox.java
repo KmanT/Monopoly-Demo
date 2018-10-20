@@ -1,4 +1,4 @@
-package cis.monopoly;
+package cis.monopoly.guiElements;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
