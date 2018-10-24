@@ -14,14 +14,6 @@ public class BoardDrawer {
 
     //PIECE VALUES//
     public static final int PIECE_WIDTH = 32;
-    public static final int P1_HORIZONTAL = 0;
-    public static final int P1_VERTICAL = 0;
-    public static final int P2_HORIZONTAL = 0;
-    public static final int P2_VERTICAL = 0;
-    public static final int P3_HORIZONTAL = 0;
-    public static final int P3_VERTICAL = 0;
-    public static final int P4_HORIZONTAL = 0;
-    public static final int P4_VERTICAL = 0;
 
     public static final Color GV_BLUE = Color.web("#0065a4");
 
@@ -135,13 +127,8 @@ public class BoardDrawer {
         drawCorner(gc, 0, 704, Color.FLORALWHITE, "");
         drawCorner(gc, 704, 704, Color.FLORALWHITE, "");
 
-
-        drawPiece(gc, 782, 704, Color.RED);
-        drawPiece(gc, 782, 750, Color.BLUE);
-        drawPiece(gc, 750, 782, Color.PURPLE);
-        drawPiece(gc, 704, 782, Color.GREEN);
-
-
+        for (int i = 0; i <= 3; i++)
+            movePiece(gc, i + 1, 0, i + 1); //draws each piece on the starting position
 
     }
 

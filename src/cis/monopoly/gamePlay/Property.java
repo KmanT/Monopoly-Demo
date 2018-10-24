@@ -22,6 +22,29 @@ public class Property extends Space {
         this.hasHotel = hasHotel;
     }
 
+    public Property(String propName, int propID, int propPrice, int propRent, int propGroup) {
+        spaceName = propName;
+        spaceID = propID;
+        this.propPrice = propPrice;
+        this.propRent = propRent;
+        this.propGroup = propGroup;
+        propOwnerID = 0;
+        houseCount = 0;
+        hasHotel = false;
+    }
+
+    public Property(String propName, int propID, int propPrice, int propRent,
+                    int propGroup, int propOwnerID) {
+        spaceName = propName;
+        spaceID = propID;
+        this.propPrice = propPrice;
+        this.propRent = propRent;
+        this.propGroup = propGroup;
+        this.propOwnerID = propOwnerID;
+        houseCount = 0;
+        hasHotel = false;
+    }
+
     public Property() {
         propPrice = 0;
         propRent = 0;

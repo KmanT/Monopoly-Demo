@@ -180,6 +180,12 @@ public class GamePlayScene {
                     gControl.getCurrentPlayer().getPlayPosition(),
                     gControl.getDice().getTotalRoll(), gControl.getCurrentPlayer().getPlayPieceID());
 
+            //show dialogue box showing current player position
+            //AlertBox.display("Player " + Integer.toString(gControl.getCurrentPlayer().getPlayID()),
+                    //gControl.getCurrentPlayerPosition().getSpaceName());
+            gControl.spaceCheck();
+
+
             //Changes all the corresponding labels to their appropriate values
             lblBank.setText("Bank: $" + gControl.getBankFunds());
             lblPlayer1.setText("Player 1: $" +
