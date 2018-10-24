@@ -11,28 +11,31 @@ import java.util.Random;
  * @author Kyle Turske
  * @version 0.5
  */
-
 public class GameDice {
 
-    private static int DIE_MIN = 1;
-    private static int DIE_MAX = 6;
+    /**The lowest die value.*/
+    private static final int DIE_MIN = 1;
+    /**The highest die value.*/
+    private static final int DIE_MAX = 6;
+    /**Stores the value for the first die.*/
     private int dieOne;
+    /**Stores the value for the second die.*/
     private int dieTwo;
 
     /**
      * GameDice constructor. Sets both dice to one.
      */
-    public void GameDice() {
+    public GameDice() {
         dieOne = DIE_MIN;
         dieTwo = DIE_MIN;
     }
 
     /**
-     * Randomly picks an integer from one to six
-     * @param die
-     * @return roll
+     * Randomly picks an integer from one to six.
+     * @param die The die being rolled.
+     * @return roll The result of the roll.
      */
-    public int roll(int die) {
+    public int roll(final int die) {
         Random rand = new Random();
 
         return rand.nextInt(DIE_MAX - DIE_MIN) + DIE_MIN;
@@ -51,15 +54,17 @@ public class GameDice {
      * Checks to see if the dice are equal to each other. This is used
      * to see if the player can roll again for a second consecutive roll.
      * @return true The dice are equal
-     * @return false The dice are not equal
      */
     public boolean doubleCheck() {
-        if (dieOne == dieTwo) return true;
-        else return false;
+        if (dieOne == dieTwo) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
-     * Used for the DrawDie method
+     * Used for the DrawDie method.
      * @return dieOne
      */
     public int getDieOne() {
@@ -67,7 +72,7 @@ public class GameDice {
     }
 
     /**
-     * Used for the DrawDie method
+     * Used for the DrawDie method.
      * @return dieTwo
      */
     public int getDieTwo() {

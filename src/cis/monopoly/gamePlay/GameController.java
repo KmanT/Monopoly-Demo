@@ -18,28 +18,41 @@ import java.util.List;
 
 public class GameController {
 
+    /**First player.*/
     private static Player player1;
+    /**Second player.*/
     private static Player player2;
+    /**Third player.*/
     private static Player player3;
+    /**Fourth player.*/
     private static Player player4;
+    /**List that contains all the players.*/
     private static List<Player> playerList;
+    /**List that contains all the spaces and properties.*/
     private static List<Property> propertyList;
+    /**Stores the value for the current player.*/
     private static int currentPlayer;
-
+    /**Used for piece moving calculations.*/
     private static GameDice dice;
-
+    /**Total balance for the bank.*/
     private static int bank;
-
+    /**Total number of spaces. Used for checking potential overflows.*/
     public static final int MAX_SPACES = 40;
+    /**The amount added to the player balance when they pass "Go".*/
     public static final int PASS_GO = 200;
+    /**Starting amount for the bank.*/
     public static final int BANK_START_AMOUNT = 20580;
 
+    /**
+     * GameController constructor. Holds all the different values needed in
+     * order to run the game properly.
+     */
     public GameController() {
         player1 = new Player(1,true, 1);
         player2 = new Player(2, true, 2);
         player3 = new Player(3, true, 3);
         player4 = new Player(4, true, 4);
-        playerList =new ArrayList<>();
+        playerList = new ArrayList<>();
         playerList.add(player1);
         playerList.add(player2);
         playerList.add(player3);
@@ -142,26 +155,16 @@ public class GameController {
 
     }
 
-    public static void runPlayerTurn(int roll, Player player) {
+    /**
+     * Utilized to complete a player turn. Calls the methods movePlayer,
+     * spaceCheck, and changeCurrentPlayer.
+     * @param roll Dice roll
+     * @param player Player
+     */
+    public static void runPlayerTurn(final int roll, final Player player) {
         movePlayer(player, roll);
         spaceCheck();
         changeCurrentPlayer();
-    }
-
-    public static Player getPlayer1() {
-        return player1;
-    }
-
-    public static Player getPlayer2() {
-        return  player2;
-    }
-
-    public static Player getPlayer3() {
-        return player3;
-    }
-
-    public static Player getPlayer4() {
-        return player4;
     }
 
     /**
@@ -240,8 +243,9 @@ public class GameController {
     }
 
     /**
-     * This method calls bankPayPlayer which the bank gives whatever the price of the
-     * property is, then the property owner ID is then set to 0 for resale.
+     * This method calls bankPayPlayer which the bank gives whatever the price
+     * of the property is, then the property owner ID is then set to 0 for
+     * resale.
      * @param player Player
      * @param prop Property being sold back
      */
@@ -252,10 +256,9 @@ public class GameController {
     }
 
     /**
-     * This method will search through the list of players in order to find the player
-     * that shares an id with the "currentPlayer" value.
+     * This method will search through the list of players in order to find the
+     * player that shares an id with the "currentPlayer" value.
      * @return player Current Player
-     * @return null If there is no player with a matching ID. Results in an error
      */
     public static Player getCurrentPlayer() {
         for (Player player : playerList) {
@@ -266,11 +269,11 @@ public class GameController {
     }
 
     /**
-     * This method will search through the list of players in order to get the player
-     * that has id that matches the given value.
+     * This method will search through the list of players in order to get the
+     * player that has id that matches the given value.
      * @param ID playID
      * @return player Player's ID who matches the given
-     * @return null If there isn't a player with a matching ID. Errors might occur.
+     *
      */
     public static Player getSpecificPlayer(int ID) {
         for (Player player : playerList) {
@@ -281,8 +284,8 @@ public class GameController {
     }
 
     /**
-     * Searches through the list of properties, and if the property owner ID matches
-     * the current player's ID, then that property will be returned
+     * Searches through the list of properties, and if the property owner ID
+     * matches the current player's ID, then that property will be returned.
      * @return prop Property where the currentPlayer is
      * @return null If there is no match
      */
@@ -297,10 +300,11 @@ public class GameController {
 
     /**
      * This method is part of the player turn. Gets the current player and the
-     * current player's position. If the space has no owner and is up for purchase
-     * (ownerID = 0), then the buyProperty method will be called. If the property's
-     * ownerID isn't equal to negative one, zero, or the the current player's ID,
-     * then rent will be payed to the owner of that property.
+     * current player's position. If the space has no owner and is up for
+     * purchase (ownerID = 0), then the buyProperty method will be called. If
+     * the property's ownerID isn't equal to negative one, zero, or the the
+     * current player's ID, then rent will be payed to the owner of that
+     * property.
      *
      * More will be added to this method
      */
@@ -320,17 +324,17 @@ public class GameController {
     }
 
     /**
-     * A dialogue box pops asking the player if they would like to purchase the property.
-     * If the player clicks on "Yes" then the property's ownerID will be set to the
-     * player's then the playerPayBank method will be called.
+     * A dialogue box pops asking the player if they would like to purchase the
+     * property. If the player clicks on "Yes" then the property's ownerID will
+     * be set to the player's then the playerPayBank method will be called.
      * @param player Player who is purchasing the property
      * @param prop The property up for purchase
      */
     public static void buyProperty(Player player, Property prop) {
         Boolean isBought = ConfirmBox.display("Buy Property",
-                "Would you like to buy " +
-                prop.getSpaceName() + " for $" +
-                Integer.toString(prop.getPropPrice()) + "?");
+                "Would you like to buy "
+                        + prop.getSpaceName() + " for $"
+                        + Integer.toString(prop.getPropPrice()) + "?");
 
         if (isBought == true) {
             playerPayBank(player, prop.getPropPrice());
@@ -339,8 +343,9 @@ public class GameController {
     }
 
     /**
-     * This method changes the currentPlayer value in this class. If the addition will
-     * rollover the the total number of players, then the current player will be changed
+     * This method changes the currentPlayer value in this class. If the
+     * addition will rollover the the total number of players, then the current
+     * player will be changed.
      * to player 1.
      */
     public static void changeCurrentPlayer() {
@@ -351,6 +356,11 @@ public class GameController {
         }
     }
 
+    /**
+     * Give the bank funds. Used to update the bank label on the GamePlayScene
+     * class.
+     * @return bank Bank Balance
+     */
     public static int getBankFunds() {
         return bank;
     }

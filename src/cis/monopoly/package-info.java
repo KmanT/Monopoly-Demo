@@ -1,4 +1,4 @@
-package cis.monopoly.gameDrawers;
+package cis.monopoly;
 
 /**
  *

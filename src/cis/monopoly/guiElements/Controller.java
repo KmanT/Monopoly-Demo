@@ -1,8 +1,6 @@
 package cis.monopoly.guiElements;
 
 import cis.monopoly.Main;
-import cis.monopoly.guiElements.AlertBox;
-import cis.monopoly.guiElements.GamePlayScene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -38,11 +36,14 @@ public class Controller {
     public void newGameClick() {
         Stage stage = (Stage) btnNewGame.getScene().getWindow();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("HowManyPlayers.fxml"));
-            stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+            Parent root = FXMLLoader.
+                    load(getClass().getResource("HowManyPlayers.fxml"));
+            stage.setScene(new Scene(root,
+                    Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
         } catch (java.io.IOException e) {
             AlertBox ioAlert = new AlertBox();
-            ioAlert.display("ioException", "You have encountered an IO Exception");
+            ioAlert.display("ioException",
+                    "You have encountered an IO Exception");
         }
     }
 
@@ -53,45 +54,66 @@ public class Controller {
     public void mainMenuClick() {
         Stage stage = (Stage) btnMainMenu.getScene().getWindow();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource
-                    ("guiElements/MainMenu.fxml"));
-            stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+            Parent root = FXMLLoader.load(getClass().
+                    getResource("guiElements/MainMenu.fxml"));
+            stage.setScene(new Scene(root,
+                    Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
         } catch (java.io.IOException e) {
             AlertBox ioAlert = new AlertBox();
-            ioAlert.display("ioException", "You have encountered an IO Exception");
+            ioAlert.display("ioException",
+                    "You have encountered an IO Exception");
         }
     }
 
+    /**
+     * Changes the scene to the GamePlay scene where the actual game is played.
+     * Activates one player and CPU (future feature).
+     */
     public void startGameClickOne() {
         Stage stage = (Stage) btnOnePlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(), Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+        Scene gameScene = new Scene(gs.GamePlayScene(),
+                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
     }
 
 
-
+    /**
+     * Changes the scene to the GamePlay scene where the actual game is played.
+     * Activates two players (future feature).
+     */
     public void startGameClickTwo() {
         Stage stage = (Stage) btnTwoPlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(), Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+        Scene gameScene = new Scene(gs.GamePlayScene(),
+                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
     }
 
+    /**
+     * Changes the scene to the GamePlay scene where the actual game is played.
+     * Activates three players (future feature).
+     */
     public void startGameClickThree() {
         Stage stage = (Stage) btnThreePlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(), Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+        Scene gameScene = new Scene(gs.GamePlayScene(),
+                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
     }
 
+    /**
+     * Changes the scene to the GamePlay scene where the actual game is played.
+     * Activates all four players.
+     */
     public void startGameClickFour() {
         Stage stage = (Stage) btnFourPlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(), Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+        Scene gameScene = new Scene(gs.GamePlayScene(),
+                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
     }
