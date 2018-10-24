@@ -2,10 +2,19 @@ package cis.monopoly.gamePlay;
 
 
 import cis.monopoly.guiElements.ConfirmBox;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
+
+/**
+ * <h1>GameController</h1>
+ * This class controls all of the different values within the game.
+ * This includes all the players, the spaces/properties, and the bank.
+ * This class defines how players move throughout the board, make
+ * transactions with the bank and other players
+ *
+ * @author Kyle Turske
+ * @version 0.5
+ */
 
 public class GameController {
 
@@ -14,7 +23,6 @@ public class GameController {
     private static Player player3;
     private static Player player4;
     private static List<Player> playerList;
-    //private static TreeSet<Property> properties;
     private static List<Property> propertyList;
     private static int currentPlayer;
 
@@ -44,6 +52,7 @@ public class GameController {
             For now, just creating the space objects
          */
 
+        //PROPERTIES//
         propertyList.add(new Property(
                 "GO LAKERS", 0, 0, 0, 0, -1));
         propertyList.add(new Property(
@@ -125,13 +134,18 @@ public class GameController {
         propertyList.add(new Property(
                 "Lubbers Stadium", 37, 350, 35, 8));
 
+        //DICE//
         dice = new GameDice();
+
+        //Sets the current player to playerID 1//
         currentPlayer = 1;
 
     }
 
-    public static void runPlayerTurn() {
-
+    public static void runPlayerTurn(int roll, Player player) {
+        movePlayer(player, roll);
+        spaceCheck();
+        changeCurrentPlayer();
     }
 
     public static Player getPlayer1() {
@@ -150,6 +164,15 @@ public class GameController {
         return player4;
     }
 
+    /**
+     * Changes the Player's position value.
+     * If the player's position plus the roll go over the max amount
+     * of spaces, then the value will rollover back to zero and continue.
+     * Otherwise, this method just adds the roll amount to the current
+     * player position
+     * @param p Player
+     * @param roll Dice roll
+     */
     public static void movePlayer(Player p, int roll) {
         if (p.getPlayPosition() + roll > MAX_SPACES - 1) {
             p.setPlayPosition(p.getPlayPosition() + roll - MAX_SPACES);
@@ -159,43 +182,81 @@ public class GameController {
         }
     }
 
+    /**
+     * Used by the GamePlayScene to get the dice attributes in order
+     * to draw the dice properly
+     * @return dice
+     */
     public static GameDice getDice() {
         return dice;
     }
 
-    public static void addBankFunds(int amount) {
-        bank += amount;
-    }
-
-    public static void subtractBankFunds(int amount) { bank -= amount;}
-
+    /**
+     * The amount given is subtracted from the player's balance whilst
+     * that same amount is given to the bank.
+     * @param p Player
+     * @param amount Amount for transaction
+     */
     public static void playerPayBank(Player p, int amount) {
         p.subtractBalance(amount);
         bank += amount;
     }
 
+    /**
+     * The amount given is added to the player's balance whilst
+     * that same amount is taken from the bank.
+     * @param p Player
+     * @param amount Amount for transaction
+     */
     public static void bankPayPlayer(Player p, int amount) {
         p.addBalance(amount);
         bank -= amount;
     }
 
+    /**
+     * The amount given is subtracted from the first player's balance, whilst
+     * the amount given is added to the second player's balance
+     * @param p1 Player giving funds
+     * @param p2 Player getting funds
+     * @param amount Amount for transaction
+     */
     public static void transferPlayerFunds(Player p1, Player p2, int amount) {
         p1.subtractBalance(amount);
         p2.addBalance(amount);
     }
 
+    /**
+     * This method calls the payPayBank method and then sets the ownerId of the
+     * property to the player's ID. The price of the property will be cut in
+     * half since that players get half of what they paid back if they sell it
+     * to the bank.
+     * @param player Player
+     * @param prop Property for sale
+     */
     public static void playerBuyProperty(Player player, Property prop) {
         playerPayBank(player, prop.getPropPrice());
         prop.setPropOwnerID(player.getPlayID());
         prop.setPropPrice(prop.getPropPrice() / 2); //cuts the property price in half
     }
 
+    /**
+     * This method calls bankPayPlayer which the bank gives whatever the price of the
+     * property is, then the property owner ID is then set to 0 for resale.
+     * @param player Player
+     * @param prop Property being sold back
+     */
     public static void playerSellProperty(Player player, Property prop) {
         bankPayPlayer(player, prop.getPropPrice());
         prop.setPropOwnerID(0);
         prop.setPropPrice(prop.getPropPrice() * 2);
     }
 
+    /**
+     * This method will search through the list of players in order to find the player
+     * that shares an id with the "currentPlayer" value.
+     * @return player Current Player
+     * @return null If there is no player with a matching ID. Results in an error
+     */
     public static Player getCurrentPlayer() {
         for (Player player : playerList) {
             if (player.getPlayID() == currentPlayer)
@@ -204,6 +265,13 @@ public class GameController {
         return null;
     }
 
+    /**
+     * This method will search through the list of players in order to get the player
+     * that has id that matches the given value.
+     * @param ID playID
+     * @return player Player's ID who matches the given
+     * @return null If there isn't a player with a matching ID. Errors might occur.
+     */
     public static Player getSpecificPlayer(int ID) {
         for (Player player : playerList) {
             if (player.getPlayID() == ID)
@@ -212,6 +280,12 @@ public class GameController {
         return null;
     }
 
+    /**
+     * Searches through the list of properties, and if the property owner ID matches
+     * the current player's ID, then that property will be returned
+     * @return prop Property where the currentPlayer is
+     * @return null If there is no match
+     */
     public static Property getCurrentPlayerPosition() {
         Player p = getCurrentPlayer();
 
@@ -221,6 +295,15 @@ public class GameController {
         return null;
     }
 
+    /**
+     * This method is part of the player turn. Gets the current player and the
+     * current player's position. If the space has no owner and is up for purchase
+     * (ownerID = 0), then the buyProperty method will be called. If the property's
+     * ownerID isn't equal to negative one, zero, or the the current player's ID,
+     * then rent will be payed to the owner of that property.
+     *
+     * More will be added to this method
+     */
     public static void spaceCheck() {
         Player player = getCurrentPlayer();
         Property prop = getCurrentPlayerPosition();
@@ -236,6 +319,13 @@ public class GameController {
         }
     }
 
+    /**
+     * A dialogue box pops asking the player if they would like to purchase the property.
+     * If the player clicks on "Yes" then the property's ownerID will be set to the
+     * player's then the playerPayBank method will be called.
+     * @param player Player who is purchasing the property
+     * @param prop The property up for purchase
+     */
     public static void buyProperty(Player player, Property prop) {
         Boolean isBought = ConfirmBox.display("Buy Property",
                 "Would you like to buy " +
@@ -248,6 +338,11 @@ public class GameController {
         }
     }
 
+    /**
+     * This method changes the currentPlayer value in this class. If the addition will
+     * rollover the the total number of players, then the current player will be changed
+     * to player 1.
+     */
     public static void changeCurrentPlayer() {
         if (currentPlayer + 1 > playerList.size()) {
             currentPlayer = 1;

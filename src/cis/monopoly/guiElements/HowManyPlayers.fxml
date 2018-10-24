@@ -26,17 +26,20 @@
         </padding>
         <Button text="Player v. COM" fx:id = "btnPvC"
             GridPane.columnIndex="0" GridPane.rowIndex="0"
-            maxWidth="150" maxHeight="100"/>
+            maxWidth="150" maxHeight="100"
+            onAction="#startGameClickOne"/>
         <Button text="2 Players" fx:id = "btnTwoPlayer"
             GridPane.columnIndex="1" GridPane.rowIndex="0"
             maxWidth="150" maxHeight="100"
-            onAction="#startGameClick"/>
+            onAction="#startGameClickTwo"/>
         <Button text="3 Players" fx:id = "btnThreePlayer"
             GridPane.columnIndex="0" GridPane.rowIndex="1"
-            maxWidth="150" maxHeight="100"/>
+            maxWidth="150" maxHeight="100"
+            onAction="#startGameClickThree"/>
         <Button text="4 Players" fx:id = "btnFourPlayer"
             GridPane.columnIndex="1" GridPane.rowIndex="1"
-            maxWidth="150" maxHeight="100"/>
+            maxWidth="150" maxHeight="100"
+            onAction="#startGameClickFour"/>
     </GridPane>
 
     <Button text="Back" fx:id="btnMainMenu" onAction="#mainMenuClick"/>

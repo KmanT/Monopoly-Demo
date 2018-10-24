@@ -16,9 +16,22 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Button;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * <h1>GamePlayScene</h1>
+ *
+ * This class defines all the different elements that go into the main game window.
+ * This window contains a menu bar with different options, a pane dedicated to
+ * all the player information, a pane that contains the dice and the roll button,
+ * a bottom pane with misc information and actions, and then of course, the board
+ * which changes whenever the player rolls the dice.
+ */
 
 public class GamePlayScene {
 
@@ -210,11 +223,24 @@ public class GamePlayScene {
         return gamePane;
     }
 
+    /**
+     * Used to roll the dice in the GameController class as well as draw
+     * the corresponding values to the Dice Canvas
+     * @param dice
+     * @param gc
+     */
+
     public static void updateDicePane(GameDice dice, GraphicsContext gc) {
         dice.rollTwo();
         DiceDrawer.drawDie(gc, 50, 50, dice.getDieOne());
         DiceDrawer.drawDie(gc, 150, 150, dice.getDieTwo());
     }
+
+    /**
+     * Used to return the gameScene so that the window can be changed to
+     * this scene
+     * @return gameScene
+     */
 
     public static Scene getGameScene() {
         return gameScene;

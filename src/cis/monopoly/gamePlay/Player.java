@@ -1,35 +1,37 @@
 package cis.monopoly.gamePlay;
 
 /**
- * This class defines a player.
+ * This class defines a player. The playerID is the "key attribute" when defining a player.
+ * Players should not share a playerID, otherwise it will break the game. The balance
+ * is obviously what the player owns. The playPieceID is what determines the player color,
+ * however, it will soon identify each id with a related icon.
  *
  * @author Kyle Turske
- * @version 0.1
+ * @version 0.5
  */
 public class Player {
 
-    /**Identfies the name of the player.*/
-    private String playName;
-    /**Used to set the order of the players.*/
-    private int playID;
-    /**Total balance for each player.
-     * Starts with $1500 and loses when balance <= 0.*/
-    private int playBalance;
-    /**Determines whether or not the player is in play.
-     * Set to false if they aren't active from the start
-     * or if they lose the game.*/
-    private boolean inPlay;
-    /**Used to determine the current position
-     *of the player*/
-    private int playPosition;
-    /**Identifier for each Player object when
-     *trying to determine who's turn it is*/
-    private int playPieceID;
 
+    private String playName;
+    private int playID;
+    private int playBalance;
+    private boolean inPlay;
+    private int playPosition;
+    private int playPieceID;
     private static int START_BALANCE = 1500;
 
-
-
+    /**
+     * Base player constructor.
+     * @param playName The name of the player. Will be used to identify each player
+     *                 outside of the system
+     * @param playID The identifying value used in the GameController class
+     * @param playBalance How much money is owned by the player
+     * @param inPlay Determined whether or not this player is still in play. Set to
+     *               false if this player was never in play or when they "lose."
+     *               Losing conditions to be set for the next release.
+     * @param playPosition Where the player is on the board.
+     * @param playPieceID Used to determine the color of the piece on the board
+     */
     public Player(String playName, int playID, int playBalance,
                   boolean inPlay, int playPosition, int playPieceID) {
         this.playName = playName;
@@ -40,6 +42,11 @@ public class Player {
         this.playPieceID = playPieceID;
     }
 
+    /**
+     * Constructor to use only when the player's name and ID are available
+     * @param playName
+     * @param playID
+     */
     public Player(String playName, int playID) {
         this.playName = playName;
         this.playID = playID;
@@ -49,14 +56,6 @@ public class Player {
         playPieceID = 0;
     }
 
-    public Player(int playID, boolean inPlay) {
-        playName = "";
-        this.playID = playID;
-        playBalance = START_BALANCE;
-        this.inPlay = inPlay;
-        playPosition = 0;
-        playPieceID = 0;
-    }
 
     public Player(int playID, boolean inPlay, int playPieceID) {
         playName = "";
