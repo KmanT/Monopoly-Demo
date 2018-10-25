@@ -72,7 +72,7 @@ public class Controller {
     public void startGameClickOne() {
         Stage stage = (Stage) btnOnePlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(),
+        Scene gameScene = new Scene(gs.gamePlayScene(),
                 Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
@@ -86,7 +86,7 @@ public class Controller {
     public void startGameClickTwo() {
         Stage stage = (Stage) btnTwoPlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(),
+        Scene gameScene = new Scene(gs.gamePlayScene(),
                 Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
@@ -99,7 +99,7 @@ public class Controller {
     public void startGameClickThree() {
         Stage stage = (Stage) btnThreePlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(),
+        Scene gameScene = new Scene(gs.gamePlayScene(),
                 Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 
@@ -112,7 +112,7 @@ public class Controller {
     public void startGameClickFour() {
         Stage stage = (Stage) btnFourPlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
-        Scene gameScene = new Scene(gs.GamePlayScene(),
+        Scene gameScene = new Scene(gs.gamePlayScene(),
                 Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(gameScene);
 

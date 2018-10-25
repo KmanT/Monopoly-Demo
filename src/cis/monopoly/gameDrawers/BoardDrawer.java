@@ -1,6 +1,7 @@
 package cis.monopoly.gameDrawers;
 
 import cis.monopoly.gamePlay.GameController;
+import cis.monopoly.guiElements.AlertBox;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -167,6 +168,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX, originY + 78, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +"went wrong when fetching the playerID.");
             }
 
         } else if (position > 0 && position <= 9) {
@@ -182,6 +186,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX + 34, originY + 74, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +" went wrong when fetching the playerID.");
             }
 
         } else if (position == 10) {
@@ -197,6 +204,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX, originY, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +"went wrong when fetching the playerID.");
             }
 
         } else if (position > 10 && position <= 19) {
@@ -212,6 +222,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX + 34, originY + 34, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +"went wrong when fetching the playerID.");
             }
 
         } else if (position == 20) {
@@ -227,6 +240,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX + 78, originY, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +"went wrong when fetching the playerID.");
             }
         } else if (position > 20 && position <= 29) {
             //TOP ROW//
@@ -241,6 +257,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX + 34, originY + 34, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +"went wrong when fetching the playerID.");
             }
         }  else if (position == 30) {
             //GO TO JAIL CORNER//
@@ -255,6 +274,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX + 78, originY + 78, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +"went wrong when fetching the playerID.");
             }
         } else if (position > 30 && position <= 39) {
             //RIGHT COLUMN//
@@ -269,6 +291,9 @@ public class BoardDrawer {
                     break;
                 case 4: drawPiece(gc, originX + 68, originY + 34, playerColor);
                     break;
+                default:
+                    AlertBox.display("Player ID Error", "Something"
+                            +"went wrong when fetching the playerID.");
             }
         }
 

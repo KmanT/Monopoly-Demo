@@ -24,7 +24,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
- * <h1>GamePlayScene</h1>
+ * <h1>gamePlayScene</h1>
  *
  * This class defines all the different elements that go into the main game window.
  * This window contains a menu bar with different options, a pane dedicated to
@@ -49,7 +49,7 @@ public class GamePlayScene {
     //bottom
     private HBox statusPane = new HBox();
 
-    public BorderPane GamePlayScene() {
+    public BorderPane gamePlayScene() {
 
         gamePane.setPrefWidth(Main.WINDOW_WIDTH);
         gamePane.setPrefHeight(Main.WINDOW_HEIGHT);
@@ -108,28 +108,28 @@ public class GamePlayScene {
 
         //PLAYER PANE//
         Label lblPlayer1 = new Label("Player 1: $"
-                + gControl.getPlayer1().getPlayBalance());
+                + gControl.getSpecificPlayer(1).getPlayBalance());
         lblPlayer1.getStyleClass().add("lblPlayer");
 
         //Label lblPName1 = new Label();
         //lblPName1.getStyleClass().add("lblPlayer");
 
         Label lblPlayer2 = new Label("Player 2: $"
-                + gControl.getPlayer2().getPlayBalance());
+                + gControl.getSpecificPlayer(2).getPlayBalance());
         lblPlayer2.getStyleClass().add("lblPlayer");
 
         //Label lblPName2 = new Label();
         //lblPName2.getStyleClass().add("lblPlayer");
 
         Label lblPlayer3 = new Label("Player 3: $"
-                + gControl.getPlayer3().getPlayBalance());
+                + gControl.getSpecificPlayer(3).getPlayBalance());
         lblPlayer3.getStyleClass().add("lblPlayer");
 
         //Label lblPName3 = new Label();
         //lblPName3.getStyleClass().add("lblPlayer");
 
         Label lblPlayer4 = new Label("Player 4: "
-                + gControl.getPlayer4().getPlayBalance());
+                + gControl.getSpecificPlayer(4).getPlayBalance());
         lblPlayer4.getStyleClass().add("lblPlayer");
 
         //Label lblPName4 = new Label();
@@ -202,13 +202,13 @@ public class GamePlayScene {
             //Changes all the corresponding labels to their appropriate values
             lblBank.setText("Bank: $" + gControl.getBankFunds());
             lblPlayer1.setText("Player 1: $" +
-                    gControl.getPlayer1().getPlayBalance());
+                    gControl.getSpecificPlayer(1).getPlayBalance());
             lblPlayer2.setText("Player 2: $" +
-                    gControl.getPlayer2().getPlayBalance());
+                    gControl.getSpecificPlayer(2).getPlayBalance());
             lblPlayer3.setText("Player 3: $" +
-                    gControl.getPlayer3().getPlayBalance());
+                    gControl.getSpecificPlayer(3).getPlayBalance());
             lblPlayer4.setText("Player 4: $" +
-                    gControl.getPlayer4().getPlayBalance());
+                    gControl.getSpecificPlayer(4).getPlayBalance());
 
             //changes the turn for the current player
             gControl.changeCurrentPlayer();

@@ -19,23 +19,23 @@ import java.util.List;
 public class GameController {
 
     /**First player.*/
-    private static Player player1;
+    private Player player1;
     /**Second player.*/
-    private static Player player2;
+    private Player player2;
     /**Third player.*/
-    private static Player player3;
+    private Player player3;
     /**Fourth player.*/
-    private static Player player4;
+    private Player player4;
     /**List that contains all the players.*/
-    private static List<Player> playerList;
+    private  List<Player> playerList;
     /**List that contains all the spaces and properties.*/
-    private static List<Property> propertyList;
+    private  List<Property> propertyList;
     /**Stores the value for the current player.*/
-    private static int currentPlayer;
+    private int currentPlayer;
     /**Used for piece moving calculations.*/
-    private static GameDice dice;
+    private GameDice dice;
     /**Total balance for the bank.*/
-    private static int bank;
+    private int bank;
     /**Total number of spaces. Used for checking potential overflows.*/
     public static final int MAX_SPACES = 40;
     /**The amount added to the player balance when they pass "Go".*/
@@ -161,7 +161,7 @@ public class GameController {
      * @param roll Dice roll
      * @param player Player
      */
-    public static void runPlayerTurn(final int roll, final Player player) {
+    public void runPlayerTurn(final int roll, final Player player) {
         movePlayer(player, roll);
         spaceCheck();
         changeCurrentPlayer();
@@ -176,7 +176,7 @@ public class GameController {
      * @param p Player
      * @param roll Dice roll
      */
-    public static void movePlayer(Player p, int roll) {
+    public void movePlayer(Player p, int roll) {
         if (p.getPlayPosition() + roll > MAX_SPACES - 1) {
             p.setPlayPosition(p.getPlayPosition() + roll - MAX_SPACES);
             bankPayPlayer(p, PASS_GO);
@@ -190,7 +190,7 @@ public class GameController {
      * to draw the dice properly
      * @return dice
      */
-    public static GameDice getDice() {
+    public GameDice getDice() {
         return dice;
     }
 
@@ -200,7 +200,7 @@ public class GameController {
      * @param p Player
      * @param amount Amount for transaction
      */
-    public static void playerPayBank(Player p, int amount) {
+    public void playerPayBank(Player p, int amount) {
         p.subtractBalance(amount);
         bank += amount;
     }
@@ -211,7 +211,7 @@ public class GameController {
      * @param p Player
      * @param amount Amount for transaction
      */
-    public static void bankPayPlayer(Player p, int amount) {
+    public void bankPayPlayer(Player p, int amount) {
         p.addBalance(amount);
         bank -= amount;
     }
@@ -236,7 +236,7 @@ public class GameController {
      * @param player Player
      * @param prop Property for sale
      */
-    public static void playerBuyProperty(Player player, Property prop) {
+    public void playerBuyProperty(Player player, Property prop) {
         playerPayBank(player, prop.getPropPrice());
         prop.setPropOwnerID(player.getPlayID());
         prop.setPropPrice(prop.getPropPrice() / 2); //cuts the property price in half
@@ -249,7 +249,7 @@ public class GameController {
      * @param player Player
      * @param prop Property being sold back
      */
-    public static void playerSellProperty(Player player, Property prop) {
+    public void playerSellProperty(Player player, Property prop) {
         bankPayPlayer(player, prop.getPropPrice());
         prop.setPropOwnerID(0);
         prop.setPropPrice(prop.getPropPrice() * 2);
@@ -260,7 +260,7 @@ public class GameController {
      * player that shares an id with the "currentPlayer" value.
      * @return player Current Player
      */
-    public static Player getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         for (Player player : playerList) {
             if (player.getPlayID() == currentPlayer)
                 return player;
@@ -275,7 +275,7 @@ public class GameController {
      * @return player Player's ID who matches the given
      *
      */
-    public static Player getSpecificPlayer(int ID) {
+    public Player getSpecificPlayer(int ID) {
         for (Player player : playerList) {
             if (player.getPlayID() == ID)
                 return player;
@@ -289,7 +289,7 @@ public class GameController {
      * @return prop Property where the currentPlayer is
      * @return null If there is no match
      */
-    public static Property getCurrentPlayerPosition() {
+    public Property getCurrentPlayerPosition() {
         Player p = getCurrentPlayer();
 
         for (Property prop : propertyList) {
@@ -308,7 +308,7 @@ public class GameController {
      *
      * More will be added to this method
      */
-    public static void spaceCheck() {
+    public void spaceCheck() {
         Player player = getCurrentPlayer();
         Property prop = getCurrentPlayerPosition();
 
@@ -330,7 +330,7 @@ public class GameController {
      * @param player Player who is purchasing the property
      * @param prop The property up for purchase
      */
-    public static void buyProperty(Player player, Property prop) {
+    public void buyProperty(Player player, Property prop) {
         Boolean isBought = ConfirmBox.display("Buy Property",
                 "Would you like to buy "
                         + prop.getSpaceName() + " for $"
@@ -348,7 +348,7 @@ public class GameController {
      * player will be changed.
      * to player 1.
      */
-    public static void changeCurrentPlayer() {
+    public void changeCurrentPlayer() {
         if (currentPlayer + 1 > playerList.size()) {
             currentPlayer = 1;
         } else {
@@ -361,7 +361,7 @@ public class GameController {
      * class.
      * @return bank Bank Balance
      */
-    public static int getBankFunds() {
+    public int getBankFunds() {
         return bank;
     }
 
