@@ -9,7 +9,7 @@ import java.applet.Applet;
 
 /**<h1>Main</h1>
  * This is the main class that holds together the entire program. It will
- * intialize "MainMenu.fxml" and show the title along with two different
+ * initialize "MainMenu.fxml" and show the title along with two different
  * options: "Start Game" and "Exit"
  * @author Kyle Turske
  * @version 0.5
