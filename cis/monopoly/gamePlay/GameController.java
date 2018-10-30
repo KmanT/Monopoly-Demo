@@ -66,6 +66,7 @@ public class GameController {
          */
 
         //PROPERTIES//
+        //(Name, propID, propPrice,
         propertyList.add(new Property(
                 "GO LAKERS", 0, 0, 0, 0, -1));
         propertyList.add(new Property(
