@@ -17,9 +17,28 @@ import javafx.stage.Stage;
  */
 public class Controller {
 
-    public Button btnNewGame, btnExit, btnMainMenu,
-            btnOnePlayer, btnTwoPlayer, btnThreePlayer,
-            btnFourPlayer;
+	/**Defines the button that starts a New Game getting info about the no. of
+     * players.*/
+    public Button btnNewGame;
+
+    /**Defines the button that exits the Game.*/
+    public Button btnExit;
+
+    /**Defines the button that starts a Main Menu.*/
+    public Button btnMainMenu;
+
+    
+    /**Defines the button that starts the Game with one player.*/
+    public Button btnOnePlayer;
+    
+    /**Defines the button that starts the Game with two players.*/
+    public Button btnTwoPlayer;
+    
+    /**Defines the button that starts the Game with three players.*/
+    public Button btnThreePlayer;
+    
+    /**Defines the button that starts the Game with four players.*/
+    public Button btnFourPlayer;
 
     /**
      * exitClick closes the window. btnExit utilizes this method.

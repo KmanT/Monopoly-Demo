@@ -17,9 +17,9 @@ import java.applet.Applet;
 public class Main extends Application {
 
     /**Defines the width of the window.*/
-    public static final int WINDOW_WIDTH = 1200;
+    public static final int WINDOW_WIDTH = 850;
     /**Defines the height of the window.*/
-    public static final int WINDOW_HEIGHT = 1000;
+    public static final int WINDOW_HEIGHT = 600;
 
     /**
      * This is the main method which launches the JavaFX GUI.

@@ -18,9 +18,17 @@ import javafx.stage.Stage;
  */
 
 public class ConfirmBox {
-
+    /**
+     * This defines the what the user clicked ("Yes" or "No).
+     * */
     static boolean answer;
 
+    /**
+     * This is a method that displays a pop-up of the confirmation the user.
+     * @param title This the title of the pop-up.
+     * @param message This the message that comes with the pop-up.
+     * @return answer This is either a "Yes" or "No".
+     * */
     public static boolean display(String title, String message)
     {
         Stage window = new Stage();
