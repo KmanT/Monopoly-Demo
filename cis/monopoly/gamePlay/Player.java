@@ -22,7 +22,7 @@ public class Player {
     private boolean inPlay;
     /**The current position of the player.*/
     private int playPosition;
-    /**Identifies the player clor/icon.*/
+    /**Identifies the player color/icon.*/
     private int playPieceID;
     /**How much money each player starts with.*/
     private static final int START_BALANCE = 1500;
@@ -39,8 +39,9 @@ public class Player {
      * @param playPosition Where the player is on the board.
      * @param playPieceID Used to determine the color of the piece on the board
      */
-    public Player(String playName, int playID, int playBalance,
-                  boolean inPlay, int playPosition, int playPieceID) {
+    public Player(final String playName, final int playID,
+    		final int playBalance, final boolean inPlay,
+    		final int playPosition, final int playPieceID) {
         this.playName = playName;
         this.playID = playID;
         this.playBalance = playBalance;
@@ -50,12 +51,12 @@ public class Player {
     }
 
     /**
-     * Constructor to use only when the player's name and ID are available
+     * Constructor to use only when the player's name and ID are available.
      * @param playName The name of the player. Will be used to identify each
      *                 player outside of the system.
      * @param playID The identifying value used in the GameController class
      */
-    public Player(String playName, int playID) {
+    public Player(final String playName, final int playID) {
         this.playName = playName;
         this.playID = playID;
         playBalance = START_BALANCE;
@@ -73,7 +74,8 @@ public class Player {
      *               "lose." Losing conditions to be set for the next release.
      * @param playPieceID Used to determine the color of the piece on the board
      */
-    public Player(int playID, boolean inPlay, int playPieceID) {
+    public Player(final int playID, final boolean inPlay,
+    		final int playPieceID) {
         playName = "";
         this.playID = playID;
         playBalance = START_BALANCE;
@@ -103,15 +105,15 @@ public class Player {
     }
 
     /**
-     * Sets the name of the player
+     * Sets the name of the player.
      * @param playName The player's name
      */
-    public void setPlayName(String playName) {
+    public void setPlayName(final String playName) {
         this.playName = playName;
     }
 
     /**
-     * Gives the player's ID
+     * Gives the player's ID.
      * @return playID The player's ID
      */
     public int getPlayID() {
@@ -122,35 +124,63 @@ public class Player {
      * Changes the player ID for whatever reason. May not need this
      * @param playID Player ID
      */
-    public void setPlayID(int playID) {
+    public void setPlayID(final int playID) {
         this.playID = playID;
     }
-
+    /**
+     * Get's the player's balance.
+     * @return the player's balance
+     */
     public int getPlayBalance() {
         return playBalance;
     }
-
-    public void setPlayBalance(int playBalance) {
+    
+    /**
+     * Set's the balance for the player.
+     * @param playBalance The player's balance
+     */
+    public void setPlayBalance(final int playBalance) {
         this.playBalance = playBalance;
     }
-
+    
+    /**
+     * Check's if the player is in play.
+     * @return If they are in play true; if not false.
+     */
     public boolean isInPlay() {
         return inPlay;
     }
-
-    public void setInPlay(boolean inPlay) {
+    
+    /**
+     * Changes the player's inPlay status meaning if they are in play or not.
+     * @param inPlay true or false
+     */
+    public void setInPlay(final boolean inPlay) {
         this.inPlay = inPlay;
     }
-
+    
+    /**
+     * Gets the player's current position.
+     * @return The player's position.
+     */
     public int getPlayPosition() {
         return playPosition;
     }
-
-    public void setPlayPosition(int playPosition) {
+    
+    /**
+     * Changes the position of the player.
+     * @param playPosition the new position.
+     */
+    public void setPlayPosition(final int playPosition) {
         this.playPosition = playPosition;
     }
-
-    public void movePlayerPosition(int boardLength, int roll) {
+    
+    /**
+     * Moves the player's position within the GameController.
+     * @param boardLength The max number of spaces (40)
+     * @param roll The number of spaces to move.
+     */
+    public void movePlayerPosition(final int boardLength, final int roll) {
         int newPos = playPosition + roll;
         if (newPos > boardLength) {
             playPosition = newPos - boardLength;
@@ -158,20 +188,36 @@ public class Player {
             playPosition = newPos;
         }
     }
-
+    
+    /**
+     * Get's the player's pieceID.
+     * @return The pieceID
+     */
     public int getPlayPieceID() {
         return playPieceID;
     }
-
-    public void setPlayPieceID(int playPieceID) {
+    
+    /**
+     * Changes the player's pieceID.
+     * @param playPieceID the new pieceID
+     */
+    public void setPlayPieceID(final int playPieceID) {
         this.playPieceID = playPieceID;
     }
-
-    public void addBalance(int amount) {
+    
+    /**
+     * Adds money to the player's balance.
+     * @param amount The amount to be added to the player's account
+     */
+    public void addBalance(final int amount) {
         playBalance += amount;
     }
-
-    public void subtractBalance(int amount) {
+    
+    /**
+     * Takes money from the player's balance.
+     * @param amount The amount of money to be taken from the player.
+     */
+    public void subtractBalance(final int amount) {
         playBalance -= amount;
     }
 
