@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.applet.Applet;
+
 
 /**<h1>Main</h1>
  * This is the main class that holds together the entire program. It will
@@ -16,11 +16,20 @@ import java.applet.Applet;
  */
 public class Main extends Application {
 
-    /**Defines the width of the window.*/
-    public static final int WINDOW_WIDTH = 850;
-    /**Defines the height of the window.*/
-    public static final int WINDOW_HEIGHT = 600;
-
+	//BIG WINDOW//
+    /**Defines the width of the window if it is big.*/
+    public static final int WINDOW_WIDTH_BIG = 1500;
+    
+    /**Defines the height of the window if it is big.*/
+    public static final int WINDOW_HEIGHT_BIG = 1000;
+    
+    //SMALL WINDOW//
+    /**Defines the width of the window if it is small.*/
+    public static final int WINDOW_WIDTH_SMALL = 1000;
+    /**Defines the height of the window if it is big.*/
+    public static final int WINDOW_HEIGHT_SMALL = 750;
+	
+    
     /**
      * This is the main method which launches the JavaFX GUI.
      * @param args the array for runtime in Java
@@ -39,7 +48,7 @@ public class Main extends Application {
        Parent root = FXMLLoader.load(getClass().
                getResource("guiElements/MainMenu.fxml"));
        primaryStage.setTitle("GVSU Monopoly");
-       primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
+       primaryStage.setScene(new Scene(root, WINDOW_WIDTH_BIG, WINDOW_HEIGHT_BIG));
        primaryStage.show();
 
        //test

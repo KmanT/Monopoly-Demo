@@ -12,7 +12,7 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="cis.monopoly.guiElements.Controller"
-      prefHeight="800.0" prefWidth="1200.0"
+      prefHeight="1000.0" prefWidth="1500.0"
       alignment="CENTER" spacing="10"
       styleClass="root">
     <padding>

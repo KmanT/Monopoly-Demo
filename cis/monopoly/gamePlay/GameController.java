@@ -66,7 +66,7 @@ public class GameController {
          */
 
         //PROPERTIES//
-        //(Name, propID, propPrice,
+        //(Name, propID, propPrice, propRent, propGroup, propOwnerID)
         propertyList.add(new Property(
                 "GO LAKERS", 0, 0, 0, 0, -1));
         propertyList.add(new Property(
@@ -90,7 +90,7 @@ public class GameController {
         propertyList.add(new Property(
                 "GVPD", 10, 0, 0, 0, -1));
         propertyList.add(new Property(
-                        "Holton-Hooker", 11, 140, 10, 3));
+                "Holton-Hooker", 11, 140, 10, 3));
         propertyList.add(new Property(
                 "GVSU Solar Garden", 12, 150, 40, 9));
         propertyList.add(new Property(
@@ -126,7 +126,7 @@ public class GameController {
         propertyList.add(new Property(
                 "GVSU Water Tower", 28, 150, 40, 9));
         propertyList.add(new Property(
-                "Little Mac Bridge", 29, 280, 24, 6));
+                "Arboretum Trail", 29, 280, 24, 6));
         propertyList.add(new Property(
                 "GO TO GVPD", 30, 0, 0, 0, -1));
         propertyList.add(new Property(
@@ -146,7 +146,7 @@ public class GameController {
         propertyList.add(new Property(
                 "Tuition", 38, 0, 0, 14, -1));
         propertyList.add(new Property(
-                "Lubbers Stadium", 37, 350, 35, 8));
+                "Lubbers Stadium", 39, 350, 35, 8));
 
         //DICE//
         dice = new GameDice();

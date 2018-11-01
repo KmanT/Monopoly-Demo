@@ -58,7 +58,7 @@ public class Controller {
             Parent root = FXMLLoader.
                     load(getClass().getResource("HowManyPlayers.fxml"));
             stage.setScene(new Scene(root,
-                    Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+                    Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG));
         } catch (java.io.IOException e) {
             AlertBox ioAlert = new AlertBox();
             ioAlert.display("ioException",
@@ -76,7 +76,7 @@ public class Controller {
             Parent root = FXMLLoader.load(getClass().
                     getResource("guiElements/MainMenu.fxml"));
             stage.setScene(new Scene(root,
-                    Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+                    Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG));
         } catch (java.io.IOException e) {
             AlertBox ioAlert = new AlertBox();
             ioAlert.display("ioException",
@@ -92,7 +92,7 @@ public class Controller {
         Stage stage = (Stage) btnOnePlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
         Scene gameScene = new Scene(gs.gamePlayScene(),
-                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+                Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG);
         stage.setScene(gameScene);
 
     }
@@ -106,7 +106,7 @@ public class Controller {
         Stage stage = (Stage) btnTwoPlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
         Scene gameScene = new Scene(gs.gamePlayScene(),
-                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+                Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG);
         stage.setScene(gameScene);
 
     }
@@ -119,7 +119,7 @@ public class Controller {
         Stage stage = (Stage) btnThreePlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
         Scene gameScene = new Scene(gs.gamePlayScene(),
-                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+                Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG);
         stage.setScene(gameScene);
 
     }
@@ -132,7 +132,7 @@ public class Controller {
         Stage stage = (Stage) btnFourPlayer.getScene().getWindow();
         GamePlayScene gs = new GamePlayScene();
         Scene gameScene = new Scene(gs.gamePlayScene(),
-                Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
+                Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG);
         stage.setScene(gameScene);
 
     }

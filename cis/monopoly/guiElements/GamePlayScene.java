@@ -1,6 +1,7 @@
 package cis.monopoly.guiElements;
 
-import cis.monopoly.*;
+
+import cis.monopoly.Main;
 import cis.monopoly.gameDrawers.BoardDrawer;
 import cis.monopoly.gameDrawers.DiceDrawer;
 import cis.monopoly.gamePlay.GameController;
@@ -50,9 +51,9 @@ public class GamePlayScene {
     private HBox statusPane = new HBox();
 
     public BorderPane gamePlayScene() {
-
-        gamePane.setPrefWidth(Main.WINDOW_WIDTH);
-        gamePane.setPrefHeight(Main.WINDOW_HEIGHT);
+    	
+        gamePane.setPrefWidth(Main.WINDOW_WIDTH_BIG);
+        gamePane.setPrefHeight(Main.WINDOW_HEIGHT_BIG);
         gamePane.getStylesheets().add("cis/monopoly/style.css");
 
         gamePane.setTop(menuPane);
@@ -73,7 +74,7 @@ public class GamePlayScene {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource
                         ("HowManyPlayers.fxml"));
-                stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+                stage.setScene(new Scene(root, Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG));
             } catch (java.io.IOException el) {
                 AlertBox ioAlert = new AlertBox();
                 ioAlert.display("ioException", "You have encountered an IO Exception");
@@ -93,7 +94,7 @@ public class GamePlayScene {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource
                         ("MainMenu.fxml"));
-                stage.setScene(new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+                stage.setScene(new Scene(root, Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG));
             } catch (java.io.IOException el) {
                 AlertBox ioAlert = new AlertBox();
                 ioAlert.display("ioException", "You have encountered an IO Exception");
@@ -155,10 +156,11 @@ public class GamePlayScene {
         playerPane.setVgap(10);
 
         //BOARD PANE//
-        boardPane.setPrefWidth(BoardDrawer.BOARD_LENGTH);
-        boardPane.setPrefHeight(BoardDrawer.BOARD_LENGTH);
+        
+        boardPane.setPrefWidth(BoardDrawer.BOARD_LENGTH_BIG);
+        boardPane.setPrefHeight(BoardDrawer.BOARD_LENGTH_BIG);
 
-        Canvas cvsBoard = new Canvas(BoardDrawer.BOARD_LENGTH, BoardDrawer.BOARD_LENGTH);
+        Canvas cvsBoard = new Canvas(BoardDrawer.BOARD_LENGTH_BIG, BoardDrawer.BOARD_LENGTH_BIG);
         GraphicsContext gcBoard = cvsBoard.getGraphicsContext2D();
 
 
@@ -186,7 +188,8 @@ public class GamePlayScene {
 
             //prints the current player and their position to the console
             System.out.println(gControl.getCurrentPlayer().getPlayID()
-            + ": " + gControl.getCurrentPlayer().getPlayPosition());
+            + "Position: " + gControl.getCurrentPlayer().getPlayPosition()
+            + " Roll: " + gControl.getDice().getTotalRoll());
 
             //draws the player movement
             BoardDrawer.drawFullPlayerMove(gcBoard, gControl.getCurrentPlayer().getPlayID(),
