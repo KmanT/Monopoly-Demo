@@ -26,30 +26,38 @@ import javafx.stage.Stage;
 
 /**
  * <h1>gamePlayScene</h1>
- *
- * This class defines all the different elements that go into the main game window.
- * This window contains a menu bar with different options, a pane dedicated to
- * all the player information, a pane that contains the dice and the roll button,
- * a bottom pane with misc information and actions, and then of course, the board
- * which changes whenever the player rolls the dice.
+ * This class defines all the different elements that go into the main game
+ * window. This window contains a menu bar with different options, a pane
+ * dedicated to all the player information, a pane that contains the dice and
+ * the roll button, a bottom pane with miscellaneous information and actions,
+ * and then of course, the board which changes whenever the player rolls the
+ * dice.
  */
-
 public class GamePlayScene {
 
+	/**Stores the scene information.*/
     private static Scene gameScene;
-
+    
+    /**Holds all the panes necessary for game play.*/
     private BorderPane gamePane = new BorderPane();
-    //top
+    
+    /**Contains the menu */
     private HBox menuPane = new HBox();
-    //left
+    
+    /**Shows the player information.*/
     private GridPane playerPane = new GridPane();
-    //center
+    
+    /**Contains the canvas for the board.*/
     private StackPane boardPane = new StackPane();
-    //right
+    
+    /**Contains the canvas for the dice.*/
     private VBox dicePane = new VBox();
-    //bottom
+    
+    /**Shows the bank information. Will contain buttons for players to trade or
+     * sell their houses.*/
     private HBox statusPane = new HBox();
-
+    
+    /**Sets up the layout for the gamePlayScene.*/
     public BorderPane gamePlayScene() {
     	
         gamePane.setPrefWidth(Main.WINDOW_WIDTH_BIG);
@@ -64,23 +72,22 @@ public class GamePlayScene {
 
         GameController gControl = new GameController();
 
-        //MENU PANE//
         MenuBar topMenu = new MenuBar();
         Menu menuFile = new Menu("File");
         MenuItem itmNewGame = new MenuItem("New Game");
 
-        itmNewGame.setOnAction( e -> {
+        itmNewGame.setOnAction(e -> {
             Stage stage = (Stage) topMenu.getScene().getWindow();
             try {
-                Parent root = FXMLLoader.load(getClass().getResource
-                        ("HowManyPlayers.fxml"));
-                stage.setScene(new Scene(root, Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG));
+                Parent root = FXMLLoader.load(getClass().getResource(
+                		"HowManyPlayers.fxml"));
+                stage.setScene(new Scene(root, Main.WINDOW_WIDTH_BIG,
+                		Main.WINDOW_HEIGHT_BIG));
             } catch (java.io.IOException el) {
-                AlertBox ioAlert = new AlertBox();
-                ioAlert.display("ioException", "You have encountered an IO Exception");
+                AlertBox.display("ioException",
+                		"You have encountered an IO Exception");
             }
         });
-
 
         MenuItem itmLoadGame = new MenuItem("Load Game");
         MenuItem itmSaveGame = new MenuItem("Save Game");
@@ -89,15 +96,16 @@ public class GamePlayScene {
         Menu menuExit = new Menu("Exit");
         MenuItem itmMainMenu = new MenuItem("Exit to Main Menu");
 
-        itmMainMenu.setOnAction( e -> {
+        itmMainMenu.setOnAction(e -> {
             Stage stage = (Stage) topMenu.getScene().getWindow();
             try {
-                Parent root = FXMLLoader.load(getClass().getResource
-                        ("MainMenu.fxml"));
-                stage.setScene(new Scene(root, Main.WINDOW_WIDTH_BIG, Main.WINDOW_HEIGHT_BIG));
+                Parent root = FXMLLoader.load(getClass().getResource(
+                		"MainMenu.fxml"));
+                stage.setScene(new Scene(root, Main.WINDOW_WIDTH_BIG,
+                		Main.WINDOW_HEIGHT_BIG));
             } catch (java.io.IOException el) {
-                AlertBox ioAlert = new AlertBox();
-                ioAlert.display("ioException", "You have encountered an IO Exception");
+                AlertBox.display("ioException",
+                		"You have encountered an IO Exception");
             }
         });
 
@@ -160,7 +168,8 @@ public class GamePlayScene {
         boardPane.setPrefWidth(BoardDrawer.BOARD_LENGTH_BIG);
         boardPane.setPrefHeight(BoardDrawer.BOARD_LENGTH_BIG);
 
-        Canvas cvsBoard = new Canvas(BoardDrawer.BOARD_LENGTH_BIG, BoardDrawer.BOARD_LENGTH_BIG);
+        Canvas cvsBoard = new Canvas(BoardDrawer.BOARD_LENGTH_BIG,
+        		BoardDrawer.BOARD_LENGTH_BIG);
         GraphicsContext gcBoard = cvsBoard.getGraphicsContext2D();
 
 
@@ -201,27 +210,14 @@ public class GamePlayScene {
             
             gControl.spaceCheck();
 
-            //Changes all the corresponding labels to their appropriate values
-            lblBank.setText("Bank: $" + gControl.getBankFunds());
-            lblPlayer1.setText("Player 1: $" +
-                    gControl.getSpecificPlayer(1).getPlayBalance());
-            lblPlayer2.setText("Player 2: $" +
-                    gControl.getSpecificPlayer(2).getPlayBalance());
-            lblPlayer3.setText("Player 3: $" +
-                    gControl.getSpecificPlayer(3).getPlayBalance());
-            lblPlayer4.setText("Player 4: $" +
-                    gControl.getSpecificPlayer(4).getPlayBalance());
-
-            //changes the turn for the current player
+            updateLabels(gControl, lblBank, lblPlayer1, lblPlayer2, lblPlayer3, 
+            		lblPlayer4);
             gControl.changeCurrentPlayer();
         });
 
         dicePane.getChildren().addAll(cvsDice, btnRoll);
         dicePane.setAlignment(Pos.TOP_CENTER);
         dicePane.setSpacing(10);
-
-
-
         return gamePane;
     }
 
@@ -232,10 +228,34 @@ public class GamePlayScene {
      * @param gc
      */
 
-    public static void updateDicePane(GameDice dice, GraphicsContext gc) {
+    public static void updateDicePane(final GameDice dice,
+    		final GraphicsContext gc) {
         dice.rollTwo();
         DiceDrawer.drawDie(gc, 50, 50, dice.getDieOne());
         DiceDrawer.drawDie(gc, 150, 150, dice.getDieTwo());
+    }
+    /**
+     * Updates all of the labels relating to the players and the bank. Called
+     * after each turn is executed.
+     * @param gc
+     * @param bank
+     * @param playerOne
+     * @param playerTwo
+     * @param playerThree
+     * @param playerFour
+     */
+    public static void updateLabels(final GameController gc, final Label bank,
+    		final Label playerOne, final Label playerTwo,
+    		final Label playerThree, final Label playerFour) {
+    	bank.setText("Bank: $" + gc.getBankFunds());
+        playerOne.setText("Player 1: $" 
+        		+ gc.getSpecificPlayer(1).getPlayBalance());
+        playerTwo.setText("Player 2: $" 
+        		+ gc.getSpecificPlayer(2).getPlayBalance());
+        playerThree.setText("Player 3: $" 
+        		+ gc.getSpecificPlayer(3).getPlayBalance());
+        playerFour.setText("Player 4: $" 
+        		+ gc.getSpecificPlayer(4).getPlayBalance());
     }
 
     /**
@@ -243,7 +263,6 @@ public class GamePlayScene {
      * this scene.
      * @return gameScene
      */
-
     public static Scene getGameScene() {
         return gameScene;
     }
