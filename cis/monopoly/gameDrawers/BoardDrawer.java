@@ -441,7 +441,7 @@ public class BoardDrawer {
         } else if (position > 30 && position <= 39) {
             //RIGHT COLUMN//
             originX = 704;
-            originY = 110 + PROPERTY_WIDTH_BIG * (position - 30);
+            originY = 110 + PROPERTY_WIDTH_BIG * (position - 31);
             switch (playerID) {
                 case 1: drawPiece(gc, originX + 34, originY, playerColor);
                     break;
