@@ -172,13 +172,14 @@ public class GamePlayScene {
         statusPane.getChildren().addAll(lblBank);
 
         //DICE PANE//
-        Canvas cvsDice = new Canvas(DiceDrawer.DICE_BOWL_DIAMETER, DiceDrawer.DICE_BOWL_DIAMETER);
+        Canvas cvsDice = new Canvas(DiceDrawer.DICE_BOWL_DIAMETER,
+        		DiceDrawer.DICE_BOWL_DIAMETER);
         GraphicsContext gcDice = cvsDice.getGraphicsContext2D();
         DiceDrawer.drawDiceBowl(gcDice, 0, 0);
 
         Button btnRoll = new Button("ROLL!");
 
-        btnRoll.setOnAction( e -> {
+        btnRoll.setOnAction(e -> {
             //changes the number on the die
             updateDicePane(gControl.getDice(), gcDice);
 
@@ -192,15 +193,13 @@ public class GamePlayScene {
             + " Roll: " + gControl.getDice().getTotalRoll());
 
             //draws the player movement
-            BoardDrawer.drawFullPlayerMove(gcBoard, gControl.getCurrentPlayer().getPlayID(),
-                    gControl.getCurrentPlayer().getPlayPosition(),
-                    gControl.getDice().getTotalRoll(), gControl.getCurrentPlayer().getPlayPieceID());
-
-            //show dialogue box showing current player position
-            //AlertBox.display("Player " + Integer.toString(gControl.getCurrentPlayer().getPlayID()),
-                    //gControl.getCurrentPlayerPosition().getSpaceName());
+            BoardDrawer.drawFullPlayerMove(gcBoard,
+            		gControl.getCurrentPlayer().getPlayID(),
+            		gControl.getCurrentPlayer().getPlayPosition(),
+                    gControl.getDice().getTotalRoll(),
+                    gControl.getCurrentPlayer().getPlayPieceID());
+            
             gControl.spaceCheck();
-
 
             //Changes all the corresponding labels to their appropriate values
             lblBank.setText("Bank: $" + gControl.getBankFunds());
@@ -228,7 +227,7 @@ public class GamePlayScene {
 
     /**
      * Used to roll the dice in the GameController class as well as draw
-     * the corresponding values to the Dice Canvas
+     * the corresponding values to the Dice Canvas.
      * @param dice
      * @param gc
      */
@@ -241,7 +240,7 @@ public class GamePlayScene {
 
     /**
      * Used to return the gameScene so that the window can be changed to
-     * this scene
+     * this scene.
      * @return gameScene
      */
 

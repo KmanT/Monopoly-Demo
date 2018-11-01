@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * This class is used to for confirmation of a decision. The ConfirmBox will return a boolean
@@ -32,6 +33,7 @@ public class ConfirmBox {
     public static boolean display(String title, String message)
     {
         Stage window = new Stage();
+        window.initStyle(StageStyle.UNDECORATED);        
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
         window.setMinWidth(350);

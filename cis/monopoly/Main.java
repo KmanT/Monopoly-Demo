@@ -41,7 +41,7 @@ public class Main extends Application {
      * This the start method which loads the primary stage, MainMenu.fxml.
      * Sets the window height to 1000px and the window width to 1200.
      * @param primaryStage The main stage of the window
-     * @throws Exception
+     * @throws Exception Any exception regarding the stage entered
      */
     @Override
     public void start(final Stage primaryStage) throws Exception {

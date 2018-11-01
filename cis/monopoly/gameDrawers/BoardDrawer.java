@@ -286,7 +286,7 @@ public class BoardDrawer {
     public static void drawPiece(final GraphicsContext gc, final double xpos,
     		final double ypos, final Color color) {
         gc.setFill(color);
-        gc.fillRect(xpos,ypos, PIECE_WIDTH_BIG, PIECE_WIDTH_BIG);
+        gc.fillRect(xpos, ypos, PIECE_WIDTH_BIG, PIECE_WIDTH_BIG);
     }
     
     /**
@@ -320,13 +320,13 @@ public class BoardDrawer {
             originX = 704;
             originY = 704;
             switch (playerID) {
-                case 1: drawPiece(gc, originX + 78, originY, playerColor);
+                case 1: drawPiece(gc, originX + 77, originY + 1, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 78, originY + 46, playerColor);
+                case 2: drawPiece(gc, originX + 77, originY + 46, playerColor);
                     break;
-                case 3: drawPiece(gc, originX + 46, originY + 78, playerColor);
+                case 3: drawPiece(gc, originX + 46, originY + 77, playerColor);
                     break;
-                case 4: drawPiece(gc, originX, originY + 78, playerColor);
+                case 4: drawPiece(gc, originX + 1, originY + 77, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -338,13 +338,13 @@ public class BoardDrawer {
             originX = 704 - PROPERTY_WIDTH_BIG * position;
             originY = 704;
             switch (playerID) {
-                case 1: drawPiece(gc, originX, originY + 40, playerColor);
+                case 1: drawPiece(gc, originX + 1, originY + 40, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 34, originY + 40, playerColor);
+                case 2: drawPiece(gc, originX + 33, originY + 40, playerColor);
                     break;
-                case 3: drawPiece(gc, originX, originY + 74, playerColor);
+                case 3: drawPiece(gc, originX + 1, originY + 74, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 34, originY + 74, playerColor);
+                case 4: drawPiece(gc, originX + 33, originY + 74, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -356,13 +356,13 @@ public class BoardDrawer {
             originX = 0;
             originY = 704;
             switch (playerID) {
-                case 1: drawPiece(gc, originX + 78, originY + 78, playerColor);
+                case 1: drawPiece(gc, originX + 77, originY + 74, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 32, originY + 78, playerColor);
+                case 2: drawPiece(gc, originX + 33, originY + 74, playerColor);
                     break;
-                case 3: drawPiece(gc, originX, originY + 46, playerColor);
+                case 3: drawPiece(gc, originX + 1, originY + 46, playerColor);
                     break;
-                case 4: drawPiece(gc, originX, originY, playerColor);
+                case 4: drawPiece(gc, originX + 4, originY + 1, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -374,13 +374,13 @@ public class BoardDrawer {
             originX = 0;
             originY = 704 - PROPERTY_WIDTH_BIG * (position - 10);
             switch (playerID) {
-                case 1: drawPiece(gc, originX + 4, originY, playerColor);
+                case 1: drawPiece(gc, originX + 4, originY + 1, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 34, originY, playerColor);
+                case 2: drawPiece(gc, originX + 33, originY + 1, playerColor);
                     break;
-                case 3: drawPiece(gc, originX + 4, originY + 34, playerColor);
+                case 3: drawPiece(gc, originX + 4, originY + 33, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 34, originY + 34, playerColor);
+                case 4: drawPiece(gc, originX + 33, originY + 33, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -392,13 +392,13 @@ public class BoardDrawer {
             originX = 0;
             originY = 0;
             switch (playerID) {
-                case 1: drawPiece(gc, originX, originY + 78, playerColor);
+                case 1: drawPiece(gc, originX + 4, originY + 77, playerColor);
                     break;
-                case 2: drawPiece(gc, originX, originY + 32, playerColor);
+                case 2: drawPiece(gc, originX + 4, originY + 33, playerColor);
                     break;
-                case 3: drawPiece(gc, originX + 32, originY, playerColor);
+                case 3: drawPiece(gc, originX + 33, originY + 4, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 78, originY, playerColor);
+                case 4: drawPiece(gc, originX + 77, originY + 4, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -409,13 +409,13 @@ public class BoardDrawer {
             originX = 110 + PROPERTY_WIDTH_BIG * (position - 21);
             originY = 0;
             switch (playerID) {
-                case 1: drawPiece(gc, originX, originY + 4, playerColor);
+                case 1: drawPiece(gc, originX + 1, originY + 4, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 34, originY + 4, playerColor);
+                case 2: drawPiece(gc, originX + 33, originY + 4, playerColor);
                     break;
-                case 3: drawPiece(gc, originX, originY + 34, playerColor);
+                case 3: drawPiece(gc, originX + 1, originY + 34, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 34, originY + 34, playerColor);
+                case 4: drawPiece(gc, originX + 33, originY + 34, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -424,15 +424,15 @@ public class BoardDrawer {
         }  else if (position == 30) {
             //GO TO JAIL CORNER//
             originX = 704;
-            originY = 110;
+            originY = 0;
             switch (playerID) {
-                case 1: drawPiece(gc, originX, originY, playerColor);
+                case 1: drawPiece(gc, originX + 1, originY + 4, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 46, originY, playerColor);
+                case 2: drawPiece(gc, originX + 45, originY + 4, playerColor);
                     break;
-                case 3: drawPiece(gc, originX + 78, originY + 32, playerColor);
+                case 3: drawPiece(gc, originX + 77, originY + 33, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 78, originY + 78, playerColor);
+                case 4: drawPiece(gc, originX + 77, originY + 77, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -443,13 +443,13 @@ public class BoardDrawer {
             originX = 704;
             originY = 110 + PROPERTY_WIDTH_BIG * (position - 31);
             switch (playerID) {
-                case 1: drawPiece(gc, originX + 34, originY, playerColor);
+                case 1: drawPiece(gc, originX + 34, originY + 1, playerColor);
                     break;
-                case 2: drawPiece(gc, originX + 68, originY, playerColor);
+                case 2: drawPiece(gc, originX + 68, originY + 1, playerColor);
                     break;
-                case 3: drawPiece(gc, originX + 34, originY + 34, playerColor);
+                case 3: drawPiece(gc, originX + 34, originY + 33, playerColor);
                     break;
-                case 4: drawPiece(gc, originX + 68, originY + 34, playerColor);
+                case 4: drawPiece(gc, originX + 68, originY + 33, playerColor);
                     break;
                 default:
                     AlertBox.display("Player ID Error", "Something"
@@ -458,7 +458,20 @@ public class BoardDrawer {
         }
 
     }
-
+    
+    /**
+     * Draws the move of the player on the board. If the old position of the
+     * player plus the roll is over the length of the board array, then the
+     * new player position will go back to the beginning and continue.
+     * Otherwise, the new player position will be the old position plus the
+     * roll.
+     * @param gc The graphics context connected to the board canvas.
+     * @param playerID The id of the current player making a turn.
+     * @param position Where the player currently is.
+     * @param roll The number of spaces to move.
+     * @param pieceID Determines the color (eventually icon) belonging to the
+     * current player.
+     */
     public static void drawFullPlayerMove(final GraphicsContext gc,
     		final int playerID, final int position, final int roll,
     		final int pieceID) {
