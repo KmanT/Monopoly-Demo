@@ -15,13 +15,14 @@ public class BoardDrawer {
 
     //BOARD VALUES//
 	/**
-	 * The length of the board if the screen is big. Also used for the height since that the board
-	 *  is square.
+	 * The length of the board if the screen is big. Also used for the height
+	 * since that the board is square.
 	 */
     public static final int BOARD_LENGTH_BIG = 814;
     
     /**
-	 * The length of the board if the screen is small. Also used for the height since that the board
+	 * The length of the board if the screen is small. Also used for the height
+	 * since that the board is square.
 	 *  is square.
 	 */
     public static final int BOARD_LENGTH_SMALL = 412;
@@ -52,7 +53,7 @@ public class BoardDrawer {
      * board. Also used to define the height of the spaces that are on the left
      * and right side of the board. Smaller variation.
      */
-    public static final int PROPERTY_WIDTh_SMALL = 33;
+    public static final int PROPERTY_WIDTH_SMALL = 33;
     
     /**
      * Each property has a part of the their space that shows their
@@ -107,7 +108,8 @@ public class BoardDrawer {
         gc.fillRect(xpos, ypos, PROPERTY_WIDTH_BIG, PROPERTY_HEIGHT_BIG);
 
         gc.setFill(color);
-        gc.fillRect(xpos, ypos + 80, PROPERTY_WIDTH_BIG, PROPERTY_FLAG_HEIGHT_BIG);
+        gc.fillRect(xpos, ypos + 80, PROPERTY_WIDTH_BIG,
+        		PROPERTY_FLAG_HEIGHT_BIG);
         gc.strokeRect(xpos, ypos, PROPERTY_WIDTH_BIG, PROPERTY_HEIGHT_BIG);
 
     }

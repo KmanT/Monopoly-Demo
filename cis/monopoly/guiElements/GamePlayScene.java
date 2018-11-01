@@ -144,13 +144,13 @@ public class GamePlayScene {
         //Label lblPName4 = new Label();
         //lblPName4.getStyleClass().add("lblPlayer");
 
-        playerPane.setConstraints(lblPlayer1, 0, 0);
+        GridPane.setConstraints(lblPlayer1, 0, 0);
         //playerPane.setConstraints(lblPName1, 1, 0);
-        playerPane.setConstraints(lblPlayer2, 0, 1);
+        GridPane.setConstraints(lblPlayer2, 0, 1);
         //playerPane.setConstraints(lblPName2, 1, 1);
-        playerPane.setConstraints(lblPlayer3, 0, 2);
+        GridPane.setConstraints(lblPlayer3, 0, 2);
         //playerPane.setConstraints(lblPName3, 1, 2);
-        playerPane.setConstraints(lblPlayer4, 0, 3);
+        GridPane.setConstraints(lblPlayer4, 0, 3);
         //playerPane.setConstraints(lblPName4, 1, 3);
         /*
         playerPane.getChildren().addAll(lblPlayer1, lblPName1,
@@ -224,10 +224,9 @@ public class GamePlayScene {
     /**
      * Used to roll the dice in the GameController class as well as draw
      * the corresponding values to the Dice Canvas.
-     * @param dice
-     * @param gc
+     * @param dice Used to get the rolls for die one and die two.
+     * @param gc The graphics context connected to the dice canvas.
      */
-
     public static void updateDicePane(final GameDice dice,
     		final GraphicsContext gc) {
         dice.rollTwo();
@@ -237,12 +236,13 @@ public class GamePlayScene {
     /**
      * Updates all of the labels relating to the players and the bank. Called
      * after each turn is executed.
-     * @param gc
-     * @param bank
-     * @param playerOne
-     * @param playerTwo
-     * @param playerThree
-     * @param playerFour
+     * @param gc The gameController to get the accounts from the players and
+     * the bank
+     * @param bank The label for the bank.
+     * @param playerOne The label for player one.
+     * @param playerTwo The label for player two.
+     * @param playerThree The label for player three.
+     * @param playerFour The label for player four.
      */
     public static void updateLabels(final GameController gc, final Label bank,
     		final Label playerOne, final Label playerTwo,
