@@ -67,86 +67,48 @@ public class GameController {
 
         //PROPERTIES//
         //(Name, propID, propPrice, propRent, propGroup, propOwnerID)
+        propertyList.add(new Property("GO LAKERS", 0, 0, 0, 0, -1));
+        propertyList.add(new Property("Freshman Land", 1, 60, 2, 1));
+        propertyList.add(new Property("Community Chest", 2, 0, 0, 11, -1));
+        propertyList.add(new Property("Kleiner Commons", 3, 60, 4, 1));
+        propertyList.add(new Property("Income Tax", 4, 0, 0, 13, -1));
+        propertyList.add(new Property("Route 37", 5, 200, 25, 10));
+        propertyList.add(new Property("Ravine Center", 6, 100, 6, 2));
+        propertyList.add(new Property("Chance", 7, 0, 0, 12, -1));
+        propertyList.add(new Property("The Commons", 8, 100, 6, 2));
+        propertyList.add(new Property("Campus Saftey Center", 9, 120, 8, 2));
+        propertyList.add(new Property("GVPD", 10, 0, 0, 0, -1));
+        propertyList.add(new Property("Holton-Hooker", 11, 140, 10, 3));
+        propertyList.add(new Property("GVSU Solar Garden", 12, 150, 40, 9));
+        propertyList.add(new Property("Mackinac Hall", 13, 140, 10, 3));
+        propertyList.add(new Property("Great Lakes Plaza", 14, 160, 12, 3));
+        propertyList.add(new Property("Route 48", 15, 200, 25, 10));
+        propertyList.add(new Property("Kindschi Hall", 16, 180, 14, 4));
+        propertyList.add(new Property("Community Chest", 17, 0, 0, 11, -1));
+        propertyList.add(new Property("The Marketplace", 18, 180, 14, 4));
+        propertyList.add(new Property("Padnos Hall", 19, 200, 16, 4));
+        propertyList.add(new Property("Student Parking", 20, 0, 0, 0, -1));
         propertyList.add(new Property(
-                "GO LAKERS", 0, 0, 0, 0, -1));
+        		"Grand Valley Apartments", 21, 220, 18, 5));
+        propertyList.add(new Property("Chance", 22, 0, 0, 12, -1));
+        propertyList.add(new Property("The Connection", 23, 220, 18, 5));
+        propertyList.add(new Property("Laker Village", 24, 240, 20, 5));
+        propertyList.add(new Property("Route 50", 25, 200, 25, 10));
+        propertyList.add(new Property("Zumberge Pond", 26, 260, 22, 6));
+        propertyList.add(new Property("Little Mac Bridge", 27, 260, 22, 6));
+        propertyList.add(new Property("GVSU Water Tower", 28, 150, 40, 9));
+        propertyList.add(new Property("Arboretum Trail", 29, 280, 24, 6));
+        propertyList.add(new Property("GO TO GVPD", 30, 0, 0, 0, -1));
+        propertyList.add(new Property("The Fieldhouse", 31, 300, 26, 7));
+        propertyList.add(new Property("Kirkhoff Center", 32, 300, 26, 7));
+        propertyList.add(new Property("Community Chest", 33, 0, 0, 11, -1));
         propertyList.add(new Property(
-                "Freshman Land", 1, 60, 2, 1));
-        propertyList.add(new Property(
-                "Community Chest", 2, 0, 0, 11, -1));
-        propertyList.add(new Property(
-                "Kleiner Commons", 3, 60, 4, 1));
-        propertyList.add(new Property(
-                "Income Tax", 4, 0, 0, 13, -1));
-        propertyList.add(new Property(
-                "Route 37", 5, 200, 25, 10));
-        propertyList.add(new Property(
-                "Ravine Center", 6, 100, 6, 2));
-        propertyList.add(new Property(
-                "Chance", 7, 0, 0, 12, -1));
-        propertyList.add(new Property(
-                "The Commons", 8, 100, 6, 2));
-        propertyList.add(new Property(
-                "Campus Saftey Center", 9, 120, 8, 2));
-        propertyList.add(new Property(
-                "GVPD", 10, 0, 0, 0, -1));
-        propertyList.add(new Property(
-                "Holton-Hooker", 11, 140, 10, 3));
-        propertyList.add(new Property(
-                "GVSU Solar Garden", 12, 150, 40, 9));
-        propertyList.add(new Property(
-                "Mackinac Hall", 13, 140, 10, 3));
-        propertyList.add(new Property(
-                "Great Lakes Plaza", 14, 160, 12, 3));
-        propertyList.add(new Property(
-                "Route 48", 15, 200, 25, 10));
-        propertyList.add(new Property(
-                "Kindschi Hall", 16, 180, 14, 4));
-        propertyList.add(new Property(
-                "Community Chest", 17, 0, 0, 11, -1));
-        propertyList.add(new Property(
-                "The Marketplace", 18, 180, 14, 4));
-        propertyList.add(new Property(
-                "Padnos Hall", 19, 200, 16, 4));
-        propertyList.add(new Property(
-                "Student Parking", 20, 0, 0, 0, -1));
-        propertyList.add(new Property(
-                "Grand Valley Apartments", 21, 220, 18, 5));
-        propertyList.add(new Property(
-                "Chance", 22, 0, 0, 12, -1));
-        propertyList.add(new Property(
-                "The Connection", 23, 220, 18, 5));
-        propertyList.add(new Property(
-                "Laker Village", 24, 240, 20, 5));
-        propertyList.add(new Property(
-                "Route 50", 25, 200, 25, 10));
-        propertyList.add(new Property(
-                "Zumberge Pond", 26, 260, 22, 6));
-        propertyList.add(new Property(
-                "Little Mac Bridge", 27, 260, 22, 6));
-        propertyList.add(new Property(
-                "GVSU Water Tower", 28, 150, 40, 9));
-        propertyList.add(new Property(
-                "Arboretum Trail", 29, 280, 24, 6));
-        propertyList.add(new Property(
-                "GO TO GVPD", 30, 0, 0, 0, -1));
-        propertyList.add(new Property(
-                "The Fieldhouse", 31, 300, 26, 7));
-        propertyList.add(new Property(
-                "Kirkhoff Center", 32, 300, 26, 7));
-        propertyList.add(new Property(
-                "Community Chest", 33, 0, 0, 11, -1));
-        propertyList.add(new Property(
-                "Mary Idema Pew Library", 34, 320, 28, 7));
-        propertyList.add(new Property(
-                "Route 85", 35, 200, 25, 10));
-        propertyList.add(new Property(
-                "Chance", 36, 0, 0, 12, -1));
-        propertyList.add(new Property(
-                "Cook Carillon Tower", 37, 350, 35, 8));
-        propertyList.add(new Property(
-                "Tuition", 38, 0, 0, 14, -1));
-        propertyList.add(new Property(
-                "Lubbers Stadium", 39, 350, 35, 8));
+        		"Mary Idema Pew Library", 34, 320, 28, 7));
+        propertyList.add(new Property("Route 85", 35, 200, 25, 10));
+        propertyList.add(new Property("Chance", 36, 0, 0, 12, -1));
+        propertyList.add(new Property("Cook Carillon Tower", 37, 350, 35, 8));
+        propertyList.add(new Property("Tuition", 38, 0, 0, 14, -1));
+        propertyList.add(new Property("Lubbers Stadium", 39, 350, 35, 8));
 
         //DICE//
         dice = new GameDice();
@@ -188,7 +150,7 @@ public class GameController {
 
     /**
      * Used by the GamePlayScene to get the dice attributes in order
-     * to draw the dice properly
+     * to draw the dice properly.
      * @return dice
      */
     public GameDice getDice() {
@@ -219,12 +181,13 @@ public class GameController {
 
     /**
      * The amount given is subtracted from the first player's balance, whilst
-     * the amount given is added to the second player's balance
+     * the amount given is added to the second player's balance.
      * @param p1 Player giving funds
      * @param p2 Player getting funds
      * @param amount Amount for transaction
      */
-    public static void transferPlayerFunds(final Player p1, final Player p2, final int amount) {
+    public static void transferPlayerFunds(final Player p1, final Player p2,
+    		final int amount) {
         p1.subtractBalance(amount);
         p2.addBalance(amount);
     }
@@ -263,8 +226,9 @@ public class GameController {
      */
     public Player getCurrentPlayer() {
         for (Player player : playerList) {
-            if (player.getPlayID() == currentPlayer)
-                return player;
+            if (player.getPlayID() == currentPlayer) {
+            	return player;
+            }                
         }
         return null;
     }
@@ -294,7 +258,9 @@ public class GameController {
         Player p = getCurrentPlayer();
 
         for (Property prop : propertyList) {
-            if (prop.spaceID == p.getPlayPosition()) return prop;
+            if (prop.spaceID == p.getPlayPosition()) {
+            	return prop;
+            }
         }
         return null;
     }
@@ -337,7 +303,7 @@ public class GameController {
                         + prop.getSpaceName() + " for $"
                         + Integer.toString(prop.getPropPrice()) + "?");
 
-        if (isBought == true) {
+        if (isBought) {
             playerPayBank(player, prop.getPropPrice());
             prop.setPropOwnerID(player.getPlayID());
         }
@@ -361,7 +327,7 @@ public class GameController {
 
     /**
      * This method changes the currentPlayer value in this class. If the
-     * addition will rollover the the total number of players, then the current
+     * addition will roll-over the the total number of players, then the current
      * player will be changed.
      * to player 1.
      */
