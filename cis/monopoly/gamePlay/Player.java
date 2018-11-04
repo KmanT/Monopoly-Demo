@@ -24,6 +24,9 @@ public class Player {
     private int playPosition;
     /**Identifies the player color/icon.*/
     private int playPieceID;
+    /**If the player is in jail, then the player can't move unless the count is
+     * set to 0.*/
+    private int inJailCount;
     /**How much money each player starts with.*/
     private static final int START_BALANCE = 1500;
 
@@ -38,16 +41,20 @@ public class Player {
      *               "lose." Losing conditions to be set for the next release.
      * @param playPosition Where the player is on the board.
      * @param playPieceID Used to determine the color of the piece on the board
+     * @param inJailCount Determines whether or not the player can move if they
+     * are in Jail.
      */
     public Player(final String playName, final int playID,
     		final int playBalance, final boolean inPlay,
-    		final int playPosition, final int playPieceID) {
+    		final int playPosition, final int playPieceID,
+    		final int inJailCount) {
         this.playName = playName;
         this.playID = playID;
         this.playBalance = playBalance;
         this.inPlay = inPlay;
         this.playPosition = playPosition;
         this.playPieceID = playPieceID;
+        this.inJailCount = inJailCount;
     }
 
     /**
@@ -63,6 +70,7 @@ public class Player {
         inPlay = true;
         playPosition = 0;
         playPieceID = 0;
+        inJailCount = 0;
     }
 
     /**
@@ -82,6 +90,7 @@ public class Player {
         this.inPlay = inPlay;
         playPosition = 0;
         this.playPieceID = playPieceID;
+        inJailCount = 0;
     }
 
     /**
@@ -94,6 +103,7 @@ public class Player {
         inPlay = false;
         playPosition = 0;
         playPieceID = 0;
+        inJailCount = 0;
     }
 
     /**
@@ -219,6 +229,37 @@ public class Player {
      */
     public void subtractBalance(final int amount) {
         playBalance -= amount;
+    }
+    
+    /**
+     * Gets the number of turns the player is in jail.
+     * @return The number of turns the player is in jail.
+     */
+    public int getInJailCount() {
+    	return inJailCount;
+    }
+    
+    /**
+     * Puts the player in jail, and they cannot move.
+     */
+    public void putInJail() {
+    	inJailCount = 3;
+    }
+    
+    /**
+     * Called whenever the player is in jail and they do not roll doubles.
+     * Lowers the jail sentence by one.
+     */
+    public void lowerInJail() {
+    	inJailCount--;
+    }
+    
+    /**
+     * Called when a player uses a "Get Out of Jail Free" card or rolls doubles
+     * while they are in jail. Reduces their sentence to 0.
+     */
+    public void freeInJail() {
+    	inJailCount = 0;
     }
 
 }

@@ -213,6 +213,14 @@ public class GamePlayScene {
                     gControl.getCurrentPlayer().getPlayPieceID());
             
             gControl.spaceCheck();
+            
+            if (gControl.getCurrentPlayer().getPlayPosition() == 30) {
+            	BoardDrawer.movePiece(gcBoard, 
+            			gControl.getCurrentPlayer().getPlayID(), 30, 0);
+            	BoardDrawer.movePiece(gcBoard, 
+            			gControl.getCurrentPlayer().getPlayID(), 10,
+            			gControl.getCurrentPlayer().getPlayPieceID());
+            }
 
             updateLabels(gControl, lblBank, lblPlayer1, lblPlayer2, lblPlayer3, 
             		lblPlayer4);

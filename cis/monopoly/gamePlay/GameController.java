@@ -311,11 +311,13 @@ public class GameController {
         	CommunityBox.display("BottomText", true, 500);
         } else if (prop.getPropGroup() == 12) {
         	ChanceBox.display("BottomText", 1, 500, this);
+        } else if (prop.getSpaceID() == 30) {
+        	playerGoToJail(player);
         }
         
         //group for Chance
         
-        //group for Community Chesta
+        //group for Community Chest
         
         //space is luxury tax
         
@@ -360,14 +362,19 @@ public class GameController {
     /**
      * This method changes the currentPlayer value in this class. If the
      * addition will roll-over the the total number of players, then the current
-     * player will be changed.
-     * to player 1.
+     * player will be changed to player 1. If that next player is in jail, then
+     * their sentence will be lowered and the method will be called again.
      */
     public void changeCurrentPlayer() {
         if (currentPlayer + 1 > playerList.size()) {
             currentPlayer = 1;
         } else {
             currentPlayer += 1;
+        }
+        
+        if (getCurrentPlayer().getInJailCount() > 0) {
+        	getCurrentPlayer().lowerInJail();
+        	changeCurrentPlayer();
         }
     }
 
@@ -378,6 +385,16 @@ public class GameController {
      */
     public int getBankFunds() {
         return bank;
+    }
+    
+    /**
+     * When the player lands on the "GO TO JAIL" space, they will be sent to the
+     * jail space and their inJailCount will be set to three.
+     * @param player
+     */
+    public void playerGoToJail(final Player player) {
+    	player.setPlayPosition(10);
+    	player.putInJail();
     }
 
 }
