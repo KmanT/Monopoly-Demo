@@ -45,7 +45,7 @@
     <Button text="Back" fx:id="btnMainMenu" onAction="#mainMenuClick"/>
 
     <stylesheets>
-        <URL value="@../style.css" />
+        <URL value="@main-style.css" />
     </stylesheets>
 
 

@@ -1,0 +1,26 @@
+.root {
+	-fx-font-size: 14px;
+    -fx-font-family: sans-serif;
+    -fx-background-color: #ffd11a;
+    -fx-color: #ffd11a;
+    -fx-border-insets: 5;
+    -fx-border-width: 3;
+    -fx-border-color: #000000;
+}
+
+.label {
+	-fx-font-size: 20px;
+	-fx-text-fill: #000000;
+}
+
+.button {
+	-fx-font-size: 20px;
+	-fx-text-fill: #000000;
+    -fx-background-color: #e6b800;
+    -fx-padding: 5;
+    -fx-margin: 10;
+}
+
+.image {
+	-fx-background-color: transparent;
+}

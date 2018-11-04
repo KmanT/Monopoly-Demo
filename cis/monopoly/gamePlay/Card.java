@@ -10,13 +10,10 @@ package cis.monopoly.gamePlay;
 public abstract class Card {
 	
 	/**This is used to identify each card.*/
-	protected int cardID;
+	private int cardID;
 	
 	/**This is the text on the card that will be provided.*/
-	protected String cardText;
-	
-	
-	protected int cardCondition;
+	private String cardText;
 	
 	/**
 	 * Card constructor.

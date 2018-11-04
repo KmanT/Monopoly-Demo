@@ -23,32 +23,40 @@ public class ChanceCard extends Card {
 	 * Default ChanceCard constructor.
 	 */
 	public ChanceCard() {
-		cardID = 0;
-		cardText = "";
+		super(0, "");
 		cardCondition = 0;
 		cardAmount = 0;
 	}
 	
 	/**
-	 * This is the constructor that will be used
-	 * @param _cardID
-	 * @param _cardText
-	 * @param cardCondition
-	 * @param cardAmount
+	 * This is the constructor that will be used.
+	 * @param _cardID The card's identifier
+	 * @param _cardText The text on the card.
+	 * @param cardCondition The rule placed on the card.
+	 * @param cardAmount Either the space to move to or the amount of money.
 	 */
-	public ChanceCard(int _cardID, String _cardText, int cardCondition,
-			int cardAmount) {
+	public ChanceCard(final int _cardID, final String _cardText,
+			final int cardCondition, final int cardAmount) {
 		super(_cardID, _cardText);
 		this.cardCondition = cardCondition;
 		this.cardAmount = cardAmount;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Returns the rule on the card. Will be taken through a series of case
+	 * statements.
+	 * @return The card's rule ID
 	 */
 	public int getCardCondition() {
 		return cardCondition;
+	}
+	
+	/**
+	 * Returns the amount of money listed on the card.
+	 * @return The amount of money given/taken from the player.
+	 */
+	public int getCardAmount() {
+		return cardAmount;
 	}
 	
 	

@@ -1,6 +1,8 @@
 package cis.monopoly.gamePlay;
 
 
+import cis.monopoly.guiElements.ChanceBox;
+import cis.monopoly.guiElements.CommunityBox;
 import cis.monopoly.guiElements.ConfirmBox;
 import java.util.ArrayList;
 import java.util.List;
@@ -264,6 +266,20 @@ public class GameController {
         }
         return null;
     }
+    
+    /**
+     * Searches through the list of properties for a specific property.
+     * @param propID The id of the desired property
+     * @return The property if it is found, and null if it is not.
+     */
+    public Property getSpecificProperty(int propID) {
+    	for (Property prop : propertyList) {
+            if (prop.spaceID == propID) {
+            	return prop;
+            }
+        }
+        return null;
+    }
 
     /**
      * This method is part of the player turn. Gets the current player and the
@@ -284,10 +300,26 @@ public class GameController {
         } else if (prop.getPropOwnerID() != player.getPlayID()
                 && prop.getPropOwnerID() != -1
                 && prop.getPropOwnerID() != 0) {
-            transferPlayerFunds(player,
+            //if group is Bus Routes
+        	
+        	//if group is Utilities
+        	
+        	transferPlayerFunds(player,
                     getSpecificPlayer(prop.getPropOwnerID()),
                     prop.getPropRent());
+        } else if (prop.getPropGroup() == 11) {
+        	CommunityBox.display("BottomText", true, 500);
+        } else if (prop.getPropGroup() == 12) {
+        	ChanceBox.display("BottomText", 1, 500, this);
         }
+        
+        //group for Chance
+        
+        //group for Community Chesta
+        
+        //space is luxury tax
+        
+        //space is other tax
     }
 
     /**

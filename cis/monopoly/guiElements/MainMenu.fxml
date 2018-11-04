@@ -22,7 +22,7 @@
     <Button text="New Game" fx:id="btnNewGame" onAction="#newGameClick"/>
     <Button text="Exit" fx:id="btnExit" onAction="#exitClick"/>
     <stylesheets>
-        <URL value="@../style.css" />
+        <URL value="@main-style.css" />
     </stylesheets>
 
 

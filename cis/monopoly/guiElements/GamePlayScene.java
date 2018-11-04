@@ -62,7 +62,8 @@ public class GamePlayScene {
     	
         gamePane.setPrefWidth(Main.WINDOW_WIDTH_BIG);
         gamePane.setPrefHeight(Main.WINDOW_HEIGHT_BIG);
-        gamePane.getStylesheets().add("cis/monopoly/style.css");
+        gamePane.getStylesheets().add(
+        		"cis/monopoly/guiElements/main-style.css");
 
         gamePane.setTop(menuPane);
         gamePane.setLeft(playerPane);
@@ -137,7 +138,7 @@ public class GamePlayScene {
         //Label lblPName3 = new Label();
         //lblPName3.getStyleClass().add("lblPlayer");
 
-        Label lblPlayer4 = new Label("Player 4: "
+        Label lblPlayer4 = new Label("Player 4: $"
                 + gControl.getSpecificPlayer(4).getPlayBalance());
         lblPlayer4.getStyleClass().add("lblPlayer");
 
@@ -163,8 +164,7 @@ public class GamePlayScene {
 
         playerPane.setVgap(10);
 
-        //BOARD PANE//
-        
+        //BOARD PANE//        
         boardPane.setPrefWidth(BoardDrawer.BOARD_LENGTH_BIG);
         boardPane.setPrefHeight(BoardDrawer.BOARD_LENGTH_BIG);
 
@@ -178,7 +178,11 @@ public class GamePlayScene {
 
         //STATUS PANE//
         Label lblBank = new Label("Bank: $" + gControl.getBankFunds());
-        statusPane.getChildren().addAll(lblBank);
+        
+        Button btnTrade = new Button("Trade Property");
+        
+        Button btnSell = new Button("Sell Property to Bank");
+        statusPane.getChildren().addAll(lblBank, btnTrade, btnSell);
 
         //DICE PANE//
         Canvas cvsDice = new Canvas(DiceDrawer.DICE_BOWL_DIAMETER,
