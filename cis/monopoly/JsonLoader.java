@@ -3,6 +3,7 @@ package cis.monopoly;
 import cis.monopoly.gamePlay.Player;
 import cis.monopoly.gamePlay.Space;
 import cis.monopoly.guiElements.AlertBox;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
