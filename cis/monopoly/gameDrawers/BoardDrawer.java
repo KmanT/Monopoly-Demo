@@ -316,7 +316,6 @@ public class BoardDrawer {
             playerColor = Color.GREEN;
         }
 
-
         if (position == 0) {
             //GO CORNER//
             originX = 704;
@@ -485,5 +484,21 @@ public class BoardDrawer {
             movePiece(gc, playerID, position - roll, 0);
         }
         movePiece(gc, playerID, position, pieceID);
+    }
+    
+    /**
+     * When the player lands in jail, the BoardDrawer needs to reflect this.
+     * So when the player lands on the go to Jail space, the player will be
+     * moved to the Jail space.
+     * @param gc The graphics context connected to the board canvas.
+     * @param playerID The id of the current player making a turn.
+     * @param position Where the player currently is.
+     * @param pieceID Determines the color (eventually icon) belonging to the
+     * current player.
+     */
+    public static void drawPlayerGoToJail(final GraphicsContext gc,
+    		final int playerID, final int position, final int pieceID) {
+    	movePiece(gc, playerID, position, 0);
+    	movePiece(gc, playerID, 10, pieceID);
     }
 }

@@ -1,6 +1,7 @@
 package cis.monopoly.gamePlay;
 
 
+import cis.monopoly.guiElements.AlertBox;
 import cis.monopoly.guiElements.ChanceBox;
 import cis.monopoly.guiElements.CommunityBox;
 import cis.monopoly.guiElements.ConfirmBox;
@@ -73,7 +74,7 @@ public class GameController {
         propertyList.add(new Property("Freshman Land", 1, 60, 2, 1));
         propertyList.add(new Property("Community Chest", 2, 0, 0, 11, -1));
         propertyList.add(new Property("Kleiner Commons", 3, 60, 4, 1));
-        propertyList.add(new Property("Income Tax", 4, 0, 0, 13, -1));
+        propertyList.add(new Property("Tuition", 4, 0, 0, 13, -1));
         propertyList.add(new Property("Route 37", 5, 200, 25, 10));
         propertyList.add(new Property("Ravine Center", 6, 100, 6, 2));
         propertyList.add(new Property("Chance", 7, 0, 0, 12, -1));
@@ -109,7 +110,7 @@ public class GameController {
         propertyList.add(new Property("Route 85", 35, 200, 25, 10));
         propertyList.add(new Property("Chance", 36, 0, 0, 12, -1));
         propertyList.add(new Property("Cook Carillon Tower", 37, 350, 35, 8));
-        propertyList.add(new Property("Tuition", 38, 0, 0, 14, -1));
+        propertyList.add(new Property("Rent", 38, 0, 0, 14, -1));
         propertyList.add(new Property("Lubbers Stadium", 39, 350, 35, 8));
 
         //DICE//
@@ -313,6 +314,13 @@ public class GameController {
         	ChanceBox.display("BottomText", 1, 500, this);
         } else if (prop.getSpaceID() == 30) {
         	playerGoToJail(player);
+        } else if (prop.getSpaceID() == 4) {
+        	AlertBox.display("Tuition", "Tuition is due! \n Pay $200.");
+        	playerPayBank(player, 200);
+        } else if (prop.getSpaceID() == 38) {
+        	AlertBox.display("Rent",
+        			"Rent for the month is due! \n Pay $100.");
+        	playerPayBank(player, 100);
         }
         
         //group for Chance
@@ -373,6 +381,10 @@ public class GameController {
         }
         
         if (getCurrentPlayer().getInJailCount() > 0) {
+        	AlertBox.display("In Jail", "Player " 
+    			+ getCurrentPlayer().getPlayID() + " has "
+    			+ getCurrentPlayer().getInJailCount()
+    			+ " turns left in jail!");
         	getCurrentPlayer().lowerInJail();
         	changeCurrentPlayer();
         }

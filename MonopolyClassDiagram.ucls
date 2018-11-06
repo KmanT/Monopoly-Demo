@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="cis.monopoly.guiElements.Controller" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/guiElements/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="196" y="491"/>    
+    <position height="-1" width="-1" x="108" y="449"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="cis.monopoly.guiElements.GamePlayScene" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/guiElements/GamePlayScene.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="474" y="426"/>    
+    <position height="-1" width="-1" x="908" y="120"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="cis.monopoly.guiElements.ConfirmBox" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/guiElements/ConfirmBox.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="837" y="1424"/>    
+    <position height="-1" width="-1" x="953" y="1516"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="cis.monopoly.guiElements.AlertBox" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/guiElements/AlertBox.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="318" y="91"/>    
+    <position height="-1" width="-1" x="418" y="429"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="cis.monopoly.gamePlay.GameController" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/gamePlay/GameController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="545" y="980"/>    
+    <position height="-1" width="-1" x="815" y="994"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="cis.monopoly.gamePlay.GameDice" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/gamePlay/GameDice.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="225" y="890"/>    
+    <position height="-1" width="-1" x="85" y="864"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="cis.monopoly.gamePlay.Player" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/gamePlay/Player.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1002" y="1073"/>    
+    <position height="-1" width="-1" x="1638" y="1179"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="cis.monopoly.gamePlay.Property" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/gamePlay/Property.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="196" y="1362"/>    
+    <position height="-1" width="-1" x="148" y="1336"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="cis.monopoly.gameDrawers.BoardDrawer" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/gameDrawers/BoardDrawer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1128" y="590"/>    
+    <position height="-1" width="-1" x="1580" y="566"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,133 +102,238 @@
   </class>  
   <class id="12" language="java" name="cis.monopoly.gameDrawers.DiceDrawer" project="Monopoly-Demo" 
     file="/Monopoly-Demo/cis/monopoly/gameDrawers/DiceDrawer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="942" y="190"/>    
+    <position height="-1" width="-1" x="1630" y="152"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="13">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="14">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="15">    
+  <class id="13" language="java" name="cis.monopoly.guiElements.ChanceBox" project="Monopoly-Demo" 
+    file="/Monopoly-Demo/cis/monopoly/guiElements/ChanceBox.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="424" y="754"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="cis.monopoly.guiElements.CommunityBox" project="Monopoly-Demo" 
+    file="/Monopoly-Demo/cis/monopoly/guiElements/CommunityBox.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="742" y="564"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="cis.monopoly.gamePlay.Card" project="Monopoly-Demo" 
+    file="/Monopoly-Demo/cis/monopoly/gamePlay/Card.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1272" y="1516"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="cis.monopoly.gamePlay.ChanceCard" project="Monopoly-Demo" 
+    file="/Monopoly-Demo/cis/monopoly/gamePlay/ChanceCard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1326" y="1280"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="cis.monopoly.gamePlay.CommunityChestCard" project="Monopoly-Demo" 
+    file="/Monopoly-Demo/cis/monopoly/gamePlay/CommunityChestCard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1072" y="1298"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="18">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="12"/>  
   </dependency>  
-  <dependency id="16">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="17">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="18">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="19">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
   <association id="20">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="21" name="dice"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <dependency id="23">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <association id="24">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="25" name="player2"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
+      <attribute id="21" name="player2">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <dependency id="27">    
-    <end type="SOURCE" refId="3"/>    
+  <dependency id="23">    
+    <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
+  <dependency id="24">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="25">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="26" name="player1">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
   <dependency id="28">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="11"/>  
   </dependency>  
-  <association id="29">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="30" name="player4"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="33" name="playerList"/>      
-      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="36">    
+  <dependency id="29">    
     <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="10"/>  
+    <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="37">    
+  <dependency id="30">    
     <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
+    <end type="TARGET" refId="5"/>  
   </dependency>  
-  <association id="38">    
+  <association id="31">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="39" name="propertyList"/>      
-      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+      <attribute id="32" name="player4">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <dependency id="34">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <association id="36">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="37" name="player3">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <dependency id="39">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="40">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="41" name="dice">        
+        <position height="0" width="0" x="-140" y="-26"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-140" y="-26"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <dependency id="43">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="44">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="45">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="46">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="47">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="49">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="50" name="propertyList">        
+        <position height="0" width="0" x="-48" y="-26"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-48" y="-26"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <dependency id="41">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <association id="43">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="44" name="player1"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <dependency id="46">    
+  <dependency id="52">    
     <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="TARGET" refId="10"/>  
   </dependency>  
-  <association id="47">    
+  <dependency id="53">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="54">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="55">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="56">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="57">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <association id="58">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="48" name="player3"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
+      <attribute id="59" name="playerList">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="636" y="106"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
+  <dependency id="61">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="62">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

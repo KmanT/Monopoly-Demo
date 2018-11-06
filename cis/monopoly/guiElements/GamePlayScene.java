@@ -202,25 +202,26 @@ public class GamePlayScene {
 
             //prints the current player and their position to the console
             System.out.println(gControl.getCurrentPlayer().getPlayID()
-            + "Position: " + gControl.getCurrentPlayer().getPlayPosition()
+            + " Position: " + gControl.getCurrentPlayer().getPlayPosition()
             + " Roll: " + gControl.getDice().getTotalRoll());
 
             //draws the player movement
             BoardDrawer.drawFullPlayerMove(gcBoard,
-            		gControl.getCurrentPlayer().getPlayID(),
-            		gControl.getCurrentPlayer().getPlayPosition(),
-                    gControl.getDice().getTotalRoll(),
-                    gControl.getCurrentPlayer().getPlayPieceID());
+        		gControl.getCurrentPlayer().getPlayID(),
+        		gControl.getCurrentPlayer().getPlayPosition(),
+                gControl.getDice().getTotalRoll(),
+                gControl.getCurrentPlayer().getPlayPieceID());
+            
+            if (gControl.getCurrentPlayer().getPlayPosition() == 30) {
+            	BoardDrawer.drawPlayerGoToJail(gcBoard, 
+            			gControl.getCurrentPlayer().getPlayID(), 
+            			gControl.getCurrentPlayer().getPlayPosition(),
+            			gControl.getCurrentPlayer().getPlayPieceID());
+            }
             
             gControl.spaceCheck();
             
-            if (gControl.getCurrentPlayer().getPlayPosition() == 30) {
-            	BoardDrawer.movePiece(gcBoard, 
-            			gControl.getCurrentPlayer().getPlayID(), 30, 0);
-            	BoardDrawer.movePiece(gcBoard, 
-            			gControl.getCurrentPlayer().getPlayID(), 10,
-            			gControl.getCurrentPlayer().getPlayPieceID());
-            }
+            
 
             updateLabels(gControl, lblBank, lblPlayer1, lblPlayer2, lblPlayer3, 
             		lblPlayer4);
