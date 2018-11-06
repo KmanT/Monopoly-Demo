@@ -32,6 +32,14 @@ package cis.monopoly.guiElements;
  * <h2>GamePlayScene</h2>
  * This class defines the window where the game is played.
  * 
+ * <h2>ChanceBox</h2>
+ * This class defines the dialogue box that pops up when a player lands on a
+ * chance space. Gives the conditions of the card.
+ * 
+ * <h2>CommunityBox</h2>
+ * This class defines the dialogue box that pops up when a player lands on a
+ * community chest space. Gives the conditions of the card.
+ * 
  * @version 0.6
  * @author Kyle Turske
  */

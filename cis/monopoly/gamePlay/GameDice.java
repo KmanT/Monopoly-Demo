@@ -56,11 +56,7 @@ public class GameDice {
      * @return true The dice are equal
      */
     public boolean doubleCheck() {
-        if (dieOne == dieTwo) {
-            return true;
-        } else {
-            return false;
-        }
+        return dieOne == dieTwo;
     }
 
     /**

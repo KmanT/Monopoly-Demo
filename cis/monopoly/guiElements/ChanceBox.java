@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**<h1>ChanceBox</h1>
  * This class is used to create an AlertBox that will display information from
@@ -23,10 +22,18 @@ import javafx.stage.StageStyle;
  */
 public class ChanceBox {
 
-
+	/**
+	 * Shows the chance box once called.
+	 * @param cardText The text on the card.
+	 * @param cardCondition The condition that the card will apply. 0 if the
+	 * player is moving to another space, 1 if they are getting money, 2 if
+	 * they are getting money taken.
+	 * @param cardAmount Either the spaceID or the amount of money,
+	 * depending on what the condition is.
+	 * @param gc The game controller.
+	 */
     public static void display(final String cardText, final int cardCondition,
-    		final int cardAmount, final GameController gc)
-    {
+    		final int cardAmount, final GameController gc) {
     	Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Chance");
@@ -68,7 +75,6 @@ public class ChanceBox {
         Scene scene = new Scene(layout);
         scene.getStylesheets().add(
         		"cis/monopoly/guiElements/chance-style.css");
-        //scene.getStyleClass().add(".chance-window");
         window.setScene(scene);
         window.showAndWait();
     }

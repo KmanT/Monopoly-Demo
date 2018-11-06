@@ -20,13 +20,26 @@ package cis.monopoly.gamePlay;
  * <h2>Player</h2>
  * This is the class that defines a player in the game, including their ID.
  * 
+ * <h2>Space</h2>
+ * This is the class defines a space on the monopoly board. Used as the base
+ * class for the Property class.
+ * 
  * <h2>Property</h2>
  * This is the class that defines the properties on the monopoly board. 
  * In this case, most of the properties are named based on buildings in 
  * Grand Valley.
  * 
- * <h2>Space</h2>
- *This is the class defines a space on the monopoly board. 
+ * <h2>Card</h2>
+ * This is an abstract class where the CommunityChestCard and ChanceCard
+ * classes inherit their attributes
+ * 
+ * <h2>ChanceCard</h2>
+ * This is the class that defines a chance card in which its conditions will be
+ * applied to the player that lands on the space.
+ * 
+ * <h2>CommunityChestCard</h2>
+ * This is the class that defines a community chest card in which its
+ * conditions will be applied to the player that lands on the space.
  * 
  * @version 0.6
  * @author Kyle Turske

@@ -261,7 +261,7 @@ public class GameController {
         Player p = getCurrentPlayer();
 
         for (Property prop : propertyList) {
-            if (prop.spaceID == p.getPlayPosition()) {
+            if (prop.getSpaceID() == p.getPlayPosition()) {
             	return prop;
             }
         }
@@ -273,9 +273,9 @@ public class GameController {
      * @param propID The id of the desired property
      * @return The property if it is found, and null if it is not.
      */
-    public Property getSpecificProperty(int propID) {
+    public Property getSpecificProperty(final int propID) {
     	for (Property prop : propertyList) {
-            if (prop.spaceID == propID) {
+            if (prop.getSpaceID() == propID) {
             	return prop;
             }
         }
@@ -301,13 +301,18 @@ public class GameController {
         } else if (prop.getPropOwnerID() != player.getPlayID()
                 && prop.getPropOwnerID() != -1
                 && prop.getPropOwnerID() != 0) {
-            //if group is Bus Routes
+            
+        	//if property has shared owner in group
+        	
+        	
+        	//if group is Bus Routes
         	
         	//if group is Utilities
         	
         	transferPlayerFunds(player,
                     getSpecificPlayer(prop.getPropOwnerID()),
                     prop.getPropRent());
+        	
         } else if (prop.getPropGroup() == 11) {
         	CommunityBox.display("BottomText", true, 500);
         } else if (prop.getPropGroup() == 12) {
@@ -331,6 +336,35 @@ public class GameController {
         
         //space is other tax
     }
+    
+    /**
+     * Counts the number of properties that a property in a group has a shared
+     * owner. Used inside the propertyRentMultiplier method.
+     * @param spaceID The ID of the space the player has landed on.
+     */
+    public boolean propSharedOwnerCount(int spaceID) {
+    	Property playerProperty = getSpecificProperty(spaceID);
+    	
+    	List<Property> propGroupList = new ArrayList<>();
+    	
+    	for (Property prop : propertyList) {
+            if (prop.getPropGroup() == playerProperty.getPropGroup()) {
+            	propGroupList.add(prop);
+            }
+        }
+    	
+    	int sharedOwnerCount = 0;
+    	
+    	for (Property prop : propGroupList) {
+    		if (prop.getPropOwnerID() == playerProperty.getPropOwnerID()) {
+    			sharedOwnerCount++;
+    		}
+    	}
+    	
+        return sharedOwnerCount == propGroupList.size();
+    	
+    }
+    
 
     /**
      * A dialogue box pops asking the player if they would like to purchase the

@@ -48,7 +48,8 @@ public class Main extends Application {
        Parent root = FXMLLoader.load(getClass().
                getResource("guiElements/MainMenu.fxml"));
        primaryStage.setTitle("GVSU Monopoly");
-       primaryStage.setScene(new Scene(root, WINDOW_WIDTH_BIG, WINDOW_HEIGHT_BIG));
+       primaryStage.setScene(new Scene(root, WINDOW_WIDTH_BIG,
+    		   WINDOW_HEIGHT_BIG));
        primaryStage.show();
 
        //test

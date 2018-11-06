@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**<h1>CommunityBox</h1>
  * This class is used to create an AlertBox that will display information from
@@ -21,7 +20,14 @@ import javafx.stage.StageStyle;
  * @version 0.6
  */
 public class CommunityBox {
-    
+	
+	/**
+	 * Shows the community box once called.
+	 * @param cardText The text on the card.
+	 * @param getMoney Boolean that determines whether money is given to or
+	 * taken from the player.
+	 * @param cardAmount The amount of money given or taken.
+	 */
     public static void display(final String cardText, final boolean getMoney,
     		final int cardAmount) {
     	Stage window = new Stage();

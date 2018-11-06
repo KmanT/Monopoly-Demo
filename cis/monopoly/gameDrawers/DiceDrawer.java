@@ -11,7 +11,8 @@ import javafx.scene.paint.Color;
  * @version 0.6
  */
 public class DiceDrawer {
-    /**Defines the diameter of the dice bowl.*/
+    
+	/**Defines the diameter of the dice bowl.*/
     public static final int DICE_BOWL_DIAMETER = 250;
 
     /**Defines the height of the dice.*/

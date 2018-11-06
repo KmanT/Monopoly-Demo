@@ -16,6 +16,9 @@ package cis.monopoly.gameDrawers;
  * of the monopoly board, its properties and the position of each
  * player on the board.
  * 
+ * <h2>HouseDrawer</h2>
+ * This is the class that draws houses and hotels on the board.
+ * 
  * @version 0.6
  * @author Kyle Turske
  */

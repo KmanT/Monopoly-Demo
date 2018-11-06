@@ -23,19 +23,20 @@ public class Property extends Space {
 
     /**
      * This is a constructor of a Property.
-     * @param propName. This is the name of the property.
-     * @param propID. This is the ID of the property.
-     * @param propPrice. This is the price of the property.
-     * @param propRent. This is the rent of a the property.
-     * @param propGroup. This is the group associated to a property.
-     * @param propOwnerID. This is the owner of the property.
-     * @param houseCount. This the number of houses on the property.
-     * @param hasHotel. This confirms if the property has a hotel.
+     * @param propName This is the name of the property.
+     * @param propID This is the ID of the property.
+     * @param propPrice This is the price of the property.
+     * @param propRent This is the rent of a the property.
+     * @param propGroup This is the group associated to a property.
+     * @param propOwnerID This is the owner of the property.
+     * @param houseCount This the number of houses on the property.
+     * @param hasHotel This confirms if the property has a hotel.
      */
-    public Property(String propName, int propID, int propPrice, int propRent,
-                    int propGroup, int propOwnerID, int houseCount, boolean hasHotel) {
-        spaceName = propName;
-        spaceID = propID;
+    public Property(final String propName, final int propID, 
+    			final int propPrice, final int propRent, final int propGroup,
+    			final int propOwnerID, final int houseCount,
+    			final boolean hasHotel) {
+        super(propName, propID);
         this.propPrice = propPrice;
         this.propRent = propRent;
         this.propGroup = propGroup;
@@ -46,15 +47,15 @@ public class Property extends Space {
 
     /**
      * This is a constructor of a Property.
-     * @param propName. This is the name of the property.
-     * @param propID. This is the ID of the property.
-     * @param propPrice. This is the price of the property.
-     * @param propRent. This is the rent of a the property.
-     * @param propGroup. This is the group associated to a property.
+     * @param propName This is the name of the property.
+     * @param propID This is the ID of the property.
+     * @param propPrice This is the price of the property.
+     * @param propRent This is the rent of a the property.
+     * @param propGroup This is the group associated to a property.
      */
-    public Property(String propName, int propID, int propPrice, int propRent, int propGroup) {
-        spaceName = propName;
-        spaceID = propID;
+    public Property(final String propName, final int propID,
+    		final int propPrice, final int propRent, final int propGroup) {
+        super(propName, propID);
         this.propPrice = propPrice;
         this.propRent = propRent;
         this.propGroup = propGroup;
@@ -65,17 +66,17 @@ public class Property extends Space {
 
     /**
      * This is a constructor of a Property.
-     * @param propName. This is the name of the property.
-     * @param propID. This is the ID of the property.
-     * @param propPrice. This is the price of the property.
-     * @param propRent. This is the rent of a the property.
-     * @param propGroup. This is the group associated to a property.
-     * @param propOwnerID. This is the owner of the property.
+     * @param propName This is the name of the property.
+     * @param propID This is the ID of the property.
+     * @param propPrice This is the price of the property.
+     * @param propRent This is the rent of a the property.
+     * @param propGroup This is the group associated to a property.
+     * @param propOwnerID This is the owner of the property.
      */
-    public Property(String propName, int propID, int propPrice, int propRent,
-                    int propGroup, int propOwnerID) {
-        spaceName = propName;
-        spaceID = propID;
+    public Property(final String propName, final int propID,
+    			final int propPrice, final int propRent,
+    			final int propGroup, final int propOwnerID) {
+        super(propName, propID);
         this.propPrice = propPrice;
         this.propRent = propRent;
         this.propGroup = propGroup;
@@ -83,17 +84,18 @@ public class Property extends Space {
         houseCount = 0;
         hasHotel = false;
     }
+    
     /**
      * This is a default constructor of a Property that
      * sets everything to 0 or false except propGroup. propGroup
      * is set to -1 because we plan to start at 0.
-     */
-    
+     */    
     public Property() {
-        propPrice = 0;
+        super("", 0);
+    	propPrice = 0;
         propRent = 0;
-        propGroup = -1; //the reason why it's not zero for the default is
-        propOwnerID = 0;//because I plan on using group 0 for the first group of props
+        propGroup = -1; 
+        propOwnerID = 0;
         houseCount = 0;
         hasHotel = false;
     }
@@ -109,14 +111,14 @@ public class Property extends Space {
 
     /**
      * This is a setter method for the price of a property.
-     * @param propPrice. The price to be set.
+     * @param propPrice The price to be set.
      */
-    public void setPropPrice(int propPrice) {
+    public void setPropPrice(final int propPrice) {
         this.propPrice = propPrice;
     }
     /**
      * This is a getter method for the rent of a property.
-     * @return propRent. The rent of the property.
+     * @return propRent The rent of the property.
      */
     public int getPropRent() {
         return propRent;
@@ -124,9 +126,9 @@ public class Property extends Space {
 
     /**
      * This is a setter method for the rent of a property.
-     * @param propRent. The rent to be set.
+     * @param propRent The rent to be set.
      */
-    public void setPropRent(int propRent) {
+    public void setPropRent(final int propRent) {
         this.propRent = propRent;
     }
     
@@ -140,15 +142,15 @@ public class Property extends Space {
 
     /**
      * This is a setter method for the rent of a property.
-     * @param propOwnerID. The OwnerID to be set.
+     * @param propOwnerID The OwnerID to be set.
      */
-    public void setPropOwnerID(int propOwnerID) {
+    public void setPropOwnerID(final int propOwnerID) {
         this.propOwnerID = propOwnerID;
     }
 
     /**
      * This is a getter method for the Group of a property.
-     * @return propGroup. The Group of the property.
+     * @return propGroup The Group of the property.
      */
     public int getPropGroup() {
         return propGroup;
@@ -156,23 +158,30 @@ public class Property extends Space {
     
     /**
      * This is a setter method for the Group of a property.
-     * @param propGroup. The Group to be set.
+     * @param propGroup The Group to be set.
      */
-    public void setPropGroup(int propGroup) {
+    public void setPropGroup(final int propGroup) {
         this.propGroup = propGroup;
     }
     
-//    public int getpropOwnerID() {
-//        return propOwnerID;
-//    }
-//
-//    public void setpropOwnerID(int propOwnerID) {
-//        this.propOwnerID = propOwnerID;
-//    }
+    /**
+     * This gets the ID of the owner of the property.
+     * @return The owner's ID
+     */
+    public int getpropOwnerID() {
+        return propOwnerID;
+    }
+
+    /**
+     * Changes the property's owner ID.
+     * @param propOwnerID The ID of the new owner.
+     */
+    public void setpropOwnerID(final int propOwnerID) {
+       this.propOwnerID = propOwnerID;
+    }
     
     /**
-     * This is a getter method for the number
-     * of houses on the property.
+     * This is a getter method for the number of houses on the property.
      * @return houseCount. The no.of houses on the property.
      */
     
@@ -183,35 +192,32 @@ public class Property extends Space {
     /**
      * This is a method that increases the number of
      * house on a property.
-     * @param count. The number the houses should be 
-     * increased by.
+     * @param count The number the houses should be increased by.
      */
-    public void addHouseCount(int count) {
+    public void addHouseCount(final int count) {
         houseCount += count;
     }
     
     /**
-     * This is a method that reduces the number of
-     * house on a property.
-     * @param count. The number the houses should be 
-     * decreased by.
+     * This is a method that reduces the number of house on a property.
+     * @param count The number the houses should be decreased by.
      */
-    public void subtractHouseCount(int count) {
+    public void subtractHouseCount(final int count) {
         houseCount -= count;
     }
 
     /**
-     * This is a setter method for the number of houses
-     * on a property.
-     * @param houseCount. The number to be set to.
+     * This is a setter method for the number of houses on a property.
+     * @param houseCount The number to be set to.
      */
-    public void setHouseCount(int houseCount) {
+    public void setHouseCount(final int houseCount) {
         this.houseCount = houseCount;
     }
+    
     /**
      * This is a method that checks if a property has a 
      * hotel.
-     * @return hasHotel. This is either true or false.
+     * @return hasHotel This is either true or false.
      */
     public boolean isHasHotel() {
         return hasHotel;
@@ -220,9 +226,9 @@ public class Property extends Space {
     /**
      * This is a setter method to set the property to have
      * a hotel.
-     * @param hasHotel. The is either true or false to be set.
+     * @param hasHotel The is either true or false to be set.
      */
-    public void setHasHotel(boolean hasHotel) {
+    public void setHasHotel(final boolean hasHotel) {
         this.hasHotel = hasHotel;
     }
 }

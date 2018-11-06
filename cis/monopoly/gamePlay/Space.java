@@ -8,19 +8,19 @@ package cis.monopoly.gamePlay;
  * @version 0.5
  */
 
-public class Space {
+public abstract class Space {
 	/**This defines the name of a space on the board.*/
-    protected String spaceName;
+    private String spaceName;
     /**This defines the ID of a space on the board.*/
-    protected int spaceID;
+    private int spaceID;
 
 
     /**
      * This is the constructor of a space.
-     * @param spaceName. This is the name of the space.
-     * @param spaceID. This is the ID of the space.
+     * @param spaceName This is the name of the space.
+     * @param spaceID This is the ID of the space.
      */
-    public Space (String spaceName, int spaceID) {
+    public Space(final String spaceName, final int spaceID) {
         this.spaceName = spaceName;
         this.spaceID = spaceID;
     }
@@ -29,7 +29,7 @@ public class Space {
      * sets the name of the space to an empty string and
      * the ID of the space to 0.
      */
-    public Space () {
+    public Space() {
         spaceName = "";
         spaceID = 0;
     }
@@ -46,9 +46,9 @@ public class Space {
 
     /**
      * This is a setter method for the space name.
-     * @param spaceName. The name of the space.
+     * @param spaceName The name of the space.
      */
-    public void setSpaceName(String spaceName) {
+    public void setSpaceName(final String spaceName) {
         this.spaceName = spaceName;
     }
     
@@ -61,9 +61,9 @@ public class Space {
     }
     /**
      * This is a setter method for the space ID.
-     * @param spaceID. The ID of the space.
+     * @param spaceID The ID of the space.
      */
-    public void setSpaceID(int spaceID) {
+    public void setSpaceID(final int spaceID) {
         this.spaceID = spaceID;
     }
 }
