@@ -55,8 +55,7 @@ public class CommunityBox {
         
         try {
         	Image image = new Image(new FileInputStream(
-            		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
-            		+ "\\monopoly\\images\\community.png"));
+        			"cis/monopoly/images/community.png"));
         	ImageView imv = new ImageView(image);
         	imv.getStyleClass().add(".image");
         	layout.getChildren().addAll(imv, label, closeButton);

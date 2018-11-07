@@ -436,7 +436,7 @@ public class GameController {
     /**
      * When the player lands on the "GO TO JAIL" space, they will be sent to the
      * jail space and their inJailCount will be set to three.
-     * @param player
+     * @param player The current player being placed in jail.
      */
     public void playerGoToJail(final Player player) {
     	player.setPlayPosition(10);

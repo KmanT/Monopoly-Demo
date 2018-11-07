@@ -51,7 +51,9 @@ public class Main extends Application {
        primaryStage.setScene(new Scene(root, WINDOW_WIDTH_BIG,
     		   WINDOW_HEIGHT_BIG));
        primaryStage.show();
-
+       
+       
+       System.out.println(System.getProperty("user.dir"));
        //test
        //JsonLoader.printPlayer();
     }
