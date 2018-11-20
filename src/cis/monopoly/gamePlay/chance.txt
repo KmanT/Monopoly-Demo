@@ -1,0 +1,12 @@
+1,Advance to 'Go'.,0,0
+2,Advance to 'The Connection'.,0,23
+3,Advance to 'Holton-Hooker'.,0,11
+4,Advance to the nearest Bus Stop.,1,10
+5,Advance to the nearest Bus Stop.,1,10
+6,Advance to the nearest Utility.,1,9
+7,You have received a $50 scholarship.,2,50
+8,GET OUT OF JAIL FREE!,3,0
+9,Go directly to jail.,4,10
+10,Parking Ticket! Pay $15.,5,15
+11,Have a class downtown. Advance to 'Route 50'.,0,25
+12,

@@ -1,7 +1,5 @@
 package cis.monopoly.guiElements;
 
-import java.io.FileInputStream;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -61,8 +59,7 @@ public final class CommunityBox {
         layout.setAlignment(Pos.CENTER);
         
         try {
-        	Image image = new Image(new FileInputStream(
-        			"cis/monopoly/images/community.png"));
+        	Image image = new Image("cis/monopoly/images/community.png");
         	ImageView imv = new ImageView(image);
         	imv.getStyleClass().add(".image");
         	layout.getChildren().addAll(imv, label, closeButton);

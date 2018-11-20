@@ -27,6 +27,8 @@ public class Player {
     /**If the player is in jail, then the player can't move unless the count is
      * set to 0.*/
     private int inJailCount;
+    /**Determines whether or not the player has a get out of jail free card.*/
+    private boolean hasGetOutCard;
     /**How much money each player starts with.*/
     private static final int START_BALANCE = 1500;
 
@@ -43,11 +45,13 @@ public class Player {
      * @param playPieceID Used to determine the color of the piece on the board
      * @param inJailCount Determines whether or not the player can move if they
      * are in Jail.
+     * @param hasGetOutCard Whether or not the player has the get out of jail
+     * free card.
      */
     public Player(final String playName, final int playID,
     		final int playBalance, final boolean inPlay,
     		final int playPosition, final int playPieceID,
-    		final int inJailCount) {
+    		final int inJailCount, final boolean hasGetOutCard) {
         this.playName = playName;
         this.playID = playID;
         this.playBalance = playBalance;
@@ -55,6 +59,7 @@ public class Player {
         this.playPosition = playPosition;
         this.playPieceID = playPieceID;
         this.inJailCount = inJailCount;
+        this.hasGetOutCard = hasGetOutCard;
     }
 
     /**
@@ -71,6 +76,7 @@ public class Player {
         playPosition = 0;
         playPieceID = 0;
         inJailCount = 0;
+        hasGetOutCard = false;
     }
 
     /**
@@ -91,6 +97,7 @@ public class Player {
         playPosition = 0;
         this.playPieceID = playPieceID;
         inJailCount = 0;
+        hasGetOutCard = false;
     }
 
     /**
@@ -104,6 +111,7 @@ public class Player {
         playPosition = 0;
         playPieceID = 0;
         inJailCount = 0;
+        hasGetOutCard = false;
     }
 
     /**
@@ -261,5 +269,23 @@ public class Player {
     public void freeInJail() {
     	inJailCount = 0;
     }
+    
+    /**
+     * Shows whether or not the player has the Get Out Of Jail Free card.
+     * @return true if they have, false if they don't.
+     */
+	public boolean isHasGetOutCard() {
+		return hasGetOutCard;
+	}
+	
+	/**
+	 * Either gives or takes the card from the player.
+	 * @param hasGetOutCard true if it is given, false if it is taken.
+	 */
+	public void setHasGetOutCard(final boolean hasGetOutCard) {
+		this.hasGetOutCard = hasGetOutCard;
+	}
+    
+    
 
 }

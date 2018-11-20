@@ -1,12 +1,15 @@
 package cis.monopoly.gamePlay;
 
+import cis.monopoly.Main;
+
 /**<h1>ChanceCard</h1>
  * This class is used to define the Chance cards. Chance cards either move the
  * player to a certain spot, give money, or take money. This is determined by
  * the cardCondition value which determines what rule, and the amount which
  * either determines how much money is give/taken or what space the player moves
  * to/
- * @author Kyle
+ * @author Kyle Turske
+ * @version 0.7
  *
  */
 public class ChanceCard extends Card {
@@ -57,6 +60,43 @@ public class ChanceCard extends Card {
 	 */
 	public int getCardAmount() {
 		return cardAmount;
+	}
+	
+	/**
+	 * Applies the card condition to the player who has received the chance
+	 * card. 0 will move the player to the property with the spaceID equal
+	 * to the cardAmount, 1 will move the player to the property nearest to
+	 * the player that is in the group equal to the card amount, 2 will
+	 * have the  bank pay the player the card amount, 3 gives the player a
+	 * Get Out of Jail Free Card, 4 puts the player in jail, 5 has the
+	 * player pay the bank, 
+	 * @param player The player who got the card.
+	 */
+	public void applyCondition(final Player player) {
+		
+		switch (cardCondition) {
+			case 0: player.setPlayPosition(cardAmount);
+				break;
+			case 1: player.setPlayPosition(Main.getGc().
+					getNearestPropInGroup(player.
+						getPlayPosition(), cardAmount).
+					getSpaceID());
+				break;
+			case 2: Main.getGc().bankPayPlayer(player, cardAmount);
+				break;
+			case 3: player.setHasGetOutCard(true);
+				break;
+			case 4: player.setPlayPosition(cardAmount);
+				player.putInJail();
+				break;
+			case 5: Main.getGc().playerPayBank(player, cardAmount);
+				break;
+			case 6: Main.getGc().everyonePayPlayer(
+					player, cardAmount);
+				break;
+			default:
+				
+		}
 	}
 	
 	

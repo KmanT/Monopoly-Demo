@@ -22,6 +22,20 @@ public class CommunityChestCard extends Card {
 		getMoney = true;
 		cardAmount = 0;
 	}
+	
+	/**
+	 * The constructor that is used for card creation.
+	 * @param iD The ID for the community chest card.
+	 * @param text The text that will be displayed on the card
+	 * @param getMoney Determines whether the player pays or not.
+	 * @param cardAmount The amount of money given/recieved.
+	 */
+	public CommunityChestCard(final int iD, final String text, 
+			final boolean getMoney, final int cardAmount) {
+		super(iD, text);
+		this.getMoney = getMoney;
+		this.cardAmount = cardAmount;
+	}
 
 	/**
 	 * Used for seeing whether player gets or receives money from the bank.

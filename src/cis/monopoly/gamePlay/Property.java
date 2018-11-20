@@ -177,7 +177,7 @@ public class Property extends Space {
      * @param propOwnerID The ID of the new owner.
      */
     public void setpropOwnerID(final int propOwnerID) {
-       this.propOwnerID = propOwnerID;
+    	this.propOwnerID = propOwnerID;
     }
     
     /**

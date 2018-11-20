@@ -1,7 +1,5 @@
 package cis.monopoly.guiElements;
 
-import java.io.FileInputStream;
-
 import cis.monopoly.gamePlay.GameController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -65,8 +63,7 @@ public final class ChanceBox {
         layout.setPadding(new Insets(10, 10, 10, 10));
         layout.setAlignment(Pos.CENTER);
         try {
-        	Image image = new Image(new FileInputStream(
-        			"cis/monopoly/images/chance.png"));
+        	Image image = new Image("cis/monopoly/images/chance.png");
         	ImageView imv = new ImageView(image);
         	imv.getStyleClass().add(".image");
         	layout.getChildren().addAll(imv, label, closeButton);

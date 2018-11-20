@@ -80,15 +80,14 @@ public final class DiceDrawer {
             AlertBox.display("Dice Roll Error",
             		"Somehow you rolled outside the range of the die!");
         }
-
     }
+    
     /**
      * This method draws only one dot for a die.
      * @param gc The GraphicsContext that draws on the corresponding canvas.
      * @param xPos this is the horizontal position of the bowl.
      * @param yPos this is the vertical position of the bowl.
      */
-
     public static void drawDotsOne(final GraphicsContext gc, final int xPos,
     		final int yPos) {
         gc.fillOval(xPos + 20, yPos + 20, 10, 10);

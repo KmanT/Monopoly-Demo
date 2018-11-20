@@ -1,5 +1,6 @@
 package cis.monopoly.gameDrawers;
 
+import cis.monopoly.Main;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -214,9 +215,7 @@ public final class BoardDrawer {
      * drawn in their respective position.
      * @param gc This parameter accepts the Graphics context of a canvas in
      * which will draw the property on the top of the board. The last thing
-     * this method does is draw all four pieces on the board. Will eventually
-     * add a parameter that accepts the number of players that are currently
-     * playing
+     * this method does is draw all the pieces that are in play.
      */
     public static void drawBoard(final GraphicsContext gc) {
         Color[] colors = {Color.SIENNA, Color.FLORALWHITE,
@@ -273,9 +272,25 @@ public final class BoardDrawer {
         drawCorner(gc, 704, 0, Color.FLORALWHITE, "");
         drawCorner(gc, 0, 704, Color.FLORALWHITE, "");
         drawCorner(gc, 704, 704, Color.FLORALWHITE, "");
-
-        for (int i = 0; i <= 3; i++) {
-        	PieceDrawer.movePiece(gc, i + 1, 0, i + 1);
+        
+        if (Main.getGc().getSpecificPlayer(1).isInPlay()) {
+        	PieceDrawer.movePiece(gc, 1, 0, Main.getGc().
+        			getSpecificPlayer(1).getPlayPieceID());
+        }
+        
+        if (Main.getGc().getSpecificPlayer(2).isInPlay()) {
+        	PieceDrawer.movePiece(gc, 2, 0, Main.getGc().
+        			getSpecificPlayer(2).getPlayPieceID());
+        }
+        
+        if (Main.getGc().getSpecificPlayer(3).isInPlay()) {
+        	PieceDrawer.movePiece(gc, 3, 0, Main.getGc().
+        			getSpecificPlayer(3).getPlayPieceID());
+        }
+        
+        if (Main.getGc().getSpecificPlayer(4).isInPlay()) {
+        	PieceDrawer.movePiece(gc, 4, 0, Main.getGc().
+        			getSpecificPlayer(4).getPlayPieceID());
         }
            
     }

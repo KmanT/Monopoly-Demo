@@ -39,6 +39,10 @@ public class GameController {
     private GameDice dice;
     /**Total balance for the bank.*/
     private int bank;
+    /**The deck of chance cards.*/
+    private CardDeck chanceDeck;
+    /**The deck of community chest cards.*/
+    private CardDeck communityDeck;
     /**Total number of spaces. Used for checking potential overflows.*/
     public static final int MAX_SPACES = 40;
     /**The amount added to the player balance when they pass "Go".*/
@@ -60,6 +64,8 @@ public class GameController {
         playerList.add(player2);
         playerList.add(player3);
         playerList.add(player4);
+        chanceDeck = new CardDeck("chance");
+        communityDeck = new CardDeck("community");
         bank = BANK_START_AMOUNT;
 
         propertyList = new ArrayList<>();
@@ -230,6 +236,33 @@ public class GameController {
         p1.subtractBalance(amount);
         p2.addBalance(amount);
     }
+    
+    /**
+     * Everyone who is not the player being called pays said player.
+     * @param p The player who is getting paid.
+     * @param amount The amount each player pays the current player.
+     */
+    public void everyonePayPlayer(final Player p, final int amount) {
+    	for (Player player : playerList) {
+            if (player.getPlayID() != p.getPlayID()) {
+                transferPlayerFunds(player, p, amount);
+            }
+        }
+    }
+    
+    /**
+     * Everyone who is not the player being called gets paid by said player.
+     * @param p The player who is paying.
+     * @param amount The amount each player is getting paid by the
+     * current player.
+     */
+    public void playerPayEveryone(final Player p, final int amount) {
+    	for (Player player : playerList) {
+            if (player.getPlayID() != p.getPlayID()) {
+                transferPlayerFunds(p, player, amount);
+            }
+        }
+    }
 
     /**
      * This method calls the payPayBank method and then sets the ownerId of the
@@ -316,6 +349,34 @@ public class GameController {
             }
         }
         return null;
+    }
+    
+    /**
+     * Gets the nearest property that is inside a specified group to a specific
+     * space.
+     * @param spaceID The space that is being compared.
+     * @param groupID The group of the desired space. Usually a bus stop or
+     * utility space.
+     * @return The property inside the desired group closest to the space that
+     * was called
+     */
+    public Property getNearestPropInGroup(final int spaceID,
+    		final int groupID) {
+    	int spaceCount = 39;
+    	
+    	for (int i = spaceID; i < spaceCount; i++) {
+    		if (propertyList.get(i).getPropGroup() == groupID) {
+    			return propertyList.get(i);
+    		}
+    	}
+    	
+    	for (int i = spaceID; i >= 0; i--) {
+    		if (propertyList.get(i).getPropGroup() == groupID) {
+    			return propertyList.get(i);
+    		}
+    	}
+    	
+    	return null;
     }
 
     /**
@@ -473,6 +534,22 @@ public class GameController {
      */
     public int getBankFunds() {
         return bank;
+    }
+    
+    /**
+     * Adds funds to the bank.
+     * @param amount The amount added to the bank.
+     */
+    public void addBankFunds(final int amount) {
+    	bank += amount;
+    }
+    
+    /**
+     * Subtracts funds from the bank.
+     * @param amount The amount taken from the bank.
+     */
+    public void subtractBankFunds(final int amount) {
+    	bank -= amount;
     }
     
     /**
