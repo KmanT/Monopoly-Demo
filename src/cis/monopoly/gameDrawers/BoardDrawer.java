@@ -3,6 +3,7 @@ package cis.monopoly.gameDrawers;
 import cis.monopoly.Main;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 /**<h1>BoardDrawer</h1>
  * This class draws all the elements on the board including the board itslef
@@ -192,15 +193,35 @@ public final class BoardDrawer {
      * @param xpos This defines the horizontal position of the property.
      * @param ypos This defines the vertical position of the property.
      * @param color This defines the color of the flag.
-     * @param name This defines the name of the property, all though this
-     * parameter might be removed all together.
+     * @param cornerID Defines which corner is being drawn
      */
     public static void drawCorner(final GraphicsContext gc, final double xpos,
-    		final double ypos, final Color color, final String name) {
+    		final double ypos, final Color color, final int cornerID) {
         gc.setFill(Color.FLORALWHITE);
         gc.setStroke(Color.BLACK);
         gc.fillRect(xpos, ypos, PROPERTY_HEIGHT_BIG, PROPERTY_HEIGHT_BIG);
         gc.strokeRect(xpos, ypos, PROPERTY_HEIGHT_BIG, PROPERTY_HEIGHT_BIG);
+        
+        switch (cornerID) {
+	        case 1: gc.setFill(GV_BLUE);
+	        	gc.setFont(new Font(36));
+	        	gc.fillText("GO!", xpos + 10, ypos + 50);
+	        	break;
+			case 2: gc.setFill(Color.ORANGE);
+				gc.fillRect(xpos + 54, ypos + 1, 55, 55);
+				gc.setFill(Color.FLORALWHITE);
+				gc.fillRect(xpos + 65, ypos + 10, 35, 35);
+				gc.setFill(Color.BLACK);
+				gc.fillRect(xpos + 65, ypos + 10, 5, 35);
+				gc.fillRect(xpos + 75, ypos + 10, 5, 35);
+				gc.fillRect(xpos + 85, ypos + 10, 5, 35);
+				gc.fillRect(xpos + 95, ypos + 10, 5, 35);
+				break;
+			case 3: break;
+			case 4: break;
+			default: break;			
+        }
+    		
     }
     
     /**
@@ -267,11 +288,14 @@ public final class BoardDrawer {
             yPos += 66;
             colorCounter++;
         }
-
-        drawCorner(gc, 0, 0, Color.FLORALWHITE, "");
-        drawCorner(gc, 704, 0, Color.FLORALWHITE, "");
-        drawCorner(gc, 0, 704, Color.FLORALWHITE, "");
-        drawCorner(gc, 704, 704, Color.FLORALWHITE, "");
+        
+        drawCorner(gc, 704, 704, Color.FLORALWHITE, 1);
+        drawCorner(gc, 0, 704, Color.FLORALWHITE, 2);
+        drawCorner(gc, 0, 0, Color.FLORALWHITE, 3);
+        drawCorner(gc, 704, 0, Color.FLORALWHITE, 4);
+        
+        
+        
         
         if (Main.getGc().getSpecificPlayer(1).isInPlay()) {
         	PieceDrawer.movePiece(gc, 1, 0, Main.getGc().

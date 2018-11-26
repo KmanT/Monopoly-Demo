@@ -36,7 +36,7 @@ public class GameController {
     /**Stores the value for the current player.*/
     private int currentPlayer;
     /**Stores the spaceID for the current player, and if it changes, it will
-     * allow the piecedrawer to show the move after the space check*/
+     * allow the piece drawer to show the move after the space check.*/
     private int spaceCheckID;
     /**Used for piece moving calculations.*/
     private GameDice dice;
@@ -505,6 +505,23 @@ public class GameController {
             playerPayBank(player, prop.getPropPrice());
             prop.setPropOwnerID(player.getPlayID());
         }
+    }
+    
+    /**
+     * Gets a list of properties owned by a particular player.
+     * @param playerID The id of the player. If the ownerID matches the
+     * player ID, then the property will be added to the list
+     * @return The list of properties owned by a player.
+     */
+    public List<Property> playerOwnedPropList(final int playerID) {
+    	List<Property> propList = new ArrayList<>();
+    	
+    	for (Property prop: propertyList) {
+    		if (prop.getPropOwnerID() == playerID) {
+    			propList.add(prop);
+    		}
+    	}
+    	return propList;
     }
 
     /**

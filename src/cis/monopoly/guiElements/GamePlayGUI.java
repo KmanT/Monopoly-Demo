@@ -6,6 +6,7 @@ import cis.monopoly.gameDrawers.DiceDrawer;
 import cis.monopoly.gameDrawers.PieceDrawer;
 import cis.monopoly.gamePlay.GameController;
 import cis.monopoly.gamePlay.GameDice;
+import cis.monopoly.gamePlay.Player;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -134,9 +135,8 @@ public final class GamePlayGUI {
         GridPane.setConstraints(lblPlayer3, 0, 2);
         GridPane.setConstraints(lblPlayer4, 0, 3);
 
-        playerPane.getChildren().addAll(lblPlayer1, lblPlayer2,
-                lblPlayer3, lblPlayer4);
-
+        playerPane.getChildren().addAll(lblPlayer1, lblPlayer2, lblPlayer3,
+        		lblPlayer4);
         playerPane.setVgap(10);
 
         //BOARD PANE//        
@@ -153,12 +153,9 @@ public final class GamePlayGUI {
         //STATUS PANE//
         Label lblBank = new Label("Bank: $" + Main.getGc().getBankFunds());
         
-        Button btnBuyHouse = new Button("Buy Houses");
-        
-        Button btnHotelUpgrade = new Button("Upgrade to Hotel");
-        
-        Button btnTrade = new Button("Trade Property");
-        
+        Button btnBuyHouse = new Button("Buy Houses");        
+        Button btnHotelUpgrade = new Button("Upgrade to Hotel");        
+        Button btnTrade = new Button("Trade Property");        
         Button btnSell = new Button("Sell Property to Bank");
         statusPane.getChildren().addAll(lblBank, btnBuyHouse, btnHotelUpgrade,
         		btnTrade, btnSell);
@@ -170,7 +167,6 @@ public final class GamePlayGUI {
         		DiceDrawer.DICE_BOWL_DIAMETER);
         GraphicsContext gcDice = cvsDice.getGraphicsContext2D();
         DiceDrawer.drawDiceBowl(gcDice, 0, 0);
-
         Button btnRoll = new Button("ROLL!");
 
         btnRoll.setOnAction(e -> {
@@ -187,34 +183,12 @@ public final class GamePlayGUI {
             + " Roll: " + Main.getGc().getDice().getTotalRoll());
 
             //draws the player movement
-            PieceDrawer.drawFullPlayerMove(gcBoard,
-        		Main.getGc().getCurrentPlayer().getPlayID(),
-        		Main.getGc().getCurrentPlayer().getPlayPosition(),
-                Main.getGc().getDice().getTotalRoll(),
-                Main.getGc().getCurrentPlayer().getPlayPieceID());
+            executePlayerTurn(Main.getGc(), gcBoard,
+            		Main.getGc().getCurrentPlayer(),
+            		Main.getGc().getDice().getTotalRoll());
             
-            if (Main.getGc().getCurrentPlayer().getPlayPosition() == 30) {
-            	PieceDrawer.drawPlayerGoToJail(gcBoard, 
-            			Main.getGc().getCurrentPlayer().getPlayID(), 
-            			Main.getGc().getCurrentPlayer().
-            				getPlayPosition(),
-            			Main.getGc().getCurrentPlayer().
-            				getPlayPieceID());
-            }
-            
-            Main.getGc().spaceCheck(Main.getGc().getDice().getTotalRoll());
-            
-            if (Main.getGc().getCurrentPlayer().getPlayPosition()
-            		!= Main.getGc().getSpaceCheckID()) {
-            	PieceDrawer.drawPlayerSpaceMove(gcBoard,
-            			Main.getGc().getCurrentPlayer().getPlayID(),
-            			Main.getGc().getSpaceCheckID(), 
-            			Main.getGc().getCurrentPlayer().getPlayPosition(),
-            			Main.getGc().getCurrentPlayer().getPlayPieceID());
-            }
-            
-            updateLabels(Main.getGc(), lblBank, lblPlayer1,
-            		lblPlayer2, lblPlayer3, lblPlayer4);
+            updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
+            		lblPlayer3, lblPlayer4);
             Main.getGc().changeCurrentPlayer();
         });
 
@@ -230,7 +204,7 @@ public final class GamePlayGUI {
      * @param dice Used to get the rolls for die one and die two.
      * @param gc The graphics context connected to the dice canvas.
      */
-    public static void updateDicePane(final GameDice dice,
+    private static void updateDicePane(final GameDice dice,
     		final GraphicsContext gc) {
         dice.rollTwo();
         DiceDrawer.drawDie(gc, 50, 50, dice.getDieOne());
@@ -248,7 +222,7 @@ public final class GamePlayGUI {
      * @param playerThree The label for player three.
      * @param playerFour The label for player four.
      */
-    public static void updateLabels(final GameController gc, final Label bank,
+    private static void updateLabels(final GameController gc, final Label bank,
     		final Label playerOne, final Label playerTwo,
     		final Label playerThree, final Label playerFour) {
     	bank.setText("Bank: $" + gc.getBankFunds());
@@ -264,6 +238,36 @@ public final class GamePlayGUI {
         
     	playerFour.setText(Main.getGc().getSpecificPlayer(4).getPlayName()
         		+ ": $" + gc.getSpecificPlayer(4).getPlayBalance());
+    }
+    
+    /**
+     * Shows the full player movement on the board, checks the condition of the
+     * space the player has landed on and moves the player if the resulting
+     * space causes the player to move again.
+     * @param controller The GameController
+     * @param gc The Graphics Context of the board
+     * @param player The current player who is making the turn
+     * @param roll The roll of the dice which shows the number of spaces the
+     * player has moved.
+     */
+    private static void executePlayerTurn(final GameController controller,
+    	final GraphicsContext gc, final Player player, final int roll) {
+    	
+    	PieceDrawer.drawFullPlayerMove(gc, player.getPlayID(),
+    			player.getPlayPosition(), roll, player.getPlayPieceID());
+            
+            if (player.getPlayPosition() == 30) {
+            	PieceDrawer.drawPlayerGoToJail(gc, player.getPlayID(), 
+            			player.getPlayPosition(), player.getPlayPieceID());
+            }
+            
+           controller.spaceCheck(roll);
+            
+            if (player.getPlayPosition() != controller.getSpaceCheckID()) {
+            	PieceDrawer.drawPlayerSpaceMove(gc,	player.getPlayID(),
+            			controller.getSpaceCheckID(), player.getPlayPosition(),
+            			player.getPlayPieceID());
+            }
     }
 
     /**
