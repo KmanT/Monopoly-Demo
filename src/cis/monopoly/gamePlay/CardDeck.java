@@ -1,8 +1,12 @@
 package cis.monopoly.gamePlay;
 
+
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -20,12 +24,10 @@ import cis.monopoly.guiElements.AlertBox;
 public class CardDeck {
 	
 	/**Defines the file path to the chance card info file.*/
-	private static final String CHANCE_FILE = "cis/monopoly/"
-			+ "gamePlay/chance.txt";
+	private static final String CHANCE_FILE = "src/cis/monopoly/chance.txt";
 	
 	/**Defines the file path to the community chest card info file.*/
-	private static final String COMM_FILE = "cis/monopoly/"
-			+ "gamePlay/community.txt";
+	private static final String COMM_FILE = "src/cis/monopoly/community.txt";
 	
 	/**
 	 * The stack that can hold either chance cards or community chest
@@ -59,71 +61,106 @@ public class CardDeck {
 	 */
 	public void fillDeck() {
 		
-		String cardID = "";
-		String cardText = "";
-		String cardCond = "";
-		String cardAmt = "";
-		
 		try {
 			
 			if (type.equals("chance")) {
+				List<String> lineList = readCardFile(
+						CHANCE_FILE);
 				
-				Scanner fileScan = new Scanner(
-						new File(CHANCE_FILE));
-				fileScan.useDelimiter(",");	
-				
-				while (fileScan.hasNext()) {
-					cardID = fileScan.next();
-					cardText = fileScan.next();
-					cardCond = fileScan.next();
-					cardAmt = fileScan.next();
-					
-					playDeck.push(new ChanceCard(
-						Integer.parseInt(cardID),
-						cardText, 
-						Integer.parseInt(cardCond),
-						Integer.parseInt(cardAmt)
-					));
-				}
-				
-				fileScan.close();
-				
-			} else if (type.equals("community")) {
-				
-				boolean getMoney;
-				
-				Scanner fileScan = new Scanner(COMM_FILE);
-				fileScan.useDelimiter(",");	
-				
-				while (fileScan.hasNext()) {
-					cardID = fileScan.next();
-					cardText = fileScan.next();
-					cardCond = fileScan.next();
-					cardAmt = fileScan.next();
-					
-					if (cardCond.equals("0")) {
-						getMoney = true;
-					} else {
-						getMoney = false;
+				for (String line : lineList) {
+					try {
+						String[] card = line.split(",");
+						try {
+							card[0].replaceAll("[^0-9]", "");
+							card[2].replaceAll("[^0-9]", "");
+							card[3].replaceAll("[^0-9]", "");
+						} catch (ArrayIndexOutOfBoundsException ea) {
+							System.out.println(line);
+							System.out.println(card.length);
+						}
+						
+						int cardID = Integer.parseInt(card[0]);
+						String cardText = card[1];
+						int cardCond = Integer.parseInt(card[2]);
+						int cardAmt = Integer.valueOf(card[3]);
+						playDeck.push(new ChanceCard(
+								cardID, cardText,
+								cardCond, cardAmt));
+					} catch (NumberFormatException ex) {
+						AlertBox.display("Number format error", "There was an"
+								+ " error with the number formatting");
+						System.out.println(line);
+						System.out.println(ex.getMessage());
 					}
 					
-					playDeck.push(new CommunityChestCard(
-						Integer.parseInt(cardID),
-						cardText, 
-						getMoney,
-						Integer.parseInt(cardAmt)
-					));
 				}
 				
-				fileScan.close();
+				
+			} else if (type.equals("community")) {
+				boolean getMoney;
+				
+				List<String> lineList = readCardFile(COMM_FILE);
+				
+				for (String line : lineList) {
+					try {
+						String[] card = line.split(",", 4);
+						try {
+							card[0].replaceAll("[^0-9]", "");
+							card[2].replaceAll("[^0-9]", "");
+							card[3].replaceAll("[^0-9]", "");
+						} catch (ArrayIndexOutOfBoundsException ea) {
+							System.out.println(line);
+							System.out.println(card.length);
+						}
+						
+						int cardID = Integer.parseInt(card[0]);
+						String cardText = card[1];
+						int cardCond = Integer.parseInt(card[2]);						
+						int cardAmt = Integer.parseInt(card[3]);
+						
+						if (cardCond == 0) {
+							getMoney = true;
+						} else {
+							getMoney = false;
+						}
+						playDeck.push(new CommunityChestCard(
+								cardID, cardText,
+								getMoney, cardAmt));
+						
+					} catch (NumberFormatException ex) {
+						AlertBox.display("Number format error", "There was an"
+								+ " error with the number formatting");
+						System.out.println(line);
+						System.out.println(ex.getMessage());
+					} 
+					
+				}
+				
 			}
 			
 			Collections.shuffle(playDeck);
 			
-		} catch (FileNotFoundException e) {
+		} catch (IOException ei) {
 			AlertBox.display("File not found exception", "The file"
 				+ " you were looking for was not found.");
+			System.out.println(System.err);
+		} 
+	}
+	/**
+	 * This reads the card file
+	 * @param dir
+	 * @return
+	 * @throws IOException
+	 */
+	public List<String> readCardFile(String dir) throws IOException {
+		List<String> lineList = new ArrayList<>();
+		File file = new File(dir);
+		Scanner scan = new Scanner(file, "utf-8");
+		while (scan.hasNextLine()) {
+			lineList.add(scan.nextLine());
 		}
+		scan.close();
+		return lineList;
 	}
 	
 	/**
@@ -135,4 +172,26 @@ public class CardDeck {
 		}
 	}
 	
+	/**
+	 * Gets the deck.
+	 * @return A stack of cards.
+	 */
+	public Stack<Card> getPlayDeck() {
+		return playDeck;
+	}
+	
+	/**
+	 * Draws the card and applies the condition to the player.
+	 * @param player The player who drew the card.
+	 */
+	public void drawCard(final Player player) {
+		if (playDeck.peek() instanceof ChanceCard) {
+			ChanceCard temp = (ChanceCard) playDeck.pop();
+			temp.applyCondition(player);
+		} else if (playDeck.peek() instanceof CommunityChestCard) {
+			CommunityChestCard temp = 
+					(CommunityChestCard) playDeck.pop();
+			temp.applyCondition(player);
+		}
+	}
 }

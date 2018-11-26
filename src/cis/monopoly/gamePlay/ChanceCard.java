@@ -77,10 +77,8 @@ public class ChanceCard extends Card {
 		switch (cardCondition) {
 			case 0: player.setPlayPosition(cardAmount);
 				break;
-			case 1: player.setPlayPosition(Main.getGc().
-					getNearestPropInGroup(player.
-						getPlayPosition(), cardAmount).
-					getSpaceID());
+			case 1: player.setPlayPosition(Main.getGc().getNearestPropInGroup(
+						player.getPlayPosition(), cardAmount).getSpaceID());
 				break;
 			case 2: Main.getGc().bankPayPlayer(player, cardAmount);
 				break;
@@ -91,8 +89,7 @@ public class ChanceCard extends Card {
 				break;
 			case 5: Main.getGc().playerPayBank(player, cardAmount);
 				break;
-			case 6: Main.getGc().everyonePayPlayer(
-					player, cardAmount);
+			case 6: Main.getGc().everyonePayPlayer(player, cardAmount);
 				break;
 			default:
 				

@@ -249,13 +249,27 @@ public final class PieceDrawer {
      * @param gc The graphics context connected to the board canvas.
      * @param playerID The id of the current player making a turn.
      * @param position Where the player currently is.
-     * @param pieceID Determines the color (eventually icon) belonging to the
-     * current player.
+     * @param pieceID Determines the icon belonging to the current player.
      */
     public static void drawPlayerGoToJail(final GraphicsContext gc,
     		final int playerID, final int position, final int pieceID) {
     	movePiece(gc, playerID, position, 0);
     	movePiece(gc, playerID, 10, pieceID);
+    }
+    
+    /**
+     * Draws the player if they move after the spaceCheck.
+     * @param gc The graphics context connected to the board canvas.
+     * @param playerID The id of the current player making a turn.
+     * @param oldPos The space the player was before the space check.
+     * @param newPos The space the player landed on after the space check.
+     * @param pieceID Determines the icon belonging to the current player.
+     */
+    public static void drawPlayerSpaceMove(final GraphicsContext gc,
+    		final int playerID, final int oldPos, final int newPos,
+    		final int pieceID) {
+    	movePiece(gc, playerID, oldPos, 0);
+    	movePiece(gc, playerID, newPos, pieceID);
     }
 	
 }

@@ -6,7 +6,14 @@ package cis.monopoly;
  * @author Kyle Turske
  * @version 0.5
  */
-public class Validator {
+public final class Validator {
+	
+	/**
+	 * Private constructor.
+	 */
+	private Validator() {
+		
+	}
     
     /**
      * This method checks if the String contains anything.
@@ -23,11 +30,7 @@ public class Validator {
      * @return true if the string is not blank; false if it is.
      */
     public static Boolean hasInput(final String val) {
-    	if (val.equals("")) {
-    		return false;
-    	} else {
-    		return true;
-    	}
+    	return !val.equals("");
     }
     /**
      * This method checks if the String is an integer.

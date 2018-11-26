@@ -202,7 +202,16 @@ public final class GamePlayGUI {
             				getPlayPieceID());
             }
             
-            Main.getGc().spaceCheck();
+            Main.getGc().spaceCheck(Main.getGc().getDice().getTotalRoll());
+            
+            if (Main.getGc().getCurrentPlayer().getPlayPosition()
+            		!= Main.getGc().getSpaceCheckID()) {
+            	PieceDrawer.drawPlayerSpaceMove(gcBoard,
+            			Main.getGc().getCurrentPlayer().getPlayID(),
+            			Main.getGc().getSpaceCheckID(), 
+            			Main.getGc().getCurrentPlayer().getPlayPosition(),
+            			Main.getGc().getCurrentPlayer().getPlayPieceID());
+            }
             
             updateLabels(Main.getGc(), lblBank, lblPlayer1,
             		lblPlayer2, lblPlayer3, lblPlayer4);
@@ -243,18 +252,18 @@ public final class GamePlayGUI {
     		final Label playerOne, final Label playerTwo,
     		final Label playerThree, final Label playerFour) {
     	bank.setText("Bank: $" + gc.getBankFunds());
-        playerOne.setText(Main.getGc().getSpecificPlayer(1).
-        		getPlayName() + ": $"
-        		+ gc.getSpecificPlayer(1).getPlayBalance());
-        playerTwo.setText(Main.getGc().getSpecificPlayer(2).
-        		getPlayName() + ": $" 
-        		+ gc.getSpecificPlayer(2).getPlayBalance());
-        playerThree.setText(Main.getGc().getSpecificPlayer(3).
-        		getPlayName() + ": $" 
-        		+ gc.getSpecificPlayer(3).getPlayBalance());
-        playerFour.setText(Main.getGc().getSpecificPlayer(3).
-        		getPlayName() + ": $" 
-        		+ gc.getSpecificPlayer(4).getPlayBalance());
+        
+    	playerOne.setText(Main.getGc().getSpecificPlayer(1).getPlayName()
+        		+ ": $" + gc.getSpecificPlayer(1).getPlayBalance());
+        
+    	playerTwo.setText(Main.getGc().getSpecificPlayer(2).getPlayName()
+        		+ ": $" + gc.getSpecificPlayer(2).getPlayBalance());
+        
+    	playerThree.setText(Main.getGc().getSpecificPlayer(3).getPlayName()
+        		+ ": $" + gc.getSpecificPlayer(3).getPlayBalance());
+        
+    	playerFour.setText(Main.getGc().getSpecificPlayer(4).getPlayName()
+        		+ ": $" + gc.getSpecificPlayer(4).getPlayBalance());
     }
 
     /**

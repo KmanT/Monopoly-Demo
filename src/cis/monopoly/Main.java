@@ -61,8 +61,7 @@ public class Main extends Application {
 		primaryStage.setTitle("GVSU Monopoly");
 		primaryStage.setWidth(windowWidth);
 		primaryStage.setHeight(windowHeight);
-		mainScene = new Scene(MainGUI.mainScene(),
-				windowWidth, windowHeight);
+		mainScene = new Scene(MainGUI.mainScene(), windowWidth, windowHeight);
 		primaryStage.setScene(mainScene);
 		
 		System.out.println(System.getProperty("user.dir"));

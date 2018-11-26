@@ -9,4 +9,4 @@
 9,Go directly to jail.,4,10
 10,Parking Ticket! Pay $15.,5,15
 11,Have a class downtown. Advance to 'Route 50'.,0,25
-12,
+12,You're hosting a fund raiser. Everyone pay $25.,6,25

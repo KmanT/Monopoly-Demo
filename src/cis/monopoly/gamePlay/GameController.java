@@ -35,6 +35,9 @@ public class GameController {
     private  List<Property> propertyList;
     /**Stores the value for the current player.*/
     private int currentPlayer;
+    /**Stores the spaceID for the current player, and if it changes, it will
+     * allow the piecedrawer to show the move after the space check*/
+    private int spaceCheckID;
     /**Used for piece moving calculations.*/
     private GameDice dice;
     /**Total balance for the bank.*/
@@ -171,7 +174,7 @@ public class GameController {
      */
     public void runPlayerTurn(final int roll, final Player player) {
         movePlayer(player, roll);
-        spaceCheck();
+        spaceCheck(roll);
         changeCurrentPlayer();
     }
 
@@ -386,12 +389,13 @@ public class GameController {
      * the property's ownerID isn't equal to negative one, zero, or the the
      * current player's ID, then rent will be payed to the owner of that
      * property.
-     *
-     * More will be added to this method
+     * 
+     * @param roll the roll that the player made during their turn.
      */
-    public void spaceCheck() {
+    public void spaceCheck(final int roll) {
         Player player = getCurrentPlayer();
         Property prop = getCurrentPlayerPosition();
+        spaceCheckID = prop.getSpaceID();
 
         if (prop.getPropOwnerID() == 0) {
             buyProperty(player, prop);
@@ -399,21 +403,43 @@ public class GameController {
                 && prop.getPropOwnerID() != -1
                 && prop.getPropOwnerID() != 0) {
             
-        	//if property has shared owner in group
+        	int rent = 0;
         	
+        	if (prop.getPropGroup() == 9) { //if group is Utilities
+        		if (propSharedOwnerCount(prop.getSpaceID()) == 1) {
+            		rent = roll * 4;
+            	} else if (propSharedOwnerCount(prop.getSpaceID()) == 2) {
+            		rent = roll * 10;
+            	}
+        	} else if (prop.getPropGroup() == 10) { //if group is Bus Route
+        		if (propSharedOwnerCount(prop.getSpaceID()) == 1) {
+            		rent = 25;
+            	} else if (propSharedOwnerCount(prop.getSpaceID()) == 2) {
+            		rent = 50;
+            	} else if (propSharedOwnerCount(prop.getSpaceID()) == 3) {
+            		rent = 100;
+            	} else if (propSharedOwnerCount(prop.getSpaceID()) == 4) {
+            		rent = 200;
+            	}
+        	} else {
+        		rent = prop.getPropRent();
+        		
+        	}
         	
-        	//if group is Bus Routes
-        	
-        	//if group is Utilities
         	
         	transferPlayerFunds(player,
                     getSpecificPlayer(prop.getPropOwnerID()),
-                    prop.getPropRent());
+                    rent);
         	
         } else if (prop.getPropGroup() == 11) {
-        	CommunityBox.display("BottomText", true, 500);
+        	
+        	CommunityBox.display(communityDeck.
+        			getPlayDeck().peek().getCardText());
+        	communityDeck.drawCard(player);
         } else if (prop.getPropGroup() == 12) {
-        	ChanceBox.display("BottomText", 1, 500, this);
+        	ChanceBox.display(chanceDeck.
+        			getPlayDeck().peek().getCardText());
+        	chanceDeck.drawCard(player);
         } else if (prop.getSpaceID() == 30) {
         	playerGoToJail(player);
         } else if (prop.getSpaceID() == 4) {
@@ -424,23 +450,24 @@ public class GameController {
         			"Rent for the month is due! \n Pay $100.");
         	playerPayBank(player, 100);
         }
-        
-        //group for Chance
-        
-        //group for Community Chest
-        
-        //space is luxury tax
-        
-        //space is other tax
+       
     }
     
     /**
+     * Used for checking if the player moved after the space check.
+     * @return The player's previous position
+     */
+    public int getSpaceCheckID() {
+		return spaceCheckID;
+	}
+
+	/**
      * Counts the number of properties that a property in a group has a shared
      * owner. Used inside the propertyRentMultiplier method.
      * @param spaceID The ID of the space the player has landed on.
      * @return The number of shared owners for a space.
      */
-    public boolean propSharedOwnerCount(final int spaceID) {
+    public int propSharedOwnerCount(final int spaceID) {
     	Property playerProperty = getSpecificProperty(spaceID);
     	
     	List<Property> propGroupList = new ArrayList<>();
@@ -451,16 +478,13 @@ public class GameController {
             }
         }
     	
-    	int sharedOwnerCount = 0;
-    	
+    	int sharedOwnerCount = 0;    	
     	for (Property prop : propGroupList) {
     		if (prop.getPropOwnerID() == playerProperty.getPropOwnerID()) {
     			sharedOwnerCount++;
     		}
-    	}
-    	
-        return sharedOwnerCount == propGroupList.size();
-    	
+    	} 	
+        return sharedOwnerCount;
     }
     
 
@@ -481,22 +505,6 @@ public class GameController {
             playerPayBank(player, prop.getPropPrice());
             prop.setPropOwnerID(player.getPlayID());
         }
-    }
-
-    /**
-     * This method will apply the effects of any given Community Chest card to
-     * the given player.
-     */
-    public void drawCommunityCard() {
-
-    }
-
-    /**
-     * This method will apply the effects of any given Chance card to the given
-     * player.
-     */
-    public void drawChanceCard() {
-
     }
 
     /**

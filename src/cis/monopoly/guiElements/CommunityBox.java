@@ -29,27 +29,15 @@ public final class CommunityBox {
 	/**
 	 * Shows the community box once called.
 	 * @param cardText The text on the card.
-	 * @param getMoney Boolean that determines whether money is given to or
-	 * taken from the player.
-	 * @param cardAmount The amount of money given or taken.
 	 */
-    public static void display(final String cardText, final boolean getMoney,
-    		final int cardAmount) {
+    public static void display(final String cardText) {
     	Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Community Chest");
         window.setMinWidth(300);
         window.setMinHeight(400);
         
-
-        Label label = new Label();
-        
-        if (getMoney) {
-        	label.setText("You have recieved $" + cardAmount);
-        } else {
-        	label.setText("You need to pay $" + cardAmount);
-        }
-        
+        Label label = new Label(cardText);
         
         Button closeButton = new Button("OK");
         closeButton.setOnAction(e -> window.close());
@@ -73,7 +61,6 @@ public final class CommunityBox {
         Scene scene = new Scene(layout);
         scene.getStylesheets().add(
         		"cis/monopoly/guiElements/community-style.css");
-        //scene.getStyleClass().add(".chance-window");
         window.setScene(scene);
         window.showAndWait();
 

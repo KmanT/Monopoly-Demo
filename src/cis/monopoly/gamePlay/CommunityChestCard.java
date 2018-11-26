@@ -1,5 +1,7 @@
 package cis.monopoly.gamePlay;
 
+import cis.monopoly.Main;
+
 /**<h1>CommunityChestCard</h1>
 * This class is used to define the Community Chest cards. These cards either
 * give or take money from the player. This is represented by the boolean
@@ -51,6 +53,22 @@ public class CommunityChestCard extends Card {
 	 */
 	public int getCardAmount() {
 		return cardAmount;
+	}
+	
+	/**
+	 * Applies the card condition to the player who has received the
+	 * community chest card.
+	 * @param player The player who got the card.
+	 */
+	public void applyCondition(final Player player) {
+		
+		if (getMoney) {
+			Main.getGc().bankPayPlayer(player,
+					cardAmount);				
+		} else {
+			Main.getGc().playerPayBank(player,
+					cardAmount);
+		}
 	}
 
 	

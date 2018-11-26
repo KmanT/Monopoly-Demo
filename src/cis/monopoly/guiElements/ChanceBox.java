@@ -1,6 +1,5 @@
 package cis.monopoly.guiElements;
 
-import cis.monopoly.gamePlay.GameController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -30,15 +29,8 @@ public final class ChanceBox {
 	/**
 	 * Shows the chance box once called.
 	 * @param cardText The text on the card.
-	 * @param cardCondition The condition that the card will apply. 0 if the
-	 * player is moving to another space, 1 if they are getting money, 2 if
-	 * they are getting money taken.
-	 * @param cardAmount Either the spaceID or the amount of money,
-	 * depending on what the condition is.
-	 * @param gc The game controller.
 	 */
-    public static void display(final String cardText, final int cardCondition,
-    		final int cardAmount, final GameController gc) {
+    public static void display(final String cardText) {
     	Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Chance");
@@ -46,16 +38,8 @@ public final class ChanceBox {
         window.setMinHeight(400);
         
         Label label = new Label();
-        label.setText("BOTTOM TEXT");
+        label.setText(cardText);
         
-        if (cardCondition == 0) {
-        	label.setText("Go to " 
-        		+ gc.getSpecificProperty(cardAmount).getSpaceName());
-        } else if (cardCondition == 1) {
-        	label.setText("You have recieved $" + cardAmount);
-        } else if (cardCondition == 2) {
-        	label.setText("You need to pay $" + cardAmount);
-        }
         
         Button closeButton = new Button("OK");
         closeButton.setOnAction(e -> window.close());
