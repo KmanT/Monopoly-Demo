@@ -166,7 +166,9 @@ public final class GamePlayGUI {
         
         Button btnBuyHouse = new Button("Buy Houses");
         btnBuyHouse.setOnAction(e -> {
-        	BuyHouseBox.display(Main.getGc().getCurrentPlayer());
+        	BuyHouseBox.display(Main.getGc().getCurrentPlayer(), gcBoard);
+        	updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
+            		lblPlayer3, lblPlayer4);
         });
         Button btnHotelUpgrade = new Button("Upgrade to Hotel");        
         Button btnTrade = new Button("Trade Property");        

@@ -1,5 +1,6 @@
 package cis.monopoly.gameDrawers;
 
+import cis.monopoly.gamePlay.Property;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -107,6 +108,26 @@ public final class HouseDrawer {
         gc.fillPolygon(xPoints, yPoints, nPoints);
         gc.setStroke(Color.BLACK);
         gc.strokePolygon(xPoints, yPoints, nPoints);
+	}
+	
+	/**
+	 * Draws the houses on a specific property based on the position requested.
+	 * @param gc The graphics context for the board
+	 * @param prop The property that contains the houses to draw
+	 */
+	public void drawHouseOnProperty(final GraphicsContext gc,
+			final Property prop) {
+		
+		//BOTTOM ROW//
+		
+		//LEFT COLUMN//
+		
+		//TOP ROW//
+		
+		//RIGHT COLUMN//
+		
+		//IF ANYTHING ELSE//
+		
 	}
 
 }

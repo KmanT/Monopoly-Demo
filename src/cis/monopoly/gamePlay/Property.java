@@ -24,8 +24,6 @@ public class Property extends Space {
     private boolean hasHotel;
     /**Determines the price of the house for a property.*/
     private int housePrice;
-    /**Determines the price of a hotel for a property.*/
-    private int hotelPrice;
     
 
     /**
@@ -39,13 +37,11 @@ public class Property extends Space {
      * @param houseCount This the number of houses on the property.
      * @param hasHotel This confirms if the property has a hotel.
      * @param housePrice This is the price of a house for a property
-     * @param hotelPrice This is the price of a hotel for a property
      */
     public Property(final String propName, final int propID, 
     			final int propPrice, final int propRent, final int propGroup,
     			final int propOwnerID, final int houseCount,
-    			final boolean hasHotel, final int housePrice,
-    			final int hotelPrice) {
+    			final boolean hasHotel, final int housePrice) {
         super(propName, propID);
         this.propPrice = propPrice;
         this.propRent = propRent;
@@ -54,7 +50,6 @@ public class Property extends Space {
         this.houseCount = houseCount;
         this.hasHotel = hasHotel;
         this.housePrice = housePrice;
-        this.hotelPrice = hotelPrice;
     }
 
     /**
@@ -111,7 +106,6 @@ public class Property extends Space {
         houseCount = 0;
         hasHotel = false;
         housePrice = 0;
-        hotelPrice = 0;
     }
 
     /**
@@ -196,16 +190,49 @@ public class Property extends Space {
     
     /**
      * This is a getter method for the number of houses on the property.
-     * @return houseCount. The no.of houses on the property.
+     * @return houseCount. The number of houses on the property.
      */
-    
     public int getHouseCount() {
         return houseCount;
     }
+    
+    /**
+     * Gets the price to purchase a house.
+     * @return The price of a house
+     */
+    public int getHousePrice() {
+		return housePrice;
+	}
+    
+    /**
+     * Automatically sets the house price based on the property group
+     */
+    public void setHousePrice() {
+    	if (propGroup == 1 || propGroup == 2) {
+    		housePrice = 50;
+    	} else if (propGroup == 3 || propGroup == 4) {
+    		housePrice = 100;
+    	} else if (propGroup == 5|| propGroup == 6) {
+    		housePrice = 150;
+    	} else if (propGroup == 7 || propGroup == 8) {
+    		housePrice = 200;
+    	} else {
+    		housePrice = 0;
+    	}
+    }
 
     /**
-     * This is a method that increases the number of
-     * house on a property.
+     * Manually sets the price for a house.
+     * @param housePrice The amount a player needs to purchase the house
+     */
+	public void setHousePrice(final int housePrice) {
+		this.housePrice = housePrice;
+	}
+
+	/**
+     * This is a method that increases the number of houses on a property, only
+     * if the number of houses is less than four and there isn't a hotel
+     * present.
      */
     public void addHouseCount() {
         if (houseCount < 4 && !hasHotel) {
@@ -254,7 +281,8 @@ public class Property extends Space {
     		hasHotel = true;
     	} else if (houseCount < 4) {
     		AlertBox.display("Need four houses on property", "You need to"
-    				+ " purchase more houses for this property");
+    				+ " purchase more houses for this property in order to"
+    				+ " purchase a hotel. You need a total of four houses.");
     	}
     }
 }

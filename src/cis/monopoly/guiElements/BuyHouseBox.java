@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -21,6 +22,20 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**<h1>BuyHouseBox</h1>
+ * This class defines the dialouge box when a player wants to purchase a house
+ * for their property. It will display a table of all the properties that can
+ * have houses, have less than four houses, and don't have a hotel. The player
+ * must select the property they must purchase. On the bottom, there are
+ * buttons to either buy the house or close the window. When a property is
+ * selected and the user presses "Buy house" the property's house count
+ * increases by one. The table will update when the player purchases a house
+ * for their property.
+ * 
+ * @author Kyle Turske
+ * @version 0.8
+ *
+ */
 public final class BuyHouseBox {
 	
 	/**
@@ -30,7 +45,14 @@ public final class BuyHouseBox {
 		
 	}
 	
-	public static void display(Player p) {
+	/**
+	 * The layout for the Buy House Menu.
+	 * @param p The current player who wants to purchase a house for their
+	 * property.
+	 * @param gc The graphics context that shows when houses are purchased on
+	 * the board
+	 */
+	public static void display(final Player p, final GraphicsContext gc) {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Buy houses for property. - " + p.getPlayName());
@@ -40,13 +62,19 @@ public final class BuyHouseBox {
         
         ScrollPane tablePane = new ScrollPane();
         TableView<Property> tblProp = new TableView();
-        tblProp.prefWidthProperty().setValue(310);
+        tblProp.prefWidthProperty().setValue(410);
         
         TableColumn<Property, String> colPropName =
         		new TableColumn<>("Property");
         colPropName.setPrefWidth(200);
         colPropName.setCellValueFactory(
         		new PropertyValueFactory<Property, String>("spaceName"));
+        
+        TableColumn<Property, Integer> colHousePrice =
+        		new TableColumn("House Price");
+        colHousePrice.setPrefWidth(100);
+        colHousePrice.setCellValueFactory(
+        		new PropertyValueFactory<Property, Integer>("housePrice"));
         
         TableColumn<Property, Integer> colHouseCount =
         		new TableColumn<>("House Count");
@@ -55,7 +83,7 @@ public final class BuyHouseBox {
         		new PropertyValueFactory<Property, Integer>("houseCount"));
         
         tblProp.setItems(getOwnedProperties(Main.getGc().getPropertyList(), p));
-        tblProp.getColumns().addAll(colPropName, colHouseCount);
+        tblProp.getColumns().addAll(colPropName, colHousePrice, colHouseCount);
         tblProp.getSelectionModel().selectFirst();
         
         tablePane.setContent(tblProp);
@@ -66,6 +94,7 @@ public final class BuyHouseBox {
         			tblProp.getSelectionModel().getSelectedItem().getSpaceID();
         	for (Property prop: Main.getGc().getPropertyList()) {
         		if (prop.getSpaceID() == searchID) {
+        			Main.getGc().playerPayBank(p, prop.getHousePrice());
         			prop.addHouseCount();
         			tblProp.refresh();
         		}
@@ -106,9 +135,12 @@ public final class BuyHouseBox {
 		for (Property prop: list) {
 			if (prop.getpropOwnerID() == p.getPlayID()) {
 				
-				if (prop.getHouseCount() < 4 && !prop.isHasHotel()) {
-					propList.add(prop);
-				}				
+				if (prop.getPropGroup() != 9 || prop.getPropGroup() != 10) {
+					
+					if (prop.getHouseCount() < 4 && !prop.isHasHotel()) {
+						propList.add(prop);
+					}	
+				}							
 			}
 		}
 		return propList;

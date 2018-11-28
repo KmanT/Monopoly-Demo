@@ -121,6 +121,10 @@ public class GameController {
         propertyList.add(new Property("Cook Carillon Tower", 37, 350, 35, 8));
         propertyList.add(new Property("Rent", 38, 0, 0, 14, -1));
         propertyList.add(new Property("Lubbers Stadium", 39, 350, 35, 8));
+        
+        for (Property prop: propertyList) {
+        	prop.setHousePrice();
+        }
 
         //DICE//
         dice = new GameDice();
