@@ -9,7 +9,6 @@ import cis.monopoly.gamePlay.GameDice;
 import cis.monopoly.gamePlay.Player;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -35,9 +34,6 @@ import javafx.stage.Stage;
  *
  */
 public final class GamePlayGUI {
-
-	/**Stores the scene information.*/
-    private static Scene gameScene;
     
     /**Holds all the panes necessary for game play.*/
     private static BorderPane gamePane = new BorderPane();
@@ -98,13 +94,16 @@ public final class GamePlayGUI {
         Menu menuHelp = new Menu("Help");
         Menu menuExit = new Menu("Exit");
         MenuItem itmMainMenu = new MenuItem("Exit to Main Menu");
-
         itmMainMenu.setOnAction(e -> {
         	Stage stage = (Stage) topMenu.getScene().getWindow();
 			stage.setScene(Main.getMainScene());
         });
-
+        
         MenuItem itmClose = new MenuItem("Close Window");
+        itmClose.setOnAction(e -> {
+        	Stage stage = (Stage) topMenu.getScene().getWindow();
+        	stage.close();
+        });
         menuExit.getItems().addAll(itmMainMenu, itmClose);
         topMenu.getMenus().addAll(menuFile, menuHelp, menuExit);
         menuPane.getChildren().add(topMenu);
@@ -114,21 +113,33 @@ public final class GamePlayGUI {
         		getPlayName() + " : $"
                 + Main.getGc().getSpecificPlayer(1).getPlayBalance());
         lblPlayer1.getStyleClass().add("lblPlayer");
+        if (!Main.getGc().getSpecificPlayer(1).isInPlay()) {
+        	lblPlayer1.setVisible(false);
+        }
 
         Label lblPlayer2 = new Label(Main.getGc().getSpecificPlayer(2).
         		getPlayName() + " : $"
                 + Main.getGc().getSpecificPlayer(2).getPlayBalance());
         lblPlayer2.getStyleClass().add("lblPlayer");
+        if (!Main.getGc().getSpecificPlayer(2).isInPlay()) {
+        	lblPlayer2.setVisible(false);
+        }
 
         Label lblPlayer3 = new Label(Main.getGc().getSpecificPlayer(3).
         		getPlayName() + " : $"
                 + Main.getGc().getSpecificPlayer(3).getPlayBalance());
         lblPlayer3.getStyleClass().add("lblPlayer");
+        if (!Main.getGc().getSpecificPlayer(3).isInPlay()) {
+        	lblPlayer3.setVisible(false);
+        }
 
         Label lblPlayer4 = new Label(Main.getGc().getSpecificPlayer(4).
         		getPlayName() + " : $"
                 + Main.getGc().getSpecificPlayer(4).getPlayBalance());
         lblPlayer4.getStyleClass().add("lblPlayer");
+        if (!Main.getGc().getSpecificPlayer(4).isInPlay()) {
+        	lblPlayer4.setVisible(false);
+        }
 
         GridPane.setConstraints(lblPlayer1, 0, 0);
         GridPane.setConstraints(lblPlayer2, 0, 1);
@@ -153,7 +164,10 @@ public final class GamePlayGUI {
         //STATUS PANE//
         Label lblBank = new Label("Bank: $" + Main.getGc().getBankFunds());
         
-        Button btnBuyHouse = new Button("Buy Houses");        
+        Button btnBuyHouse = new Button("Buy Houses");
+        btnBuyHouse.setOnAction(e -> {
+        	BuyHouseBox.display(Main.getGc().getCurrentPlayer());
+        });
         Button btnHotelUpgrade = new Button("Upgrade to Hotel");        
         Button btnTrade = new Button("Trade Property");        
         Button btnSell = new Button("Sell Property to Bank");
@@ -268,14 +282,5 @@ public final class GamePlayGUI {
             			controller.getSpaceCheckID(), player.getPlayPosition(),
             			player.getPlayPieceID());
             }
-    }
-
-    /**
-     * Used to return the gameScene so that the window can be changed to
-     * this scene.
-     * @return gameScene
-     */
-    public static Scene getGameScene() {
-        return gameScene;
     }
 }

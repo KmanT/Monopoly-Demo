@@ -155,15 +155,19 @@ public class GameController {
     }
     
     /**
-     * Deactivates all of the players in the controller. Used if the user
-     * changes their mind on the number of players and goes back to the 
-     * HowManyPlayersGUI from the PlayerInfoGUI.
+     * Deactivates all of the players in the controller and resets their
+     * different values. Used if the user changes their mind on the number of
+     * players and goes back to the HowManyPlayersGUI from the PlayerInfoGUI.
      */
     public void deactivateAllPlayers() {
     	player1.setInPlay(false);
+    	player1.setPlayerDefault();
 		player2.setInPlay(false);
+		player2.setPlayerDefault();
 		player3.setInPlay(false);
+		player3.setPlayerDefault();
 		player4.setInPlay(false);
+		player4.setPlayerDefault();
     }
 
     /**
@@ -508,20 +512,12 @@ public class GameController {
     }
     
     /**
-     * Gets a list of properties owned by a particular player.
-     * @param playerID The id of the player. If the ownerID matches the
-     * player ID, then the property will be added to the list
-     * @return The list of properties owned by a player.
+     * Gets the list of the properties from the controller. Used for house and
+     * hotel purchasing.
+     * @return The list of properties
      */
-    public List<Property> playerOwnedPropList(final int playerID) {
-    	List<Property> propList = new ArrayList<>();
-    	
-    	for (Property prop: propertyList) {
-    		if (prop.getPropOwnerID() == playerID) {
-    			propList.add(prop);
-    		}
-    	}
-    	return propList;
+    public List<Property> getPropertyList() {
+    	return propertyList;
     }
 
     /**

@@ -3,6 +3,8 @@ package cis.monopoly;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import cis.monopoly.gamePlay.GameController;
 import cis.monopoly.guiElements.MainGUI;
 
@@ -36,7 +38,7 @@ public class Main extends Application {
     private static int windowHeight = WINDOW_HEIGHT_BIG;
 	
 	/**This is what controls all of the game play elements.*/
-    private static GameController gc;
+    private static GameController gc = new GameController();
     
     /**Used to returning to the main menu in the HowManyPlayersGUI class.*/
     private static Scene mainScene;
@@ -57,12 +59,16 @@ public class Main extends Application {
      */
 	@Override
 	public void start(final Stage primaryStage) throws Exception {
-		gc = new GameController();
 		primaryStage.setTitle("GVSU Monopoly");
 		primaryStage.setWidth(windowWidth);
 		primaryStage.setHeight(windowHeight);
 		mainScene = new Scene(MainGUI.mainScene(), windowWidth, windowHeight);
 		primaryStage.setScene(mainScene);
+		 primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+	            if (KeyCode.F11.equals(event.getCode())) {
+	                primaryStage.setFullScreen(!primaryStage.isFullScreen());
+	            }
+	        });
 		
 		System.out.println(System.getProperty("user.dir"));
 		primaryStage.show();

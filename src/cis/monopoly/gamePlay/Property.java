@@ -1,5 +1,7 @@
 package cis.monopoly.gamePlay;
 
+import cis.monopoly.guiElements.AlertBox;
+
 /**
  * <h1>Property</h1>
  * This class is used in identifying the properties
@@ -18,8 +20,13 @@ public class Property extends Space {
     private int propOwnerID;
     /**This defines the number of houses on a property.*/
     private int houseCount;
-    /**This confirms if a propery has a hotel or not.*/
+    /**This confirms if a property has a hotel or not.*/
     private boolean hasHotel;
+    /**Determines the price of the house for a property.*/
+    private int housePrice;
+    /**Determines the price of a hotel for a property.*/
+    private int hotelPrice;
+    
 
     /**
      * This is a constructor of a Property.
@@ -31,11 +38,14 @@ public class Property extends Space {
      * @param propOwnerID This is the owner of the property.
      * @param houseCount This the number of houses on the property.
      * @param hasHotel This confirms if the property has a hotel.
+     * @param housePrice This is the price of a house for a property
+     * @param hotelPrice This is the price of a hotel for a property
      */
     public Property(final String propName, final int propID, 
     			final int propPrice, final int propRent, final int propGroup,
     			final int propOwnerID, final int houseCount,
-    			final boolean hasHotel) {
+    			final boolean hasHotel, final int housePrice,
+    			final int hotelPrice) {
         super(propName, propID);
         this.propPrice = propPrice;
         this.propRent = propRent;
@@ -43,6 +53,8 @@ public class Property extends Space {
         this.propOwnerID = propOwnerID;
         this.houseCount = houseCount;
         this.hasHotel = hasHotel;
+        this.housePrice = housePrice;
+        this.hotelPrice = hotelPrice;
     }
 
     /**
@@ -98,6 +110,8 @@ public class Property extends Space {
         propOwnerID = 0;
         houseCount = 0;
         hasHotel = false;
+        housePrice = 0;
+        hotelPrice = 0;
     }
 
     /**
@@ -192,10 +206,19 @@ public class Property extends Space {
     /**
      * This is a method that increases the number of
      * house on a property.
-     * @param count The number the houses should be increased by.
      */
-    public void addHouseCount(final int count) {
-        houseCount += count;
+    public void addHouseCount() {
+        if (houseCount < 4 && !hasHotel) {
+        	houseCount++;
+        } else if (houseCount >= 4) {
+        	AlertBox.display("Property has max houses.", "The maximum number of"
+        			+ "houses has already been met. You cannot buy more for"
+        			+ "this property.");
+        } else if (hasHotel) {
+        	AlertBox.display("Property has hotel.", "You cannot add a house"
+        			+ "to a property that has a hotel.");
+        }
+    	
     }
     
     /**
@@ -215,8 +238,7 @@ public class Property extends Space {
     }
     
     /**
-     * This is a method that checks if a property has a 
-     * hotel.
+     * This is a method that checks if a property has a hotel.
      * @return hasHotel This is either true or false.
      */
     public boolean isHasHotel() {
@@ -224,11 +246,15 @@ public class Property extends Space {
     }
     
     /**
-     * This is a setter method to set the property to have
-     * a hotel.
-     * @param hasHotel The is either true or false to be set.
+     * Removes all of the houses from a property and gives the property a hotel.
      */
-    public void setHasHotel(final boolean hasHotel) {
-        this.hasHotel = hasHotel;
+    public void setHasHotel() {
+    	if (!hasHotel && houseCount >= 3) {
+    		houseCount = 0;
+    		hasHotel = true;
+    	} else if (houseCount < 4) {
+    		AlertBox.display("Need four houses on property", "You need to"
+    				+ " purchase more houses for this property");
+    	}
     }
 }

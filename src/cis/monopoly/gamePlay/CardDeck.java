@@ -1,9 +1,7 @@
 package cis.monopoly.gamePlay;
 
-
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -71,9 +69,9 @@ public class CardDeck {
 					try {
 						String[] card = line.split(",");
 						try {
-							card[0].replaceAll("[^0-9]", "");
-							card[2].replaceAll("[^0-9]", "");
-							card[3].replaceAll("[^0-9]", "");
+							card[0] = card[0].replaceAll("[^0-9]", "");
+							card[2] = card[2].replaceAll("[^0-9]", "");
+							card[3] = card[3].replaceAll("[^0-9]", "");
 						} catch (ArrayIndexOutOfBoundsException ea) {
 							System.out.println(line);
 							System.out.println(card.length);
@@ -103,19 +101,10 @@ public class CardDeck {
 				
 				for (String line : lineList) {
 					try {
-						String[] card = line.split(",", 4);
-						try {
-							card[0].replaceAll("[^0-9]", "");
-							card[2].replaceAll("[^0-9]", "");
-							card[3].replaceAll("[^0-9]", "");
-						} catch (ArrayIndexOutOfBoundsException ea) {
-							System.out.println(line);
-							System.out.println(card.length);
-						}
-						
+						String[] card = line.split(",", 4);						
 						int cardID = Integer.parseInt(card[0]);
 						String cardText = card[1];
-						int cardCond = Integer.parseInt(card[2]);						
+						int cardCond = Integer.parseInt(card[2]);
 						int cardAmt = Integer.parseInt(card[3]);
 						
 						if (cardCond == 0) {
@@ -147,12 +136,13 @@ public class CardDeck {
 		} 
 	}
 	/**
-	 * This reads the card file
-	 * @param dir
-	 * @return
-	 * @throws IOException
+	 * This reads the card file.
+	 * @param dir The directory where the card belongs
+	 * @return A list of strings which contain the information for card
+	 * creation
+	 * @throws IOException If there is something wrong with the card file.
 	 */
-	public List<String> readCardFile(String dir) throws IOException {
+	public List<String> readCardFile(final String dir) throws IOException {
 		List<String> lineList = new ArrayList<>();
 		File file = new File(dir);
 		Scanner scan = new Scanner(file, "utf-8");

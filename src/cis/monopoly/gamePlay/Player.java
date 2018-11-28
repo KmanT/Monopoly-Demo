@@ -139,13 +139,6 @@ public class Player {
     }
 
     /**
-     * Changes the player ID for whatever reason. May not need this
-     * @param playID Player ID
-     */
-    public void setPlayID(final int playID) {
-        this.playID = playID;
-    }
-    /**
      * Get's the player's balance.
      * @return the player's balance
      */
@@ -221,6 +214,19 @@ public class Player {
      */
     public void setPlayPieceID(final int playPieceID) {
         this.playPieceID = playPieceID;
+    }
+    
+    /**
+     * Changes the player's values to the default values, aside from the their
+     * inPlay value or their ID.
+     */
+    public void setPlayerDefault() {
+    	 playName = "";
+         playBalance = START_BALANCE;
+         playPosition = 0;
+         playPieceID = 0;
+         inJailCount = 0;
+         hasGetOutCard = false;
     }
     
     /**
