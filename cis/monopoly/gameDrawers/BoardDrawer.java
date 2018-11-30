@@ -1,9 +1,13 @@
 package cis.monopoly.gameDrawers;
 
+import java.io.FileInputStream;
+
 import cis.monopoly.gamePlay.GameController;
 import cis.monopoly.guiElements.AlertBox;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**<h1>BoardDrawer</h1>
  * This class draws all the elements on the board including the board itslef
@@ -274,7 +278,6 @@ public class BoardDrawer {
         	movePiece(gc, i + 1, 0, i + 1);
         }
             
-
     }
     
     /**
@@ -289,6 +292,90 @@ public class BoardDrawer {
     		final double ypos, final Color color) {
         gc.setFill(color);
         gc.fillRect(xpos, ypos, PIECE_WIDTH_BIG, PIECE_WIDTH_BIG);
+    }
+    /**
+     * puts the image on the canvas.
+     * @param pic This is the image that is to be put on the canvas
+     * @param xpos The horizontal position
+     * @param ypos The vertical position
+     */
+    public static void drawImage (final double xpos, final double ypos) {
+    	 
+    }
+    
+    public static Image getMonitor() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\Monitor.jpg"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getKeyboard() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\Keyboard.jpg"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getMouse() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\Mouse.png"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getCPU() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\CPU.jpg"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getPlayerimage (int pieceID) {
+    	String filePath = "";
+    	filePath = "C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis" +
+    			+ "\\monopoly\\images\\" + Integer.toString(pieceID)+ ".jpg";
+    	
     }
     
     /**
