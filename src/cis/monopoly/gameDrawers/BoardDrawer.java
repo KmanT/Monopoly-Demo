@@ -170,12 +170,9 @@ public final class BoardDrawer {
      * @param xpos This defines the horizontal position of the property.
      * @param ypos This defines the vertical position of the property.
      * @param color This defines the color of the flag.
-     * @param name This defines the name of the property, all though this
-     * parameter might be removed all together.
      */
     public static void drawPropertyRight(final GraphicsContext gc, 
-    		final int xpos, final int ypos, final Color color,
-    		final String name) {
+    		final int xpos, final int ypos, final Color color) {
         gc.setFill(Color.FLORALWHITE);
         gc.setStroke(Color.BLACK);
         gc.fillRect(xpos, ypos, PROPERTY_HEIGHT_BIG, PROPERTY_WIDTH_BIG);
@@ -183,7 +180,7 @@ public final class BoardDrawer {
         gc.setFill(color);
         gc.fillRect(xpos, ypos, PROPERTY_FLAG_HEIGHT_BIG, PROPERTY_WIDTH_BIG);
         gc.strokeRect(xpos, ypos, PROPERTY_HEIGHT_BIG, PROPERTY_WIDTH_BIG);
-        gc.strokeText(name, xpos, ypos + 15);
+        
     }
     
     /**
@@ -284,7 +281,7 @@ public final class BoardDrawer {
         xPos = 704;
         yPos = 110;
         for (int i = 0; i <= 8; i++) {
-            drawPropertyRight(gc, xPos, yPos, colors[colorCounter], "");
+            drawPropertyRight(gc, xPos, yPos, colors[colorCounter]);
             yPos += 66;
             colorCounter++;
         }
@@ -316,7 +313,6 @@ public final class BoardDrawer {
         	PieceDrawer.movePiece(gc, 4, 0, Main.getGc().
         			getSpecificPlayer(4).getPlayPieceID());
         }
-           
     }
     
 }

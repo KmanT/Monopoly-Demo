@@ -3,6 +3,7 @@ package cis.monopoly.guiElements;
 import java.util.List;
 
 import cis.monopoly.Main;
+import cis.monopoly.gameDrawers.HouseDrawer;
 import cis.monopoly.gamePlay.Player;
 import cis.monopoly.gamePlay.Property;
 import javafx.collections.FXCollections;
@@ -61,7 +62,7 @@ public final class BuyHouseBox {
         		+ " properties!");
         
         ScrollPane tablePane = new ScrollPane();
-        TableView<Property> tblProp = new TableView();
+        TableView<Property> tblProp = new TableView<>();
         tblProp.prefWidthProperty().setValue(410);
         
         TableColumn<Property, String> colPropName =
@@ -71,7 +72,7 @@ public final class BuyHouseBox {
         		new PropertyValueFactory<Property, String>("spaceName"));
         
         TableColumn<Property, Integer> colHousePrice =
-        		new TableColumn("House Price");
+        		new TableColumn<>("House Price");
         colHousePrice.setPrefWidth(100);
         colHousePrice.setCellValueFactory(
         		new PropertyValueFactory<Property, Integer>("housePrice"));
@@ -97,6 +98,7 @@ public final class BuyHouseBox {
         			Main.getGc().playerPayBank(p, prop.getHousePrice());
         			prop.addHouseCount();
         			tblProp.refresh();
+        			HouseDrawer.drawHouseOnProperty(gc, prop);
         		}
         	}
         });

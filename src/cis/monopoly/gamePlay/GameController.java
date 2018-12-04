@@ -124,6 +124,7 @@ public class GameController {
         
         for (Property prop: propertyList) {
         	prop.setHousePrice();
+        	prop.setPropColor();
         }
 
         //DICE//
@@ -284,9 +285,15 @@ public class GameController {
      * @param prop Property for sale
      */
     public void playerBuyProperty(final Player player, final Property prop) {
-        playerPayBank(player, prop.getPropPrice());
-        prop.setPropOwnerID(player.getPlayID());
-        prop.setPropPrice(prop.getPropPrice() / 2); //cuts the price in half
+        if (player.getPlayBalance() >= prop.getPropPrice()) {
+        	playerPayBank(player, prop.getPropPrice());
+            prop.setPropOwnerID(player.getPlayID());
+            prop.setPropPrice(prop.getPropPrice() / 2);
+        } else {
+        	AlertBox.display("Not enough funds", "You do not have enough funds"
+        			+ " to purchase this property");
+        }
+    	
     }
 
     /**

@@ -1,6 +1,7 @@
 package cis.monopoly.gamePlay;
 
 import cis.monopoly.guiElements.AlertBox;
+import javafx.scene.paint.Color;
 
 /**
  * <h1>Property</h1>
@@ -24,6 +25,8 @@ public class Property extends Space {
     private boolean hasHotel;
     /**Determines the price of the house for a property.*/
     private int housePrice;
+    /**Determines the color of the property*/
+    private Color propColor;
     
 
     /**
@@ -41,7 +44,8 @@ public class Property extends Space {
     public Property(final String propName, final int propID, 
     			final int propPrice, final int propRent, final int propGroup,
     			final int propOwnerID, final int houseCount,
-    			final boolean hasHotel, final int housePrice) {
+    			final boolean hasHotel, final int housePrice,
+    			final Color propColor) {
         super(propName, propID);
         this.propPrice = propPrice;
         this.propRent = propRent;
@@ -50,6 +54,7 @@ public class Property extends Space {
         this.houseCount = houseCount;
         this.hasHotel = hasHotel;
         this.housePrice = housePrice;
+        this.propColor = propColor;
     }
 
     /**
@@ -106,6 +111,7 @@ public class Property extends Space {
         houseCount = 0;
         hasHotel = false;
         housePrice = 0;
+        propColor = Color.FLORALWHITE;
     }
 
     /**
@@ -205,20 +211,59 @@ public class Property extends Space {
 	}
     
     /**
-     * Automatically sets the house price based on the property group
+     * Automatically sets the house price based on the property group.
      */
     public void setHousePrice() {
+    	
     	if (propGroup == 1 || propGroup == 2) {
     		housePrice = 50;
     	} else if (propGroup == 3 || propGroup == 4) {
     		housePrice = 100;
-    	} else if (propGroup == 5|| propGroup == 6) {
+    	} else if (propGroup == 5 || propGroup == 6) {
     		housePrice = 150;
     	} else if (propGroup == 7 || propGroup == 8) {
     		housePrice = 200;
     	} else {
     		housePrice = 0;
     	}
+    }
+    
+    /**
+     * Sets the color for all of the properties where houses are bought. Used
+     * for clearing the board flag of houses if the property is bought or the
+     * owner upgrades their house to hotels
+     */
+    public void setPropColor() {
+    	
+    	switch (propGroup) {
+    	
+    	case 1: propColor = Color.SIENNA;
+    		break;
+    	case 2: propColor = Color.POWDERBLUE;
+    		break;
+    	case 3: propColor = Color.ORCHID;
+    		break;
+    	case 4: propColor = Color.ORANGE;
+    		break;
+    	case 5: propColor = Color.RED;
+    		break;
+    	case 6: propColor = Color.YELLOW;
+    		break;
+    	case 7: propColor = Color.MEDIUMSPRINGGREEN;
+    		break;
+    	case 8: propColor = Color.DODGERBLUE;
+    		break;
+    	default: propColor = Color.FLORALWHITE;
+    		break;
+    	}
+    }
+    
+    /**
+     * Gets the color of the property flag in order to clear houses properly.
+     * @return The property flag's color.
+     */
+    public Color getPropColor() {
+    	return propColor;
     }
 
     /**
