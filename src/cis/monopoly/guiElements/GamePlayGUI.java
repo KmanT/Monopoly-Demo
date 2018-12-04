@@ -170,7 +170,12 @@ public final class GamePlayGUI {
         	updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
             		lblPlayer3, lblPlayer4);
         });
-        Button btnHotelUpgrade = new Button("Upgrade to Hotel");        
+        Button btnHotelUpgrade = new Button("Upgrade to Hotel");  
+        btnHotelUpgrade.setOnAction(e -> {
+        	BuyHotelBox.display(Main.getGc().getCurrentPlayer(), gcBoard);
+        	updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
+            		lblPlayer3, lblPlayer4);
+        });
         Button btnTrade = new Button("Trade Property");        
         Button btnSell = new Button("Sell Property to Bank");
         statusPane.getChildren().addAll(lblBank, btnBuyHouse, btnHotelUpgrade,

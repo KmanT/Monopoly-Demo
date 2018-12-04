@@ -23,32 +23,33 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**<h1>BuyHouseBox</h1>
- * This class defines the dialogue box when a player wants to purchase a house
- * for their property. It will display a table of all the properties that can
- * have houses, have less than four houses, and don't have a hotel. The player
- * must select the property they must purchase. On the bottom, there are
- * buttons to either buy the house or close the window. When a property is
- * selected and the user presses "Buy house" the property's house count
- * increases by one. The table will update when the player purchases a house
- * for their property.
+/**<h1>BuyHotelBox</h1>
+ * This class defines the dialogue box when a player wants to upgrade their
+ * house collection to a hotel for their property. It will display a table of
+ * all the properties that can upgrade to a hotel in which the player must have
+ * four houses on that property. The player must select the property they must
+ * purchase. On the bottom, there are buttons to either buy the hotel or close
+ * the window. When a property is selected and the user presses "Buy house"
+ * the property's house count will go down to zero and the hasHotel attribute
+ * for that property will be set to true. The table will update when the player
+ * purchases a hotel for their property.
  * 
  * @author Kyle Turske
- * @version 0.8
+ * @version 0.9
  *
  */
-public final class BuyHouseBox {
+public final class BuyHotelBox {
 	
 	/**
 	 * Private constructor.
 	 */
-	private BuyHouseBox() {
+	private BuyHotelBox() {
 		
 	}
 	
 	/**
-	 * The layout for the Buy House Menu.
-	 * @param p The current player who wants to purchase a house for their
+	 * The layout for the Buy Hotel Menu.
+	 * @param p The current player who wants to purchase a hotel for their
 	 * property.
 	 * @param gc The graphics context that shows when houses are purchased on
 	 * the board
@@ -58,8 +59,8 @@ public final class BuyHouseBox {
 		window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle("Buy houses for property. - " + p.getPlayName());
         
-        Label lblText = new Label("Buy up to four houses for your"
-        		+ " properties!");
+        Label lblText = new Label("Upgrade to a hotel for the properites with"
+        		+ "four houses! properties!");
         
         ScrollPane tablePane = new ScrollPane();
         TableView<Property> tblProp = new TableView<>();
@@ -72,19 +73,13 @@ public final class BuyHouseBox {
         		new PropertyValueFactory<Property, String>("spaceName"));
         
         TableColumn<Property, Integer> colHousePrice =
-        		new TableColumn<>("House Price");
+        		new TableColumn<>("Hotel Price");
         colHousePrice.setPrefWidth(100);
         colHousePrice.setCellValueFactory(
         		new PropertyValueFactory<Property, Integer>("housePrice"));
         
-        TableColumn<Property, Integer> colHouseCount =
-        		new TableColumn<>("House Count");
-        colHouseCount.setPrefWidth(100);
-        colHouseCount.setCellValueFactory(
-        		new PropertyValueFactory<Property, Integer>("houseCount"));
-        
         tblProp.setItems(getOwnedProperties(Main.getGc().getPropertyList(), p));
-        tblProp.getColumns().addAll(colPropName, colHousePrice, colHouseCount);
+        tblProp.getColumns().addAll(colPropName, colHousePrice);
         tblProp.getSelectionModel().selectFirst();
         
         tablePane.setContent(tblProp);
@@ -96,9 +91,9 @@ public final class BuyHouseBox {
         	for (Property prop: Main.getGc().getPropertyList()) {
         		if (prop.getSpaceID() == searchID) {
         			Main.getGc().playerPayBank(p, prop.getHousePrice());
-        			prop.addHouseCount();
+        			prop.setHasHotel();
         			tblProp.refresh();
-        			HouseDrawer.drawHouseOnProperty(gc, prop);
+        			HouseDrawer.drawHotelOnProperty(gc, prop);
         		}
         	}
         });
@@ -119,12 +114,11 @@ public final class BuyHouseBox {
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
-        
 	}
 	
 	/**
-	 * Gets the list of properties owned by the player that have less than
-	 * three houses and no hotel.
+	 * Gets the list of properties owned by the player that have four houses
+	 * and no hotel.
 	 * @param list The property list from the GameController
 	 * @param p The player buying houses
 	 * @return An observable list used for the creation of the propTableView
@@ -139,7 +133,7 @@ public final class BuyHouseBox {
 				
 				if (prop.getPropGroup() != 9 || prop.getPropGroup() != 10) {
 					
-					if (prop.getHouseCount() < 4 && !prop.isHasHotel()) {
+					if (prop.getHouseCount() >= 3 && !prop.isHasHotel()) {
 						propList.add(prop);
 					}	
 				}							
