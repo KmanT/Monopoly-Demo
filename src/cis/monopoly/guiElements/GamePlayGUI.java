@@ -178,6 +178,11 @@ public final class GamePlayGUI {
         });
         Button btnTrade = new Button("Trade Property");        
         Button btnSell = new Button("Sell Property to Bank");
+        btnSell.setOnAction(e -> {
+        	SellPropertyBox.display(Main.getGc().getCurrentPlayer(), gcBoard);
+        	updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
+            		lblPlayer3, lblPlayer4);
+        });
         statusPane.getChildren().addAll(lblBank, btnBuyHouse, btnHotelUpgrade,
         		btnTrade, btnSell);
         statusPane.setPadding(new Insets(10, 10, 10, 10));
@@ -289,5 +294,13 @@ public final class GamePlayGUI {
             			controller.getSpaceCheckID(), player.getPlayPosition(),
             			player.getPlayPieceID());
             }
+            
+            if (Main.getGc().loseCheck()) {
+            	SellPropertyBox.display(player, gc);
+            	if (player.getPlayBalance() <= 0) {
+            		player.setInPlay(false);
+            	}
+            }
+            	
     }
 }

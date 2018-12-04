@@ -5,6 +5,8 @@ import cis.monopoly.guiElements.AlertBox;
 import cis.monopoly.guiElements.ChanceBox;
 import cis.monopoly.guiElements.CommunityBox;
 import cis.monopoly.guiElements.ConfirmBox;
+import cis.monopoly.guiElements.SellPropertyBox;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -276,25 +278,7 @@ public class GameController {
         }
     }
 
-    /**
-     * This method calls the payPayBank method and then sets the ownerId of the
-     * property to the player's ID. The price of the property will be cut in
-     * half since that players get half of what they paid back if they sell it
-     * to the bank.
-     * @param player Player
-     * @param prop Property for sale
-     */
-    public void playerBuyProperty(final Player player, final Property prop) {
-        if (player.getPlayBalance() >= prop.getPropPrice()) {
-        	playerPayBank(player, prop.getPropPrice());
-            prop.setPropOwnerID(player.getPlayID());
-            prop.setPropPrice(prop.getPropPrice() / 2);
-        } else {
-        	AlertBox.display("Not enough funds", "You do not have enough funds"
-        			+ " to purchase this property");
-        }
-    	
-    }
+    
 
     /**
      * This method calls bankPayPlayer which the bank gives whatever the price
@@ -441,7 +425,6 @@ public class GameController {
         		
         	}
         	
-        	
         	transferPlayerFunds(player,
                     getSpecificPlayer(prop.getPropOwnerID()),
                     rent);
@@ -519,6 +502,7 @@ public class GameController {
         if (isBought) {
             playerPayBank(player, prop.getPropPrice());
             prop.setPropOwnerID(player.getPlayID());
+            prop.setPropPrice(prop.getPropPrice() / 2);
         }
     }
     
@@ -592,6 +576,29 @@ public class GameController {
     public void playerGoToJail(final Player player) {
     	player.setPlayPosition(10);
     	player.putInJail();
+    }
+    /**
+     * Checks if the current player is going to lose.
+     * @return false if the player has more than $0 or if they still have
+     * properties, and true if both of those conditions are false.
+     */
+    public boolean loseCheck() {
+    	if (getCurrentPlayer().getPlayBalance() <= 0) {
+    		int propCount = 0;
+    		AlertBox.display(getCurrentPlayer().getPlayName()
+    				+ "has run out of funds", "You are in debt. You will need"
+    						+ " to sell some properties in order not to lose.");
+        	for (Property prop : propertyList) {
+        		if (getCurrentPlayer().getPlayID() == prop.getPropOwnerID()) {
+        			propCount++;
+        		}
+        	}
+        	if (propCount > 0) {
+        		return false;
+        	}
+        	return true;
+    	}
+    	return false;
     }
 
 }

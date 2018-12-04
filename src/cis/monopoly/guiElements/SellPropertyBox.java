@@ -23,7 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**<h1>BuyHotelBox</h1>
+/**<h1>SellPropertyBox</h1>
  * This class defines the dialogue box when a player wants to upgrade their
  * house collection to a hotel for their property. It will display a table of
  * all the properties that can upgrade to a hotel in which the player must have
@@ -38,12 +38,12 @@ import javafx.stage.Stage;
  * @version 0.9
  *
  */
-public final class BuyHotelBox {
+public final class SellPropertyBox {
 	
 	/**
 	 * Private constructor.
 	 */
-	private BuyHotelBox() {
+	private SellPropertyBox() {
 		
 	}
 	
@@ -57,7 +57,7 @@ public final class BuyHotelBox {
 	public static void display(final Player p, final GraphicsContext gc) {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
-        window.setTitle("Upgrade to hotel for property. - " + p.getPlayName());
+        window.setTitle("Sell properties. - " + p.getPlayName());
         
         Label lblText = new Label("Upgrade to a hotel for the properites with"
         		+ "four houses! properties!");
@@ -72,28 +72,29 @@ public final class BuyHotelBox {
         colPropName.setCellValueFactory(
         		new PropertyValueFactory<Property, String>("spaceName"));
         
-        TableColumn<Property, Integer> colHousePrice =
-        		new TableColumn<>("Hotel Price");
-        colHousePrice.setPrefWidth(100);
-        colHousePrice.setCellValueFactory(
-        		new PropertyValueFactory<Property, Integer>("housePrice"));
+        TableColumn<Property, Integer> colPropVal =
+        		new TableColumn<>("Property Value");
+        colPropVal.setPrefWidth(100);
+        colPropVal.setCellValueFactory(
+        		new PropertyValueFactory<Property, Integer>("propPrice"));
         
         tblProp.setItems(getOwnedProperties(Main.getGc().getPropertyList(), p));
-        tblProp.getColumns().addAll(colPropName, colHousePrice);
+        tblProp.getColumns().addAll(colPropName, colPropVal);
         tblProp.getSelectionModel().selectFirst();
         
         tablePane.setContent(tblProp);
         
-        Button btnBuy = new Button("Buy Hotel");
-        btnBuy.setOnAction(e -> {
+        Button btnSell = new Button("Sell Property");
+        btnSell.setOnAction(e -> {
         	int searchID = 
         			tblProp.getSelectionModel().getSelectedItem().getSpaceID();
         	for (Property prop: Main.getGc().getPropertyList()) {
         		if (prop.getSpaceID() == searchID) {
-        			Main.getGc().playerPayBank(p, prop.getHousePrice());
-        			prop.setHasHotel();
+        			Main.getGc().bankPayPlayer(p, prop.getHousePrice());
+        			prop.setPropOwnerID(0);
+        			prop.setPropPrice(prop.getPropPrice() * 2);
         			tblProp.refresh();
-        			HouseDrawer.drawHotelOnProperty(gc, prop);
+        			HouseDrawer.clearHouses(gc, prop);
         		}
         	}
         });
@@ -104,7 +105,7 @@ public final class BuyHotelBox {
         });
         
         HBox buttonPane = new HBox();
-        buttonPane.getChildren().addAll(btnBuy, btnDone);
+        buttonPane.getChildren().addAll(btnSell, btnDone);
         
         VBox layout = new VBox();
         layout.setPadding(new Insets(10, 10, 10, 10));
@@ -117,10 +118,9 @@ public final class BuyHotelBox {
 	}
 	
 	/**
-	 * Gets the list of properties owned by the player that have four houses
-	 * and no hotel.
+	 * Gets the list of all the properties owned by the player.
 	 * @param list The property list from the GameController
-	 * @param p The player buying houses
+	 * @param p The player selling properties
 	 * @return An observable list used for the creation of the propTableView
 	 */
 	public static ObservableList<Property> getOwnedProperties(
@@ -131,12 +131,8 @@ public final class BuyHotelBox {
 		for (Property prop: list) {
 			if (prop.getpropOwnerID() == p.getPlayID()) {
 				
-				if (prop.getPropGroup() != 9 || prop.getPropGroup() != 10) {
-					
-					if (prop.getHouseCount() >= 3 && !prop.isHasHotel()) {
-						propList.add(prop);
-					}	
-				}							
+				propList.add(prop);
+										
 			}
 		}
 		return propList;

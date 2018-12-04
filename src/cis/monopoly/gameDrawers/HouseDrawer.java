@@ -260,5 +260,51 @@ public final class HouseDrawer {
 					+ "you have entered. SpaceID out of range");
 		}
 	}
+	
+	/**
+	 * This clears all of the houses or hotels that are on property. Used by
+	 * the sell house box.
+	 * @param gc The Graphics Context tied to the board.
+	 * @param prop The property where the houses are being removed
+	 */
+	public static void clearHouses(final GraphicsContext gc,
+			final Property prop) {
+		int originX = 0;
+		int originY = 0;
+		
+		if (prop.getSpaceID() >= 1 && prop.getSpaceID() <= 9) {
+			originX = 704 - BoardDrawer.PROPERTY_WIDTH_BIG * prop.getSpaceID();
+            originY = 704;
+            
+            clearFlagBottom(gc, prop.getPropColor(), originX, originY);
+            
+		} else if (prop.getSpaceID() >= 11 && prop.getSpaceID() <= 19) {
+			originX = 0;
+            originY = 704 - BoardDrawer.PROPERTY_WIDTH_BIG
+            		* (prop.getSpaceID() - 10);
+            
+            clearFlagLeft(gc, prop.getPropColor(), originX, originY);
+            
+		} else if (prop.getSpaceID() >= 21 && prop.getSpaceID() <= 21) {
+			originX = 110 + BoardDrawer.PROPERTY_WIDTH_BIG
+					* (prop.getSpaceID() - 21);
+            originY = 0;
+            
+            clearFlagTop(gc, prop.getPropColor(), originX, originY);
+            
+            
+		} else if (prop.getSpaceID() >= 31 && prop.getSpaceID() <= 39) {
+			originX = 704;
+            originY = 110 + BoardDrawer.PROPERTY_WIDTH_BIG
+            		* (prop.getSpaceID() - 31);
+            
+            clearFlagRight(gc, prop.getPropColor(), originX, originY);
+            
+            
+		} else {
+			AlertBox.display("Space Error", "There was an error with the space"
+					+ "you have entered. SpaceID out of range");
+		}
+	}
 
 }
