@@ -25,7 +25,7 @@ public class Property extends Space {
     private boolean hasHotel;
     /**Determines the price of the house for a property.*/
     private int housePrice;
-    /**Determines the color of the property*/
+    /**Determines the color of the property.*/
     private Color propColor;
     
 
@@ -40,6 +40,8 @@ public class Property extends Space {
      * @param houseCount This the number of houses on the property.
      * @param hasHotel This confirms if the property has a hotel.
      * @param housePrice This is the price of a house for a property
+     * @param propColor Used when the flag of the property needs to clear off
+     * all of the houses.
      */
     public Property(final String propName, final int propID, 
     			final int propPrice, final int propRent, final int propGroup,
@@ -287,12 +289,9 @@ public class Property extends Space {
         if (houseCount < 4 && !hasHotel) {
         	houseCount++;
         } else if (houseCount >= 4) {
-        	AlertBox.display("Property has max houses.", "The maximum number of"
-        			+ "houses has already been met. You cannot buy more for"
-        			+ "this property.");
+        	System.out.println("Property has max houses.");
         } else if (hasHotel) {
-        	AlertBox.display("Property has hotel.", "You cannot add a house"
-        			+ "to a property that has a hotel.");
+        	System.out.println("Property has hotel.");
         }
     	
     }
@@ -325,13 +324,20 @@ public class Property extends Space {
      * Removes all of the houses from a property and gives the property a hotel.
      */
     public void setHasHotel() {
-    	if (!hasHotel && houseCount >= 3) {
+    	if (!hasHotel && houseCount >= 4) {
     		houseCount = 0;
     		hasHotel = true;
     	} else if (houseCount < 4) {
-    		AlertBox.display("Need four houses on property", "You need to"
-    				+ " purchase more houses for this property in order to"
-    				+ " purchase a hotel. You need a total of four houses.");
+    		System.out.println("Need four houses on property");
     	}
+    }
+    
+    /**
+     * Changes the condition that the property has a hotel. This method is only
+     * used for testing.
+     * @param hasHotel true if you want it to have hotel, false if you don't.
+     */
+    public void setHasHotel(final boolean hasHotel) {
+    	this.hasHotel = hasHotel;
     }
 }

@@ -60,7 +60,7 @@ public class GameController {
      * order to run the game properly.
      */
     public GameController() {
-        player1 = new Player(1, true, 1);
+        player1 = new Player(1, false, 1);
         player2 = new Player(2, false, 2);
         player3 = new Player(3, false, 3);
         player4 = new Player(4, false, 4);
@@ -153,12 +153,30 @@ public class GameController {
     		player1.setInPlay(true);
     		player2.setInPlay(true);
     		player3.setInPlay(true);
+    	} else if (playerCount <= 1) {
+    		System.out.println("Must enter a larger number to activate any"
+    				+ " players.");
     	} else {
     		player1.setInPlay(true);
     		player2.setInPlay(true);
     		player3.setInPlay(true);
     		player4.setInPlay(true);
     	}
+    }
+    
+    /**
+     * Gets the count of players who are active. Used for testing.
+     * @return The number of players in play.
+     */
+    public int getActivePlayerCount() {
+    	int count = 0;
+    	
+    	for (Player p: playerList) {
+    		if (p.isInPlay()) {
+    			count++;
+    		}
+    	}    	
+    	return count;
     }
     
     /**
@@ -177,17 +195,6 @@ public class GameController {
 		player4.setPlayerDefault();
     }
 
-    /**
-     * Utilized to complete a player turn. Calls the methods movePlayer,
-     * spaceCheck, and changeCurrentPlayer.
-     * @param roll Dice roll
-     * @param player Player
-     */
-    public void runPlayerTurn(final int roll, final Player player) {
-        movePlayer(player, roll);
-        spaceCheck(roll);
-        changeCurrentPlayer();
-    }
 
     /**
      * Changes the Player's position value.
@@ -421,7 +428,42 @@ public class GameController {
             		rent = 200;
             	}
         	} else {
-        		rent = prop.getPropRent();
+        		
+        		if(!prop.isHasHotel()) {
+        			if (prop.getSpaceID() != 39) {
+        				if (prop.getHouseCount() <= 0) {
+                			rent = prop.getPropRent();
+                		} else if (prop.getHouseCount() == 1) {
+                			rent = prop.getPropRent() * 5;
+                		} else if (prop.getHouseCount() == 2) {
+                			rent = prop.getPropRent() * 15;
+                		} else if (prop.getHouseCount() == 3) {
+                			rent = prop.getPropRent() * 45;
+                		} else if (prop.getHouseCount() >= 4) {
+                			rent = prop.getPropRent() * 80;
+                		}
+        			} else {
+        				if (prop.getHouseCount() <= 0) {
+                			rent = prop.getPropRent();
+                		} else if (prop.getHouseCount() == 1) {
+                			rent = prop.getPropRent() * 5;
+                		} else if (prop.getHouseCount() == 2) {
+                			rent = prop.getPropRent() * 15;
+                		} else if (prop.getHouseCount() == 3) {
+                			rent = prop.getPropRent() * 45;
+                		} else if (prop.getHouseCount() >= 4) {
+                			rent = prop.getPropRent() * 80;
+                		}
+        			}        			
+        			
+        		} else {
+        			if (prop.getSpaceID() != 39) {
+        				rent = prop.getPropRent();
+        			} else {
+        				rent = prop.getPropRent();
+        			}
+        		}        		
+        		
         		
         	}
         	

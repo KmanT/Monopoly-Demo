@@ -187,20 +187,6 @@ public class Player {
     }
     
     /**
-     * Moves the player's position within the GameController.
-     * @param boardLength The max number of spaces (40)
-     * @param roll The number of spaces to move.
-     */
-    public void movePlayerPosition(final int boardLength, final int roll) {
-        int newPos = playPosition + roll;
-        if (newPos >= boardLength) {
-            playPosition = newPos - boardLength - 1;
-        } else {
-            playPosition = newPos;
-        }
-    }
-    
-    /**
      * Get's the player's pieceID.
      * @return The pieceID
      */
