@@ -577,28 +577,18 @@ public class GameController {
     	player.setPlayPosition(10);
     	player.putInJail();
     }
+   
     /**
-     * Checks if the current player is going to lose.
-     * @return false if the player has more than $0 or if they still have
-     * properties, and true if both of those conditions are false.
+     * Gets the number of owned properties for the current player.
+     * @return The count of properties owned by the current player.
      */
-    public boolean loseCheck() {
-    	if (getCurrentPlayer().getPlayBalance() <= 0) {
-    		int propCount = 0;
-    		AlertBox.display(getCurrentPlayer().getPlayName()
-    				+ "has run out of funds", "You are in debt. You will need"
-    						+ " to sell some properties in order not to lose.");
-        	for (Property prop : propertyList) {
-        		if (getCurrentPlayer().getPlayID() == prop.getPropOwnerID()) {
-        			propCount++;
-        		}
-        	}
-        	if (propCount > 0) {
-        		return false;
-        	}
-        	return true;
+    public int playerPropCount() {
+    	int counter = 0;
+    	for (Property prop: propertyList) {
+    		if (getCurrentPlayer().getPlayID() == prop.getPropOwnerID()) {
+    			counter++;
+    		}
     	}
-    	return false;
+    	return counter;
     }
-
 }

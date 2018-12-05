@@ -253,6 +253,10 @@ public class Property extends Space {
     		break;
     	case 8: propColor = Color.DODGERBLUE;
     		break;
+    	case 9: propColor = Color.GREY;
+    		break;
+    	case 10: propColor = Color.BLACK;
+    		break;
     	default: propColor = Color.FLORALWHITE;
     		break;
     	}

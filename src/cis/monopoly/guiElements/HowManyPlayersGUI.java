@@ -1,6 +1,9 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
+
 import cis.monopoly.Main;
+import cis.monopoly.SoundPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -49,6 +52,11 @@ public final class HowManyPlayersGUI {
 		
 		Button btnOnePlayer = new Button("Player vs Computer");
 		btnOnePlayer.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
 			Main.getGc().deactivateAllPlayers();
 			Main.getGc().activatePlayers(1);
 			changeScene(btnOnePlayer);
@@ -56,6 +64,11 @@ public final class HowManyPlayersGUI {
 		
 		Button btnTwoPlayer = new Button("Two Players");
 		btnTwoPlayer.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
 			Main.getGc().deactivateAllPlayers();
 			Main.getGc().activatePlayers(2);
 			changeScene(btnTwoPlayer);			
@@ -63,6 +76,11 @@ public final class HowManyPlayersGUI {
 		
 		Button btnThreePlayer = new Button("Three Players");
 		btnThreePlayer.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
 			Main.getGc().deactivateAllPlayers();
 			Main.getGc().activatePlayers(3);
 			changeScene(btnThreePlayer);			
@@ -70,6 +88,11 @@ public final class HowManyPlayersGUI {
 		
 		Button btnFourPlayer = new Button("Four Players");
 		btnFourPlayer.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
 			Main.getGc().deactivateAllPlayers();
 			Main.getGc().activatePlayers(4);
 			changeScene(btnFourPlayer);			
@@ -86,6 +109,11 @@ public final class HowManyPlayersGUI {
 				btnThreePlayer, btnFourPlayer);
 		Button btnBack = new Button("Back");
 		btnBack.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
 			Stage stage = (Stage) btnBack.getScene().getWindow();
 			stage.setScene(Main.getMainScene());
 		});

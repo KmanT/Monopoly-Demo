@@ -1,8 +1,10 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
 import java.util.List;
 
 import cis.monopoly.Main;
+import cis.monopoly.SoundPlayer;
 import cis.monopoly.gameDrawers.HouseDrawer;
 import cis.monopoly.gamePlay.Player;
 import cis.monopoly.gamePlay.Property;
@@ -95,6 +97,13 @@ public final class SellPropertyBox {
         			prop.setPropPrice(prop.getPropPrice() * 2);
         			tblProp.refresh();
         			HouseDrawer.clearHouses(gc, prop);
+        			try {
+        				SoundPlayer.playWobble();
+        			} catch (IOException el) {
+        				
+        			}
+        			tblProp.getItems().remove(
+        					tblProp.getSelectionModel().getSelectedItem());
         		}
         	}
         });

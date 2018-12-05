@@ -1,12 +1,16 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
+
 import cis.monopoly.Main;
+import cis.monopoly.SoundPlayer;
 import cis.monopoly.gameDrawers.BoardDrawer;
 import cis.monopoly.gameDrawers.DiceDrawer;
 import cis.monopoly.gameDrawers.PieceDrawer;
 import cis.monopoly.gamePlay.GameController;
 import cis.monopoly.gamePlay.GameDice;
 import cis.monopoly.gamePlay.Player;
+import cis.monopoly.gamePlay.Property;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -166,12 +170,22 @@ public final class GamePlayGUI {
         
         Button btnBuyHouse = new Button("Buy Houses");
         btnBuyHouse.setOnAction(e -> {
+        	try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
         	BuyHouseBox.display(Main.getGc().getCurrentPlayer(), gcBoard);
         	updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
             		lblPlayer3, lblPlayer4);
         });
         Button btnHotelUpgrade = new Button("Upgrade to Hotel");  
         btnHotelUpgrade.setOnAction(e -> {
+        	try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
         	BuyHotelBox.display(Main.getGc().getCurrentPlayer(), gcBoard);
         	updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
             		lblPlayer3, lblPlayer4);
@@ -179,6 +193,11 @@ public final class GamePlayGUI {
         Button btnTrade = new Button("Trade Property");        
         Button btnSell = new Button("Sell Property to Bank");
         btnSell.setOnAction(e -> {
+        	try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
         	SellPropertyBox.display(Main.getGc().getCurrentPlayer(), gcBoard);
         	updateLabels(Main.getGc(), lblBank, lblPlayer1, lblPlayer2,
             		lblPlayer3, lblPlayer4);
@@ -196,6 +215,11 @@ public final class GamePlayGUI {
         Button btnRoll = new Button("ROLL!");
 
         btnRoll.setOnAction(e -> {
+        	try {
+				SoundPlayer.playRoll();
+			} catch (IOException el) {
+				
+			}
             //changes the number on the die
             updateDicePane(Main.getGc().getDice(), gcDice);
 
@@ -295,12 +319,19 @@ public final class GamePlayGUI {
             			player.getPlayPieceID());
             }
             
-            if (Main.getGc().loseCheck()) {
-            	SellPropertyBox.display(player, gc);
-            	if (player.getPlayBalance() <= 0) {
+            if (player.getPlayBalance() <= 0) {
+            	AlertBox.display(player.getPlayName()
+            			+ " is lacking funds", player.getPlayName()
+            			+ " will need to sell some properites in order not"
+            			+ " to lose.");
+            	if (controller.playerPropCount() > 0) {
+            		SellPropertyBox.display(player, gc);
+            	} else {
+            		AlertBox.display(player.getPlayName() + " lost.",
+            				player.getPlayName() + "has lost. They can no"
+            						+ " longer participate.");
             		player.setInPlay(false);
             	}
             }
-            	
     }
 }

@@ -193,8 +193,8 @@ public class Player {
      */
     public void movePlayerPosition(final int boardLength, final int roll) {
         int newPos = playPosition + roll;
-        if (newPos > boardLength) {
-            playPosition = newPos - boardLength;
+        if (newPos >= boardLength) {
+            playPosition = newPos - boardLength - 1;
         } else {
             playPosition = newPos;
         }

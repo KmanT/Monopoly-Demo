@@ -1,8 +1,10 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
 import java.util.List;
 
 import cis.monopoly.Main;
+import cis.monopoly.SoundPlayer;
 import cis.monopoly.gameDrawers.HouseDrawer;
 import cis.monopoly.gamePlay.Player;
 import cis.monopoly.gamePlay.Property;
@@ -90,10 +92,17 @@ public final class BuyHotelBox {
         			tblProp.getSelectionModel().getSelectedItem().getSpaceID();
         	for (Property prop: Main.getGc().getPropertyList()) {
         		if (prop.getSpaceID() == searchID) {
+        			try {
+        				SoundPlayer.playDing();
+        			} catch (IOException el) {
+        				
+        			}	
         			Main.getGc().playerPayBank(p, prop.getHousePrice());
         			prop.setHasHotel();
         			tblProp.refresh();
         			HouseDrawer.drawHotelOnProperty(gc, prop);
+        			tblProp.getItems().remove(
+        					tblProp.getSelectionModel().getSelectedItem());
         		}
         	}
         });
