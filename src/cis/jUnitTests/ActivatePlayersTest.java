@@ -8,7 +8,8 @@ import cis.monopoly.gamePlay.GameController;
 
 class ActivatePlayersTest {
 	
-	GameController gc = new GameController();
+	/**Controller used for testing.*/
+	private GameController gc = new GameController();
 	
 	@Test
 	void test1() {
