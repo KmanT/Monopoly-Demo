@@ -20,8 +20,6 @@ class MovePlayerTest {
 	private GameController gc = new GameController();
 	/**The test player.*/
 	private Player p1 = new Player(1, true, 1);
-	/**The length of the board.*/
-	private int boardLength = 39;
 	
 	@Test
 	void test1() {
