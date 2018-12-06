@@ -1,9 +1,20 @@
 package cis.monopoly.gameDrawers;
 
+<<<<<<< HEAD:cis/monopoly/gameDrawers/BoardDrawer.java
+import java.io.FileInputStream;
+
+import cis.monopoly.gamePlay.GameController;
+import cis.monopoly.guiElements.AlertBox;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+=======
 import cis.monopoly.Main;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+>>>>>>> fded1d61e476fdb732ed7b91f5822fe63a895d6e:src/cis/monopoly/gameDrawers/BoardDrawer.java
 
 /**<h1>BoardDrawer</h1>
  * This class draws all the elements on the board including the board itslef
@@ -298,10 +309,137 @@ public final class BoardDrawer {
         	PieceDrawer.movePiece(gc, 1, 0, Main.getGc().
         			getSpecificPlayer(1).getPlayPieceID());
         }
+<<<<<<< HEAD:cis/monopoly/gameDrawers/BoardDrawer.java
+            
+    }
+    
+    /**
+     * Draws the piece on the canvas.
+     * @param gc This is the graphics context that belongs to the canvas that
+     * you want to  draw the piece on on
+     * @param xpos The horizontal position
+     * @param ypos The vertical position
+     * @param color The color of the piece being drawn.
+     */
+    public static void drawPiece(final GraphicsContext gc, final double xpos,
+    		final double ypos, final Color color) {
+        gc.setFill(color);
+        gc.fillRect(xpos, ypos, PIECE_WIDTH_BIG, PIECE_WIDTH_BIG);
+    }
+    /**
+     * puts the image on the canvas.
+     * @param pic This is the image that is to be put on the canvas
+     * @param xpos The horizontal position
+     * @param ypos The vertical position
+     */
+    public static void drawImage (final double xpos, final double ypos) {
+    	 
+    }
+    
+    public static Image getMonitor() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\Monitor.jpg"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getKeyboard() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\Keyboard.jpg"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getMouse() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\Mouse.png"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getCPU() {
+    	Image pic = null ;
+    	 try {
+    		 pic = new Image(new FileInputStream(
+              		"C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis"
+              		+ "\\monopoly\\images\\CPU.jpg"));
+          	ImageView imv = new ImageView(pic);
+          	imv.getStyleClass().add(".image");
+          	
+          } catch (Exception FileNotFoundException) {
+          	AlertBox.display("Image not found", "The image you were looking"
+          			+ " for was not found.");
+          }
+    	 
+		return pic;
+     }
+    
+    public static Image getPlayerimage (int pieceID) {
+    	String filePath = "";
+    	filePath = "C:\\Users\\Kyle\\eclipse-workspace\\Monopoly-Demo\\cis" +
+    			+ "\\monopoly\\images\\" + Integer.toString(pieceID)+ ".jpg";
+    	
+    }
+    
+    /**
+     * Draws the player piece based upon what pieceID they have selected (color,
+     * and eventually icon) and what their ID is.
+     * @param gc
+     * @param playerID
+     * @param position
+     * @param pieceID
+     */
+    public static void movePiece(final GraphicsContext gc, final int playerID,
+    		final int position, final int pieceID) {
+        int originX = 0;
+        int originY = 0;
+        Color playerColor = Color.FLORALWHITE;
+
+        //SET PLAYER COLOR//
+        if (pieceID == 1) {
+            playerColor = Color.RED;
+        } else if (pieceID == 2) {
+            playerColor = Color.BLUE;
+        } else if (pieceID == 3) {
+            playerColor = Color.PURPLE;
+        } else if (pieceID == 4) {
+            playerColor = Color.GREEN;
+=======
         
         if (Main.getGc().getSpecificPlayer(2).isInPlay()) {
         	PieceDrawer.movePiece(gc, 2, 0, Main.getGc().
         			getSpecificPlayer(2).getPlayPieceID());
+>>>>>>> fded1d61e476fdb732ed7b91f5822fe63a895d6e:src/cis/monopoly/gameDrawers/BoardDrawer.java
         }
         
         if (Main.getGc().getSpecificPlayer(3).isInPlay()) {
