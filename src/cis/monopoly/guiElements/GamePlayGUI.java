@@ -10,7 +10,6 @@ import cis.monopoly.gameDrawers.PieceDrawer;
 import cis.monopoly.gamePlay.GameController;
 import cis.monopoly.gamePlay.GameDice;
 import cis.monopoly.gamePlay.Player;
-import cis.monopoly.gamePlay.Property;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;

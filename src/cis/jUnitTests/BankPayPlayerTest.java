@@ -14,7 +14,7 @@ import cis.monopoly.gamePlay.Player;
  *
  */
 
-class BankPayPlayerTest{
+class BankPayPlayerTest {
 	
 
 	/**Test game controller.*/

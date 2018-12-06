@@ -5,7 +5,6 @@ import cis.monopoly.guiElements.AlertBox;
 import cis.monopoly.guiElements.ChanceBox;
 import cis.monopoly.guiElements.CommunityBox;
 import cis.monopoly.guiElements.ConfirmBox;
-import cis.monopoly.guiElements.SellPropertyBox;
 
 import java.util.ArrayList;
 import java.util.List;

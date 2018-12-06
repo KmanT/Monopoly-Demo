@@ -1,6 +1,5 @@
 package cis.monopoly.gamePlay;
 
-import cis.monopoly.guiElements.AlertBox;
 import javafx.scene.paint.Color;
 
 /**

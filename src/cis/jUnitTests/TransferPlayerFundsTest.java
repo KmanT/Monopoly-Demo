@@ -21,7 +21,7 @@ class TransferPlayerFundsTest {
 	/**The first test player.*/
 	private Player p1 = new Player(1, true, 1);
 	/**The second test player.*/
-	private Player p2 = new Player (1, true, 1);
+	private Player p2 = new Player(1, true, 1);
 	
 	@Test
 	void test() {
