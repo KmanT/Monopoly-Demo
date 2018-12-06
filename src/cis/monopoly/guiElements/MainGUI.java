@@ -1,6 +1,9 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
+
 import cis.monopoly.Main;
+import cis.monopoly.SoundPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -34,14 +37,21 @@ public final class MainGUI {
 	/**
 	 * Sets up the layout for the MainMenuGUI.
 	 * @return The layout for the main menu.
+	 * @throws IOException for the SoundPlayer
 	 */
-	public static VBox mainScene() {
+	public static VBox mainScene() throws IOException {
 		mainPane = new VBox(10);
 		mainPane.getStylesheets().add(
         		"cis/monopoly/guiElements/main-style.css");
 		Label lblWelcome = new Label("Welcome to GVSU Monopoly!");
 		Button btnStartGame = new Button("New Game");
 		btnStartGame.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
+			
 			Stage stage = (Stage) 
 					btnStartGame.getScene().getWindow();
 			howManyScene = new Scene(
@@ -52,6 +62,11 @@ public final class MainGUI {
 		});
 		Button btnExit = new Button("Exit");
 		btnExit.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
 			Stage stage = (Stage) btnExit.getScene().getWindow();
 			stage.close();
 		});

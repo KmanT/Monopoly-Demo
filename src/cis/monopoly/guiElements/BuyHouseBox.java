@@ -1,8 +1,11 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
 import java.util.List;
 
 import cis.monopoly.Main;
+import cis.monopoly.SoundPlayer;
+import cis.monopoly.gameDrawers.HouseDrawer;
 import cis.monopoly.gamePlay.Player;
 import cis.monopoly.gamePlay.Property;
 import javafx.collections.FXCollections;
@@ -23,7 +26,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**<h1>BuyHouseBox</h1>
- * This class defines the dialouge box when a player wants to purchase a house
+ * This class defines the dialogue box when a player wants to purchase a house
  * for their property. It will display a table of all the properties that can
  * have houses, have less than four houses, and don't have a hotel. The player
  * must select the property they must purchase. On the bottom, there are
@@ -61,7 +64,7 @@ public final class BuyHouseBox {
         		+ " properties!");
         
         ScrollPane tablePane = new ScrollPane();
-        TableView<Property> tblProp = new TableView();
+        TableView<Property> tblProp = new TableView<>();
         tblProp.prefWidthProperty().setValue(410);
         
         TableColumn<Property, String> colPropName =
@@ -71,7 +74,7 @@ public final class BuyHouseBox {
         		new PropertyValueFactory<Property, String>("spaceName"));
         
         TableColumn<Property, Integer> colHousePrice =
-        		new TableColumn("House Price");
+        		new TableColumn<>("House Price");
         colHousePrice.setPrefWidth(100);
         colHousePrice.setCellValueFactory(
         		new PropertyValueFactory<Property, Integer>("housePrice"));
@@ -93,10 +96,28 @@ public final class BuyHouseBox {
         	int searchID = 
         			tblProp.getSelectionModel().getSelectedItem().getSpaceID();
         	for (Property prop: Main.getGc().getPropertyList()) {
-        		if (prop.getSpaceID() == searchID) {
-        			Main.getGc().playerPayBank(p, prop.getHousePrice());
-        			prop.addHouseCount();
-        			tblProp.refresh();
+        		if (prop.getSpaceID() == searchID) {        			
+        			if (prop.getHouseCount() < 4 && !prop.isHasHotel()) {
+        				try {
+            				SoundPlayer.playDing();
+            			} catch (IOException el) {
+            				
+            			}
+        				Main.getGc().playerPayBank(p, prop.getHousePrice());
+        				prop.addHouseCount();
+        				tblProp.refresh();
+            			HouseDrawer.drawHouseOnProperty(gc, prop);
+        			} else if (prop.getHouseCount() >= 4) {
+        				AlertBox.display("Property has max houses.",
+        						"The maximum number of houses has already been"
+        						+ " met. You cannot buy more for this"
+        						+ "property.");
+        			} else if (prop.isHasHotel()) {
+        				AlertBox.display("Property has hotel.", "You cannot"
+        						+ "add a house to a property that has a"
+        						+ " hotel.");
+        			}  			
+        			
         		}
         	}
         });

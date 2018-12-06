@@ -1,5 +1,8 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
+
+import cis.monopoly.SoundPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -57,6 +60,12 @@ public final class CommunityBox {
         			+ " for was not found.");
         	layout.getChildren().addAll(label, closeButton);
         }
+        
+        try {
+			SoundPlayer.playFlip();
+		} catch (IOException el) {
+			
+		}
 
         Scene scene = new Scene(layout);
         scene.getStylesheets().add(

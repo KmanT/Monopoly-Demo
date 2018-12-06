@@ -1,6 +1,9 @@
 package cis.monopoly.guiElements;
 
+import java.io.IOException;
+
 import cis.monopoly.Main;
+import cis.monopoly.SoundPlayer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -115,14 +118,22 @@ public final class PlayerInfoGUI {
 		
 		Button btnBack = new Button("Back");
 		btnBack.setOnAction(e -> {
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
+				
+			}
 			Stage stage = (Stage) btnBack.getScene().getWindow();
 			stage.setScene(MainGUI.getHowManyScene());
 		});
 		
 		Button btnContinue = new Button("Continue");
 		btnContinue.setOnAction(e -> {
-			//boolean hasValidInput = false;
+			try {
+				SoundPlayer.playClick();
+			} catch (IOException el) {
 				
+			}				
 			setPlayerInformation(1, txtPlayerOne, cmbPlayerOne);
 			setPlayerInformation(2, txtPlayerTwo, cmbPlayerTwo);
 			setPlayerInformation(3, txtPlayerThree, cmbPlayerThree);

@@ -1,6 +1,7 @@
 package cis.monopoly.gamePlay;
 
 import cis.monopoly.guiElements.AlertBox;
+import javafx.scene.paint.Color;
 
 /**
  * <h1>Property</h1>
@@ -24,6 +25,8 @@ public class Property extends Space {
     private boolean hasHotel;
     /**Determines the price of the house for a property.*/
     private int housePrice;
+    /**Determines the color of the property.*/
+    private Color propColor;
     
 
     /**
@@ -37,11 +40,14 @@ public class Property extends Space {
      * @param houseCount This the number of houses on the property.
      * @param hasHotel This confirms if the property has a hotel.
      * @param housePrice This is the price of a house for a property
+     * @param propColor Used when the flag of the property needs to clear off
+     * all of the houses.
      */
     public Property(final String propName, final int propID, 
     			final int propPrice, final int propRent, final int propGroup,
     			final int propOwnerID, final int houseCount,
-    			final boolean hasHotel, final int housePrice) {
+    			final boolean hasHotel, final int housePrice,
+    			final Color propColor) {
         super(propName, propID);
         this.propPrice = propPrice;
         this.propRent = propRent;
@@ -50,6 +56,7 @@ public class Property extends Space {
         this.houseCount = houseCount;
         this.hasHotel = hasHotel;
         this.housePrice = housePrice;
+        this.propColor = propColor;
     }
 
     /**
@@ -106,6 +113,7 @@ public class Property extends Space {
         houseCount = 0;
         hasHotel = false;
         housePrice = 0;
+        propColor = Color.FLORALWHITE;
     }
 
     /**
@@ -205,20 +213,63 @@ public class Property extends Space {
 	}
     
     /**
-     * Automatically sets the house price based on the property group
+     * Automatically sets the house price based on the property group.
      */
     public void setHousePrice() {
+    	
     	if (propGroup == 1 || propGroup == 2) {
     		housePrice = 50;
     	} else if (propGroup == 3 || propGroup == 4) {
     		housePrice = 100;
-    	} else if (propGroup == 5|| propGroup == 6) {
+    	} else if (propGroup == 5 || propGroup == 6) {
     		housePrice = 150;
     	} else if (propGroup == 7 || propGroup == 8) {
     		housePrice = 200;
     	} else {
     		housePrice = 0;
     	}
+    }
+    
+    /**
+     * Sets the color for all of the properties where houses are bought. Used
+     * for clearing the board flag of houses if the property is bought or the
+     * owner upgrades their house to hotels
+     */
+    public void setPropColor() {
+    	
+    	switch (propGroup) {
+    	
+    	case 1: propColor = Color.SIENNA;
+    		break;
+    	case 2: propColor = Color.POWDERBLUE;
+    		break;
+    	case 3: propColor = Color.ORCHID;
+    		break;
+    	case 4: propColor = Color.ORANGE;
+    		break;
+    	case 5: propColor = Color.RED;
+    		break;
+    	case 6: propColor = Color.YELLOW;
+    		break;
+    	case 7: propColor = Color.MEDIUMSPRINGGREEN;
+    		break;
+    	case 8: propColor = Color.DODGERBLUE;
+    		break;
+    	case 9: propColor = Color.GREY;
+    		break;
+    	case 10: propColor = Color.BLACK;
+    		break;
+    	default: propColor = Color.FLORALWHITE;
+    		break;
+    	}
+    }
+    
+    /**
+     * Gets the color of the property flag in order to clear houses properly.
+     * @return The property flag's color.
+     */
+    public Color getPropColor() {
+    	return propColor;
     }
 
     /**
@@ -238,12 +289,9 @@ public class Property extends Space {
         if (houseCount < 4 && !hasHotel) {
         	houseCount++;
         } else if (houseCount >= 4) {
-        	AlertBox.display("Property has max houses.", "The maximum number of"
-        			+ "houses has already been met. You cannot buy more for"
-        			+ "this property.");
+        	System.out.println("Property has max houses.");
         } else if (hasHotel) {
-        	AlertBox.display("Property has hotel.", "You cannot add a house"
-        			+ "to a property that has a hotel.");
+        	System.out.println("Property has hotel.");
         }
     	
     }
@@ -276,13 +324,20 @@ public class Property extends Space {
      * Removes all of the houses from a property and gives the property a hotel.
      */
     public void setHasHotel() {
-    	if (!hasHotel && houseCount >= 3) {
+    	if (!hasHotel && houseCount >= 4) {
     		houseCount = 0;
     		hasHotel = true;
     	} else if (houseCount < 4) {
-    		AlertBox.display("Need four houses on property", "You need to"
-    				+ " purchase more houses for this property in order to"
-    				+ " purchase a hotel. You need a total of four houses.");
+    		System.out.println("Need four houses on property");
     	}
+    }
+    
+    /**
+     * Changes the condition that the property has a hotel. This method is only
+     * used for testing.
+     * @param hasHotel true if you want it to have hotel, false if you don't.
+     */
+    public void setHasHotel(final boolean hasHotel) {
+    	this.hasHotel = hasHotel;
     }
 }
