@@ -1,20 +1,14 @@
 package cis.monopoly.gameDrawers;
 
-<<<<<<< HEAD:cis/monopoly/gameDrawers/BoardDrawer.java
 import java.io.FileInputStream;
 
-import cis.monopoly.gamePlay.GameController;
+import cis.monopoly.Main;
 import cis.monopoly.guiElements.AlertBox;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-=======
-import cis.monopoly.Main;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
->>>>>>> fded1d61e476fdb732ed7b91f5822fe63a895d6e:src/cis/monopoly/gameDrawers/BoardDrawer.java
 
 /**<h1>BoardDrawer</h1>
  * This class draws all the elements on the board including the board itslef
@@ -309,7 +303,7 @@ public final class BoardDrawer {
         	PieceDrawer.movePiece(gc, 1, 0, Main.getGc().
         			getSpecificPlayer(1).getPlayPieceID());
         }
-<<<<<<< HEAD:cis/monopoly/gameDrawers/BoardDrawer.java
+
             
     }
     

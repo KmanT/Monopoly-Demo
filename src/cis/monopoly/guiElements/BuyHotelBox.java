@@ -92,27 +92,17 @@ public final class BuyHotelBox {
         			tblProp.getSelectionModel().getSelectedItem().getSpaceID();
         	for (Property prop: Main.getGc().getPropertyList()) {
         		if (prop.getSpaceID() == searchID) {
-        			
-        			if (prop.getHouseCount() >= 4) {
-        				try {
-            				SoundPlayer.playDing();
-            			} catch (IOException el) {
-            				
-            			}
-        				Main.getGc().playerPayBank(p, prop.getHousePrice());
-            			prop.setHasHotel();
-            			tblProp.refresh();
-            			HouseDrawer.drawHotelOnProperty(gc, prop);
-            			tblProp.getItems().remove(
-            					tblProp.getSelectionModel().getSelectedItem());
+        			try {
+        				SoundPlayer.playDing();
+        			} catch (IOException el) {
         				
-        			} else if (prop.getHouseCount() < 4) {
-        				AlertBox.display("Need four houses on property",
-        						"You need to purchase more houses for this"
-        						+ " property in order to purchase a hotel."
-        						+ " You need a total of four houses.");
-        			}
-        			
+        			}	
+        			Main.getGc().playerPayBank(p, prop.getHousePrice());
+        			prop.setHasHotel();
+        			tblProp.refresh();
+        			HouseDrawer.drawHotelOnProperty(gc, prop);
+        			tblProp.getItems().remove(
+        					tblProp.getSelectionModel().getSelectedItem());
         		}
         	}
         });

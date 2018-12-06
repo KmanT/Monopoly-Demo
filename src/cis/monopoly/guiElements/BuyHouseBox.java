@@ -1,10 +1,8 @@
 package cis.monopoly.guiElements;
 
-import java.io.IOException;
 import java.util.List;
 
 import cis.monopoly.Main;
-import cis.monopoly.SoundPlayer;
 import cis.monopoly.gameDrawers.HouseDrawer;
 import cis.monopoly.gamePlay.Player;
 import cis.monopoly.gamePlay.Property;
@@ -96,28 +94,11 @@ public final class BuyHouseBox {
         	int searchID = 
         			tblProp.getSelectionModel().getSelectedItem().getSpaceID();
         	for (Property prop: Main.getGc().getPropertyList()) {
-        		if (prop.getSpaceID() == searchID) {        			
-        			if (prop.getHouseCount() < 4 && !prop.isHasHotel()) {
-        				try {
-            				SoundPlayer.playDing();
-            			} catch (IOException el) {
-            				
-            			}
-        				Main.getGc().playerPayBank(p, prop.getHousePrice());
-        				prop.addHouseCount();
-        				tblProp.refresh();
-            			HouseDrawer.drawHouseOnProperty(gc, prop);
-        			} else if (prop.getHouseCount() >= 4) {
-        				AlertBox.display("Property has max houses.",
-        						"The maximum number of houses has already been"
-        						+ " met. You cannot buy more for this"
-        						+ "property.");
-        			} else if (prop.isHasHotel()) {
-        				AlertBox.display("Property has hotel.", "You cannot"
-        						+ "add a house to a property that has a"
-        						+ " hotel.");
-        			}  			
-        			
+        		if (prop.getSpaceID() == searchID) {
+        			Main.getGc().playerPayBank(p, prop.getHousePrice());
+        			prop.addHouseCount();
+        			tblProp.refresh();
+        			HouseDrawer.drawHouseOnProperty(gc, prop);
         		}
         	}
         });
