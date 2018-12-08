@@ -71,8 +71,8 @@ public final class HouseDrawer {
 	 * @param num The total number of houses drawn on the property.
 	 * This must never go past three.
 	 */
-	public static void drawHousesVertical(final GraphicsContext gc, final int xpos,
-			final int ypos, final int num) {
+	public static void drawHousesVertical(final GraphicsContext gc,
+			final int xpos, final int ypos, final int num) {
 		int yMover = 0;		
 		for (int i = 0; i < num; i++) {
 			drawHouse(gc, xpos, ypos + yMover);

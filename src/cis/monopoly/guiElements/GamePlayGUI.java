@@ -274,6 +274,8 @@ public final class GamePlayGUI {
     private static void updateLabels(final GameController gc, final Label bank,
     		final Label playerOne, final Label playerTwo,
     		final Label playerThree, final Label playerFour) {
+    	//int currentPlayerID = gc.getCurrentPlayer().getPlayID();
+    	
     	bank.setText("Bank: $" + gc.getBankFunds());
         
     	playerOne.setText(Main.getGc().getSpecificPlayer(1).getPlayName()

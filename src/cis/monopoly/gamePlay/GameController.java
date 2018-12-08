@@ -428,7 +428,7 @@ public class GameController {
             	}
         	} else {
         		
-        		if(!prop.isHasHotel()) {
+        		if (!prop.isHasHotel()) {
         			if (prop.getSpaceID() != 39) {
         				if (prop.getHouseCount() <= 0) {
                 			rent = prop.getPropRent();
